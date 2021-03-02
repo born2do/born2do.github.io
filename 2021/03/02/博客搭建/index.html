@@ -17,20 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hello World | Hexo</title>
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <title>博客搭建 | Hexo</title>
+  <meta name="description" content="博客搭建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://born2do.github.io/2021/02/28/hello-world/index.html">
+<meta property="og:title" content="博客搭建">
+<meta property="og:url" content="https://born2do.github.io/2021/03/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="博客搭建">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-28T15:59:12.950Z">
-<meta property="article:modified_time" content="2021-02-28T15:59:12.950Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/20609583-34d6b263e5105822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2021-03-02T03:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-02T15:30:13.664Z">
 <meta property="article:author" content="chenhy">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="GitHub">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/20609583-34d6b263e5105822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://born2do.github.io/2021/02/28/hello-world/index.html">
+  <link rel="canonical" href="https://born2do.github.io/2021/03/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -331,16 +335,25 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">1.</span> <span class="toc-text">Node.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git"><span class="toc-number">2.</span> <span class="toc-text">Git</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGitHubSSH"><span class="toc-number">3.</span> <span class="toc-text">配置GitHubSSH</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9C%A8%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%88%90SSH-key"><span class="toc-number">3.1.</span> <span class="toc-text">1.在本地生成SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GitHub%E6%B7%BB%E5%8A%A0SSH-Key"><span class="toc-number">3.2.</span> <span class="toc-text">2.GitHub添加SSH Key</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA"><span class="toc-number">4.</span> <span class="toc-text">Hexo本地博客搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA"><span class="toc-number">4.1.</span> <span class="toc-text">1.框架搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%BB%E9%A2%98%E6%9B%BF%E6%8D%A2%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="toc-number">4.2.</span> <span class="toc-text">2.主题替换以及相关配置文件修改</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E8%87%B3GitHub"><span class="toc-number">5.</span> <span class="toc-text">本地博客发布至GitHub</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-博客搭建" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      博客搭建
     </h1>
   
 
@@ -348,12 +361,22 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/02/28/hello-world/" class="article-date">
-	  <time datetime="2021-02-28T15:59:12.950Z" itemprop="datePublished">2021-02-28</time>
+	<a href="/2021/03/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-date">
+	  <time datetime="2021-03-02T03:00:00.000Z" itemprop="datePublished">2021-03-02</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/GitHub/" rel="tag">GitHub</a>, <a class="article-tag-link-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -364,32 +387,42 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/02/28/hello-world/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 75(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 797(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>采用GitHub+Hexo搭建博客。<br>优点：干净好看，自主性强，没广告。<br>缺点：在建设过程中，很容易遇到墙，随之而来的便是失败了。<br>在此，记录下博客搭建过程。</p>
+<h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><p>官网（ <a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a> ）下载node.js安装包，无脑安装即可。<br>Windows命令行下，检查是否成功安装：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\&gt;<span class="title">node</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function"><span class="title">v12</span>.19.0</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;<span class="title">npm</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function">6.14.8</span></span><br></pre></td></tr></table></figure>
+<p>使用npm下载依赖时，由于是从国外的网站上下载内容，所以可能经常会出现不稳定的情况，所以需要下载cnpm代替npm，cnpm是国内淘宝的做的，在国内使用较为稳定。</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.下载cnpm</span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"><span class="number">2</span>.下载依赖</span><br><span class="line">cnpm i  或者 cnpm install</span><br></pre></td></tr></table></figure>
+<p>在后续的npm操作中，如卡顿或是直接超时报错，建议使用cnpm代替npm。</p>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>官网（ <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> ）下载Git安装包，在安装过程中如遇到“Use Windows’ default console window”，选择该项即可。剩余步骤无脑安装即可。<br>Windows命令行下，检查是否成功安装：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\&gt;<span class="title">git</span> --<span class="title">version</span></span></span><br><span class="line"><span class="function"><span class="title">git</span> <span class="title">version</span> 2.22.0.<span class="title">windows</span>.1</span></span><br></pre></td></tr></table></figure>
+<h1 id="配置GitHubSSH"><a href="#配置GitHubSSH" class="headerlink" title="配置GitHubSSH"></a>配置GitHubSSH</h1><h2 id="1-在本地生成SSH-key"><a href="#1-在本地生成SSH-key" class="headerlink" title="1.在本地生成SSH key"></a>1.在本地生成SSH key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>一般默认在 <code>C:\Users\【你的用户名】\.ssh\</code> 目录下生成相应的id_rsa.pub文件。</p>
+<h2 id="2-GitHub添加SSH-Key"><a href="#2-GitHub添加SSH-Key" class="headerlink" title="2.GitHub添加SSH Key"></a>2.GitHub添加SSH Key</h2><p>settings-&gt;SSH and GPG keys-&gt;New SSH key,<br>title随意，key则填写id_rsa.pub中的内容。<br><img src="https://upload-images.jianshu.io/upload_images/20609583-34d6b263e5105822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub添加SSHKey.png"></p>
+<h1 id="Hexo本地博客搭建"><a href="#Hexo本地博客搭建" class="headerlink" title="Hexo本地博客搭建"></a>Hexo本地博客搭建</h1><p>官网（ <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a> ），官方文档较为详细，可先自行阅读后再进行搭建工作。</p>
+<h2 id="1-框架搭建"><a href="#1-框架搭建" class="headerlink" title="1.框架搭建"></a>1.框架搭建</h2><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ D:</span><br><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>以上命令是在D盘初始化了一个blog文件夹，该文件夹存放的是Hexo静态资源。<br>使用命令行界面进入D:\blog，执行“hexo server”，使用浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看到我们搭建的博客网站。</p>
+<h2 id="2-主题替换以及相关配置文件修改"><a href="#2-主题替换以及相关配置文件修改" class="headerlink" title="2.主题替换以及相关配置文件修改"></a>2.主题替换以及相关配置文件修改</h2><p>从官网下载自己心仪的主题，解压缩放置到<code>D:\blog\themes\</code>目录下。<br>更改根目录下的_config.yml文件，修改theme后面的值为刚才解压缩的文件夹名。重新执行“hexo server”，刷新浏览器会发现博客网站主题已经改变。<br>配置文件已经插件的下载安装，请自行查阅官网文档以及主题的帮助文档。不在此做过多介绍。</p>
+<h1 id="本地博客发布至GitHub"><a href="#本地博客发布至GitHub" class="headerlink" title="本地博客发布至GitHub"></a>本地博客发布至GitHub</h1><p>在GitHub上新建仓库，名称格式为“【你的GitHub昵称】.github.io”。<br>更改根目录下的_config.yml文件，修改deploy后面的内容。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> [<span class="string">你的仓库地址</span>]</span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<p>使用命令行界面进入D:\blog，执行如下命令：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>至此，静态博客网站搭建完成。</p>
+<blockquote>
+<p>实际上在搭建过程中，遇到了不少问题，并没有上述那么顺利。本文仅作流程参考，如果在搭建过程中遇到了其他问题，还请自行百度解决。<br>后续几篇文章我将分享下我在搭建过程中遇到的一些问题以及相应的解决办法，供大家参考。</p>
+</blockquote>
 
       
     </div>
@@ -440,10 +473,23 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2021/03/02/Welcome-to-my-blog/" title="Welcome to my blog"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2021/03/02/hexo-init-403%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99/" title="hexo init 403超时报错"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
+    <li class="next">
+      <a href="/2021/03/02/Welcome-to-my-blog/" title="Welcome to my blog"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
     
   </ul>
   
