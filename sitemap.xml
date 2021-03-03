@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://born2do.github.io/2021/03/03/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</loc>
+    
+    <lastmod>2021-03-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/2021/03/03/hexo%E6%8A%A5%E9%94%99TypeError-Cannot-read-property-'count'-of-undefined/</loc>
+    
+    <lastmod>2021-03-03</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/2021/03/03/GitHub%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93%EF%BC%8C%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E7%94%B1master%E6%94%B9%E4%B8%BAmain/</loc>
+    
+    <lastmod>2021-03-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://born2do.github.io/2021/03/02/hexo-s-%E6%8A%A5%E9%94%99/</loc>
     
     <lastmod>2021-03-02</lastmod>
@@ -88,7 +109,7 @@
 
   <url>
     <loc>https://born2do.github.io/</loc>
-    <lastmod>2021-03-02</lastmod>
+    <lastmod>2021-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -96,14 +117,28 @@
   
   <url>
     <loc>https://born2do.github.io/tags/Hexo/</loc>
-    <lastmod>2021-03-02</lastmod>
+    <lastmod>2021-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/GitHub/</loc>
-    <lastmod>2021-03-02</lastmod>
+    <lastmod>2021-03-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/tags/PicGo/</loc>
+    <lastmod>2021-03-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/tags/SMMS/</loc>
+    <lastmod>2021-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -112,7 +147,14 @@
   
   <url>
     <loc>https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2021-03-02</lastmod>
+    <lastmod>2021-03-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2021-03-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
