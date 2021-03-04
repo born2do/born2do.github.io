@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-03T15:46:55.254Z</updated>
+  <updated>2021-03-04T15:56:05.553Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客网站安装gitalk插件</title>
+    <link href="https://born2do.github.io/2021/03/04/Hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85gitalk%E6%8F%92%E4%BB%B6/"/>
+    <id>https://born2do.github.io/2021/03/04/Hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85gitalk%E6%8F%92%E4%BB%B6/</id>
+    <published>2021-03-04T07:30:00.000Z</published>
+    <updated>2021-03-04T15:56:05.553Z</updated>
+    
+    <content type="html"><![CDATA[<p>博客的评论系统，一开始选择了“来必力”（韩国的），但是发现注册个账号要人命，果断放弃。后在Gitalk和Gitment之间选择了Gitalk。开源免费无广告，不要因为是个白嫖党而不好意思，毕竟正是开源促进了IT业的发展。<br>在此记录下，博客网站安装评论系统的全过程。</p><h1 id="注册-GitHub-OAuth-Apps"><a href="#注册-GitHub-OAuth-Apps" class="headerlink" title="注册 GitHub OAuth Apps"></a>注册 GitHub OAuth Apps</h1><p>GitHub头像-&gt;Settings-&gt;Developer settings-&gt;OAuth Apps，点击“new OAuth apps”进行OAuth application的创建。<br><img src="https://i.loli.net/2021/03/04/DBzsdpUtORAfrHu.png" alt="OAuth Apps.png"><br>注册成功后，复制ClientID以及生成的ClientSecret，待用。</p><h1 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h1><p>新建仓库，用于存储评论。</p><h1 id="Hexo引入Gitalk"><a href="#Hexo引入Gitalk" class="headerlink" title="Hexo引入Gitalk"></a>Hexo引入Gitalk</h1><p>打开主题配置文件，修改评论系统相关配置。<br>我使用的Hexo的主题名为pure，主题配置文件中，注释相当详细，在此不做过多赘述。</p><h1 id="上传GitHub并初始化评论系统"><a href="#上传GitHub并初始化评论系统" class="headerlink" title="上传GitHub并初始化评论系统"></a>上传GitHub并初始化评论系统</h1><p>本地的评论系统完成后，将本地博客系统上传至GitHub仓库。<br>访问下在GitHub上的博客，会发现评论模块会提示初始化提示，使用自己的GitHub账号登陆下就好了。</p><h1 id="Gitalk-403报错"><a href="#Gitalk-403报错" class="headerlink" title="Gitalk 403报错"></a>Gitalk 403报错</h1><p>我的Gitalk一开始就显示403报错，查阅相关资料，是因为“Public demo server (cors-anywhere.herokuapp.com) will be very limited by January 2021, 31st”，网站受限了。解决方式就是点击下方的链接进行暂时权限的获取（初始化后就不用管他了）。<br>解锁链接： <a href="http://cors-anywhere.herokuapp.com/corsdemo">http://cors-anywhere.herokuapp.com/corsdemo</a> 。</p>]]></content>
+    
+    
+    <summary type="html">Hexo博客网站安装gitalk插件</summary>
+    
+    
+    
+    <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="Hexo" scheme="https://born2do.github.io/tags/Hexo/"/>
+    
+    <category term="Gitalk" scheme="https://born2do.github.io/tags/Gitalk/"/>
+    
+  </entry>
   
   <entry>
     <title>博客图床设置</title>
