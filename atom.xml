@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-04T16:15:17.111Z</updated>
+  <updated>2021-03-05T15:12:27.478Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows使用小tips</title>
+    <link href="https://born2do.github.io/2021/03/05/Windows%E4%BD%BF%E7%94%A8%E5%B0%8Ftips/"/>
+    <id>https://born2do.github.io/2021/03/05/Windows%E4%BD%BF%E7%94%A8%E5%B0%8Ftips/</id>
+    <published>2021-03-05T07:10:00.000Z</published>
+    <updated>2021-03-05T15:12:27.478Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>widows输入法，输入后字体变为繁体，解决办法：<br>打开记事本，光标停在文档内，使用ctrl+shift+f，即可在简体与繁体之间切换。</li></ul>]]></content>
+    
+    
+    <summary type="html">Windows使用小tips</summary>
+    
+    
+    
+    <category term="Windows" scheme="https://born2do.github.io/categories/Windows/"/>
+    
+    
+    <category term="Windows" scheme="https://born2do.github.io/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>pure开启文章目录</title>
