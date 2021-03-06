@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-05T15:12:27.478Z</updated>
+  <updated>2021-03-06T13:24:28.920Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -17,13 +17,57 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PowerPoint 2013打不开PPT文件</title>
+    <link href="https://born2do.github.io/2021/03/06/PowerPoint-2013%E6%89%93%E4%B8%8D%E5%BC%80PPT%E6%96%87%E4%BB%B6/"/>
+    <id>https://born2do.github.io/2021/03/06/PowerPoint-2013%E6%89%93%E4%B8%8D%E5%BC%80PPT%E6%96%87%E4%BB%B6/</id>
+    <published>2021-03-06T13:23:55.000Z</published>
+    <updated>2021-03-06T13:24:28.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>从网上下载的PPT文件，其本身没有问题，但就是打不开。尝试过office程序的修复，但没用。<br>文件打开的时候会问你 是否信任其来源，点击修复。但是总是修复失败，无法读取。<br>网上的解决办法挺多，最简单的是：右键文件属性，点击解除锁定即可。但是这种方法，治标不治本。<br>以下是彻底解决这个问题的方法：<br>1、使用 PowerPoint 2013 打开PPT文件时会出现如图报错：<br><img src="https://i.loli.net/2021/03/06/824GVSKvepIaM65.png" alt="PowerPoint2013 报错.png"><br>2、点击“取消”<br><img src="https://i.loli.net/2021/03/06/RigbuzvhHXacsEF.png" alt="PowerPoint2013 取消.png"><br>3、点击左上角的“文件”按钮，进入OFFICE 设置<br><img src="https://i.loli.net/2021/03/06/285sY34VxralMwZ.png" alt="PowerPoint2013 设置.png"><br>4、在打开的界面，点击“选项”按钮<br><img src="https://i.loli.net/2021/03/06/rGh3tQWZepJx1UO.png" alt="PowerPoint2013 选项.png"><br>5、进入弹出的“选项”窗口，依次选择“信任中心”-&gt;“信任中心设置”进入下一个界面<br><img src="https://i.loli.net/2021/03/06/XzIU3MCAHDmoROy.png" alt="PowerPoint2013 信任中心.png"><br>6、选择“受保护视图”，将右边窗口三个选项全部取消 “√”选，点击“确定”<br><img src="https://i.loli.net/2021/03/06/u374Z9tKS1dVWeg.png" alt="PowerPoint2013 受保护视图.png"><br>7、这时，再打开PPT， 就不会报该错误提示了。</p><p>博客最早记载时间为2019年08月30日。</p>]]></content>
+    
+    
+    <summary type="html">PowerPoint 2013打不开PPT文件</summary>
+    
+    
+    
+    <category term="error" scheme="https://born2do.github.io/categories/error/"/>
+    
+    
+    <category term="PowerPoint 2013" scheme="https://born2do.github.io/tags/PowerPoint-2013/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>navicat连接MySQL出现2059错误</title>
+    <link href="https://born2do.github.io/2021/03/06/navicat%E8%BF%9E%E6%8E%A5MySQL%E5%87%BA%E7%8E%B02059%E9%94%99%E8%AF%AF/"/>
+    <id>https://born2do.github.io/2021/03/06/navicat%E8%BF%9E%E6%8E%A5MySQL%E5%87%BA%E7%8E%B02059%E9%94%99%E8%AF%AF/</id>
+    <published>2021-03-06T13:21:44.000Z</published>
+    <updated>2021-03-06T13:23:36.523Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用navicat连接MySQL时出现2059错误。原因为高版本的MySQL更改了密码验证机制，再次更改回去即可。<br><img src="https://upload-images.jianshu.io/upload_images/20609583-fa5a26df743b8539.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MySQL更新说明.png"></p><h1 id="进入CMD命令符窗口（win-R）"><a href="#进入CMD命令符窗口（win-R）" class="headerlink" title="进入CMD命令符窗口（win+R）"></a>进入CMD命令符窗口（win+R）</h1><p><img src="https://upload-images.jianshu.io/upload_images/20609583-5a4b5d1bc9368468.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="进入DOS命令窗口.png"></p><h1 id="登录MySQL"><a href="#登录MySQL" class="headerlink" title="登录MySQL"></a>登录MySQL</h1><p>进入mysql安装目录的bin路径下运行<code>mysql -u root -p</code>命令进行登录（密码是安装mysql时设置的密码）<br><img src="https://upload-images.jianshu.io/upload_images/20609583-08131b35a8aa55d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="登录MySQL.png"></p><h1 id="更改密码验证机制"><a href="#更改密码验证机制" class="headerlink" title="更改密码验证机制"></a>更改密码验证机制</h1><p>输入以下命令进行更改：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;root&#39;;</span><br></pre></td></tr></table></figure><p>root是用户名，localhost是ip地址127.0.0.1都是特指本机，mysql_native_password是旧的密码验证机制，root是密码，最后别忘了分号。<br><img src="https://upload-images.jianshu.io/upload_images/20609583-3fd39f69f3afa195.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MySQL更改验证机制.png"></p><h1 id="进入Navicat测试连接"><a href="#进入Navicat测试连接" class="headerlink" title="进入Navicat测试连接"></a>进入Navicat测试连接</h1><p><img src="https://upload-images.jianshu.io/upload_images/20609583-8cb8751526dc720d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Navicat测试连接.png"></p><p>博客最早记载时间为2019年08月30日。</p>]]></content>
+    
+    
+    <summary type="html">navicat连接MySQL出现2059错误</summary>
+    
+    
+    
+    <category term="error" scheme="https://born2do.github.io/categories/error/"/>
+    
+    
+    <category term="Navicat" scheme="https://born2do.github.io/tags/Navicat/"/>
+    
+    <category term="MySQL" scheme="https://born2do.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Windows使用小tips</title>
     <link href="https://born2do.github.io/2021/03/05/Windows%E4%BD%BF%E7%94%A8%E5%B0%8Ftips/"/>
     <id>https://born2do.github.io/2021/03/05/Windows%E4%BD%BF%E7%94%A8%E5%B0%8Ftips/</id>
     <published>2021-03-05T07:10:00.000Z</published>
-    <updated>2021-03-05T15:12:27.478Z</updated>
+    <updated>2021-03-06T10:21:41.710Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>widows输入法，输入后字体变为繁体，解决办法：<br>打开记事本，光标停在文档内，使用ctrl+shift+f，即可在简体与繁体之间切换。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="widows输入法，输入后字体变为繁体"><a href="#widows输入法，输入后字体变为繁体" class="headerlink" title="widows输入法，输入后字体变为繁体"></a>widows输入法，输入后字体变为繁体</h1><p>解决：</p><p>打开记事本，光标停在文档内，使用ctrl+shift+f，即可在简体与繁体之间切换。</p><h1 id="word2013无法打开pdf文件，提示无法启动转换器pdf文件"><a href="#word2013无法打开pdf文件，提示无法启动转换器pdf文件" class="headerlink" title="word2013无法打开pdf文件，提示无法启动转换器pdf文件"></a>word2013无法打开pdf文件，提示无法启动转换器pdf文件</h1><p>解决：</p><p>方法一：(最实用)<br>  右键单击word2013，选择属性。在兼容性里勾选以管理员身份运行此程序。再次打开pdf格式文件，出现提示，点击确定即可。</p><p>方法二：<br>  打开系统盘C盘，依次找到路径\Program Files\Common Files\Microsoft Shared\TextConv，找到“TextConv”这个文件夹，然后将其删除。</p><p>方法三：<br>  在桌面左下方的“开始”“运行”中输入“regedit”，进入注册表编辑器，然后依次找到 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\Text Converters\Import\MSWord6.wpc，这个路径，将“MSWord6.wpc”删除即可。</p>]]></content>
     
     
     <summary type="html">Windows使用小tips</summary>
