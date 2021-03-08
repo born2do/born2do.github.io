@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://born2do.github.io/2021/03/08/Markdown/</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/2021/03/08/Windows%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
+    
+    <lastmod>2021-03-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://born2do.github.io/2021/03/07/MYSQL%E8%A7%A3%E5%8E%8B%E7%89%88%E5%AE%89%E8%A3%85/</loc>
     
     <lastmod>2021-03-07</lastmod>
@@ -158,7 +172,7 @@
 
   <url>
     <loc>https://born2do.github.io/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -166,77 +180,84 @@
   
   <url>
     <loc>https://born2do.github.io/tags/GitHub/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/Hexo/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/Gitalk/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/PowerPoint-2013/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/MYSQL/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/VC-6-0/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/Windows/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/Navicat/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/MySQL/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/PicGo/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/tags/SMMS/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/tags/Markdown/</loc>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -245,35 +266,42 @@
   
   <url>
     <loc>https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/categories/error/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/categories/Windows/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2021-03-07</lastmod>
+    <lastmod>2021-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://born2do.github.io/categories/Markdown/</loc>
+    <lastmod>2021-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
