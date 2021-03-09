@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-08T13:28:39.744Z</updated>
+  <updated>2021-03-09T12:40:26.057Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Linux】使用find命令清理指定时间之前的文件</title>
+    <link href="https://born2do.github.io/2021/03/09/%E3%80%90Linux%E3%80%91%E4%BD%BF%E7%94%A8find%E5%91%BD%E4%BB%A4%E6%B8%85%E7%90%86%E6%8C%87%E5%AE%9A%E6%97%B6%E9%97%B4%E4%B9%8B%E5%89%8D%E7%9A%84%E6%96%87%E4%BB%B6/"/>
+    <id>https://born2do.github.io/2021/03/09/%E3%80%90Linux%E3%80%91%E4%BD%BF%E7%94%A8find%E5%91%BD%E4%BB%A4%E6%B8%85%E7%90%86%E6%8C%87%E5%AE%9A%E6%97%B6%E9%97%B4%E4%B9%8B%E5%89%8D%E7%9A%84%E6%96%87%E4%BB%B6/</id>
+    <published>2021-03-09T12:39:45.000Z</published>
+    <updated>2021-03-09T12:40:26.057Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /root/logs -<span class="built_in">type</span> f -name <span class="string">&quot;*&quot;</span> -mtime +7 -<span class="built_in">exec</span> rm -f &#123;&#125; \;</span><br></pre></td></tr></table></figure><p>说明：<br>find 后面紧跟的<code>/root/logs</code>是要查找的目录，.  表示当前目录<br><code>-type f</code>：指定查找对象为文件<br><code>-name &quot;*&quot;</code>：指定查找对象名称为任意<br><code>-mtime +7</code>：查找7天以前的老文件<br><code>-exec rm -f &#123;&#125; \;</code>：执行删除命令，后面有个 <code>&#123;&#125; \;</code> 是必须的</p><ul><li>扩展<br>如果想要定期执行该命令，可以将该命令放到脚本中，然后再使用crontab定时任务进行执行操作。</li></ul>]]></content>
+    
+    
+    <summary type="html">【Linux】使用find命令清理指定时间之前的文件</summary>
+    
+    
+    
+    <category term="shell" scheme="https://born2do.github.io/categories/shell/"/>
+    
+    
+    <category term="find" scheme="https://born2do.github.io/tags/find/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开源/免费工具</title>
+    <link href="https://born2do.github.io/2021/03/09/%E5%BC%80%E6%BA%90-%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/"/>
+    <id>https://born2do.github.io/2021/03/09/%E5%BC%80%E6%BA%90-%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/</id>
+    <published>2021-03-09T12:38:24.000Z</published>
+    <updated>2021-03-09T12:39:22.923Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h1><ul><li>PuTTY<br>官网： <a href="https://www.putty.org/">https://www.putty.org/</a> </li><li>MTPUTTY （未找到相关licence，但官网表示一切免费）<br>官网： <a href="https://ttyplus.com/">https://ttyplus.com/</a> </li><li>FinalShell（并非开源，仅通用版免费使用）<br>官网： <a href="http://www.hostbuf.com/">http://www.hostbuf.com/</a> </li></ul><h1 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h1><ul><li>WinSCP<br>官网： <a href="https://winscp.net/">https://winscp.net/</a> </li></ul><h1 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h1><ul><li>Notepad++<br>官网： <a href="https://notepad-plus-plus.org/">https://notepad-plus-plus.org/</a></li><li>Typora （并非开源，但免费）<br>官网： <a href="https://www.typora.io/">https://www.typora.io/</a></li></ul><h1 id="集成开发环境IDE"><a href="#集成开发环境IDE" class="headerlink" title="集成开发环境IDE"></a>集成开发环境IDE</h1><ul><li>Eclipse<br>官网： <a href="https://www.eclipse.org/">https://www.eclipse.org/</a> </li></ul><h1 id="数据库连接工具"><a href="#数据库连接工具" class="headerlink" title="数据库连接工具"></a>数据库连接工具</h1><ul><li>DBeaver（社区版免费）<br>官网： <a href="https://dbeaver.io/">https://dbeaver.io/</a></li></ul><h1 id="数据库模型建模工具"><a href="#数据库模型建模工具" class="headerlink" title="数据库模型建模工具"></a>数据库模型建模工具</h1><ul><li>PDMan<br>官网： <a href="http://www.pdman.cn/">http://www.pdman.cn/</a> </li></ul><h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><ul><li>火狐<br>官网： <a href="http://www.firefox.com.cn/">http://www.firefox.com.cn/</a> </li></ul><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ul><li>MySQL<br>官网： <a href="https://www.mysql.com/">https://www.mysql.com/</a> </li></ul><h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><ul><li>Apache Tomcat<br>官网： <a href="https://tomcat.apache.org/">https://tomcat.apache.org/</a></li></ul><h1 id="图床工具"><a href="#图床工具" class="headerlink" title="图床工具"></a>图床工具</h1><ul><li>PicGo<br>官网： <a href="https://picgo.github.io/PicGo-Doc/">https://picgo.github.io/PicGo-Doc/</a></li></ul><h1 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h1><ul><li>Git<br>官网： <a href="https://git-scm.com/">https://git-scm.com/</a> </li><li>TortoiseSVN<br>官网： <a href="https://tortoisesvn.net/">https://tortoisesvn.net/</a> </li></ul>]]></content>
+    
+    
+    <summary type="html">开源/免费工具</summary>
+    
+    
+    
+    <category term="工具" scheme="https://born2do.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="开源" scheme="https://born2do.github.io/tags/%E5%BC%80%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown</title>
