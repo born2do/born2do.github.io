@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-11T12:32:06.440Z</updated>
+  <updated>2021-03-12T14:27:08.807Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Method com/mchange/v2/c3p0/impl/NewProxyPreparedStatement.isClosed()Z is abstract</title>
+    <link href="https://born2do.github.io/2021/03/12/Method-com-mchange-v2-c3p0-impl-NewProxyPreparedStatement-isClosed-Z-is-abstract/"/>
+    <id>https://born2do.github.io/2021/03/12/Method-com-mchange-v2-c3p0-impl-NewProxyPreparedStatement-isClosed-Z-is-abstract/</id>
+    <published>2021-03-12T14:26:14.000Z</published>
+    <updated>2021-03-12T14:27:08.807Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>学习B站上的SSM项目，使用c3p0连接池，报错如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java.lang.AbstractMethodError: Method com&#x2F;mchange&#x2F;v2&#x2F;c3p0&#x2F;impl&#x2F;NewProxyPreparedStatement.isClosed()Z is abstract</span><br><span class="line"></span><br><span class="line">at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.isClosed(NewProxyPreparedStatement.java)</span><br><span class="line">at org.apache.ibatis.executor.BaseExecutor.closeStatement(BaseExecutor.java:285)</span><br><span class="line">at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)</span><br><span class="line">……</span><br></pre></td></tr></table></figure><h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>使用的c3p0的相关jar包版本过低。</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>将c3p0-0.9.1.2.jar 换成 c3p0-0.9.5.2.jar或更高版本。</p>]]></content>
+    
+    
+    <summary type="html">Method com/mchange/v2/c3p0/impl/NewProxyPreparedStatement.isClosed()Z is abstract</summary>
+    
+    
+    
+    <category term="error" scheme="https://born2do.github.io/categories/error/"/>
+    
+    
+    <category term="c3p0" scheme="https://born2do.github.io/tags/c3p0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【linux】取消默认断开时间</title>
+    <link href="https://born2do.github.io/2021/03/12/%E3%80%90linux%E3%80%91%E5%8F%96%E6%B6%88%E9%BB%98%E8%AE%A4%E6%96%AD%E5%BC%80%E6%97%B6%E9%97%B4/"/>
+    <id>https://born2do.github.io/2021/03/12/%E3%80%90linux%E3%80%91%E5%8F%96%E6%B6%88%E9%BB%98%E8%AE%A4%E6%96%AD%E5%BC%80%E6%97%B6%E9%97%B4/</id>
+    <published>2021-03-12T14:25:09.000Z</published>
+    <updated>2021-03-12T14:27:14.605Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>新买的阿里云服务器，使用putty连接上后，长时间没操作就断开了。关键你又要重新连接，这就很烦！！！</p><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>超时断开是系统的配置，修改下配置文件就好。</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>使用root用户登录服务器</p><ul><li>查看系统是否设置了TMOUT参数<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$TMOUT</span></span></span><br></pre></td></tr></table></figure>如果输出空或0表示不超时，大于0的数字n表示n秒没有输入则超时断开。</li><li>修改配置文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vi /etc/profile</span></span><br></pre></td></tr></table></figure>修改TMOUT=0后保存。</li><li>刷新系统配置<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">source</span> /etc/profile</span></span><br></pre></td></tr></table></figure></li><li>超时断开问题解决。</li></ul><h1 id="source命令简介"><a href="#source命令简介" class="headerlink" title="source命令简介"></a>source命令简介</h1><blockquote><p>source命令用法：source FileName<br>作用：在当前bash环境下读取并执行FileName中的命令。<br>注：该命令通常用命令”.”来替代。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">【linux】取消默认断开时间</summary>
+    
+    
+    
+    <category term="linux" scheme="https://born2do.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="https://born2do.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Linux】查看当前系统默认的shell解释器，修改默认解释器</title>
+    <link href="https://born2do.github.io/2021/03/12/%E3%80%90Linux%E3%80%91%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E7%9A%84shell%E8%A7%A3%E9%87%8A%E5%99%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
+    <id>https://born2do.github.io/2021/03/12/%E3%80%90Linux%E3%80%91%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E7%9A%84shell%E8%A7%A3%E9%87%8A%E5%99%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E8%A7%A3%E9%87%8A%E5%99%A8/</id>
+    <published>2021-03-12T14:24:02.000Z</published>
+    <updated>2021-03-12T14:24:48.513Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="查看系统当前支持哪些shell解释器"><a href="#查看系统当前支持哪些shell解释器" class="headerlink" title="查看系统当前支持哪些shell解释器"></a>查看系统当前支持哪些shell解释器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@Administrator:~# cat  &#x2F;etc&#x2F;shells</span><br><span class="line"># &#x2F;etc&#x2F;shells: valid login shells</span><br><span class="line">&#x2F;bin&#x2F;sh</span><br><span class="line">&#x2F;bin&#x2F;bash</span><br><span class="line">&#x2F;bin&#x2F;rbash</span><br><span class="line">&#x2F;bin&#x2F;dash</span><br></pre></td></tr></table></figure><h1 id="查看系统当前默认的shell解释器"><a href="#查看系统当前默认的shell解释器" class="headerlink" title="查看系统当前默认的shell解释器"></a>查看系统当前默认的shell解释器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@Administrator:~# echo $0</span><br><span class="line">-bash</span><br><span class="line">root@Administrator:~# echo $SHELL</span><br><span class="line">&#x2F;bin&#x2F;bash</span><br><span class="line">root@Administrator:~# env | grep SHELL</span><br><span class="line">SHELL&#x3D;&#x2F;bin&#x2F;bash</span><br><span class="line">root@Administrator:~# ps -p $$</span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line"> 1091 pts&#x2F;1    00:00:00 bash</span><br></pre></td></tr></table></figure><h1 id="修改默认的shell解释器"><a href="#修改默认的shell解释器" class="headerlink" title="修改默认的shell解释器"></a>修改默认的shell解释器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@Administrator:~# chsh -s &#x2F;bin&#x2F;sh</span><br><span class="line">root@Administrator:~# chsh</span><br><span class="line">Changing the login shell for root</span><br><span class="line">Enter the new value, or press ENTER for the default</span><br><span class="line">        Login Shell [&#x2F;bin&#x2F;sh]: &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure><p>说明：修改了系统默认shell之后不会立即生效，之后再次登录系统修改的shell才会生效。</p>]]></content>
+    
+    
+    <summary type="html">【Linux】查看当前系统默认的shell解释器，修改默认解释器</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://born2do.github.io/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://born2do.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Java代码注释规约及eclipse相关配置</title>
@@ -376,71 +439,6 @@
     
     <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
-    
-    <category term="Hexo" scheme="https://born2do.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo s 报错</title>
-    <link href="https://born2do.github.io/2021/03/02/hexo-s-%E6%8A%A5%E9%94%99/"/>
-    <id>https://born2do.github.io/2021/03/02/hexo-s-%E6%8A%A5%E9%94%99/</id>
-    <published>2021-03-02T06:30:00.000Z</published>
-    <updated>2021-03-02T15:35:39.108Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="情景再现"><a href="#情景再现" class="headerlink" title="情景再现"></a>情景再现</h1><p>在执行“hexo s”，启动本地服务器时，控制台报错如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">INFO  Validating config</span><br><span class="line">FATAL Permission denied. You can&#39;t use port 4000.</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: listen EACCES: permission denied 0.0.0.0:4000</span><br><span class="line">……</span><br></pre></td></tr></table></figure><h1 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h1><p>查看报错日志，很明显是默认启动端口4000已经被占用。<br>为了不影响现有已运行程序，我们暂时修改启动端口，命令如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5555</span><br></pre></td></tr></table></figure><p>服务器成功启动。</p><p>此时，需通过 <a href="http://localhost:5555/">http://localhost:5555/</a> 来访问本地博客。</p>]]></content>
-    
-    
-    <summary type="html">hexo s 报错</summary>
-    
-    
-    
-    <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="Hexo" scheme="https://born2do.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo init 403超时报错</title>
-    <link href="https://born2do.github.io/2021/03/02/hexo-init-403%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99/"/>
-    <id>https://born2do.github.io/2021/03/02/hexo-init-403%E8%B6%85%E6%97%B6%E6%8A%A5%E9%94%99/</id>
-    <published>2021-03-02T06:00:00.000Z</published>
-    <updated>2021-03-02T15:32:20.353Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="情景再现"><a href="#情景再现" class="headerlink" title="情景再现"></a>情景再现</h1><p>在执行“hexo init blog”，对blog文件夹初始化时，控制台报错如下：</p><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line"><span class="function">fatal: <span class="title">unable</span> <span class="title">to</span> <span class="title">access</span> &#x27;<span class="title">https</span>://<span class="title">github.com</span>/<span class="title">hexojs</span>/<span class="title">hexo</span>-<span class="title">starter.git</span>/&#x27;: <span class="title">Failed</span> <span class="title">to</span> <span class="title">connect</span> <span class="title">to</span> <span class="title">github.com</span> <span class="title">port</span> 443: <span class="title">Timed</span> <span class="title">out</span></span></span><br><span class="line"><span class="function">……</span></span><br></pre></td></tr></table></figure><h1 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h1><p>403网络超时报错，那么恭喜你，被墙了。<br>解决方式如下：</p><h2 id="1-检查是否真正由于无法连接GitHub导致。"><a href="#1-检查是否真正由于无法连接GitHub导致。" class="headerlink" title="1.检查是否真正由于无法连接GitHub导致。"></a>1.检查是否真正由于无法连接GitHub导致。</h2><p>在Windows命令行下，执行如下命令：</p><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> github.com</span><br></pre></td></tr></table></figure><p>如果结果显示100%丢失，那么就是因为无法连接到GitHub导致。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">正在 Ping github.com [13.229.188.59] 具有 32 字节的数据:</span><br><span class="line">请求超时。</span><br><span class="line">请求超时。</span><br><span class="line">请求超时。</span><br><span class="line">请求超时。</span><br><span class="line"></span><br><span class="line">13.229.188.59 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 &#x3D; 4，已接收 &#x3D; 0，丢失 &#x3D; 4 (100% 丢失)，</span><br></pre></td></tr></table></figure><p>如果不是，请不要继续往下看了，浪费时间。请另寻他法。</p><h2 id="2-配置本地hosts"><a href="#2-配置本地hosts" class="headerlink" title="2.配置本地hosts"></a>2.配置本地hosts</h2><p>访问站长工具网站（ <a href="http://tool.chinaz.com/dns?type=1&amp;host=github.com&amp;ip=">http://tool.chinaz.com/dns?type=1&amp;host=github.com&amp;ip=</a> ），获取GitHub的相关DNS。<br><img src="https://upload-images.jianshu.io/upload_images/20609583-2957dbe54c55bbe5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub网站DNS获取.png"><br>先在本地ping相应的IP，如果可以连接上并且速度还行，那么可以将相关信息配置到本地hosts文件中。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13.114.40.48 github.com</span><br></pre></td></tr></table></figure><p>hosts文件配置完成后，在命令行执行如下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ipconfig &#x2F;flushdns</span><br><span class="line"></span><br><span class="line">Windows IP 配置</span><br><span class="line"></span><br><span class="line">已成功刷新 DNS 解析缓存。</span><br></pre></td></tr></table></figure><h2 id="3-完美解决"><a href="#3-完美解决" class="headerlink" title="3.完美解决"></a>3.完美解决</h2><p>重新打开命令行窗口，执行“hexo init blog”，你会发现片刻后Hexo初始化便完成了。</p><blockquote><p>获取GitHub的DNS方式不止这一种方式，你也可以访问ipaddress网站（ <a href="https://github.com.ipaddress.com/www.github.com">https://github.com.ipaddress.com/www.github.com</a> ）获取相关IP，更多方式请自行百度。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">hexo init 403超时报错</summary>
-    
-    
-    
-    <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="Hexo" scheme="https://born2do.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客搭建</title>
-    <link href="https://born2do.github.io/2021/03/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    <id>https://born2do.github.io/2021/03/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</id>
-    <published>2021-03-02T03:00:00.000Z</published>
-    <updated>2021-03-02T15:30:13.664Z</updated>
-    
-    <content type="html"><![CDATA[<p>采用GitHub+Hexo搭建博客。<br>优点：干净好看，自主性强，没广告。<br>缺点：在建设过程中，很容易遇到墙，随之而来的便是失败了。<br>在此，记录下博客搭建过程。</p><h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><p>官网（ <a href="https://nodejs.org/zh-cn/download/">https://nodejs.org/zh-cn/download/</a> ）下载node.js安装包，无脑安装即可。<br>Windows命令行下，检查是否成功安装：</p><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\&gt;<span class="title">node</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function"><span class="title">v12</span>.19.0</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;<span class="title">npm</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function">6.14.8</span></span><br></pre></td></tr></table></figure><p>使用npm下载依赖时，由于是从国外的网站上下载内容，所以可能经常会出现不稳定的情况，所以需要下载cnpm代替npm，cnpm是国内淘宝的做的，在国内使用较为稳定。</p><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.下载cnpm</span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"><span class="number">2</span>.下载依赖</span><br><span class="line">cnpm i  或者 cnpm install</span><br></pre></td></tr></table></figure><p>在后续的npm操作中，如卡顿或是直接超时报错，建议使用cnpm代替npm。</p><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>官网（ <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> ）下载Git安装包，在安装过程中如遇到“Use Windows’ default console window”，选择该项即可。剩余步骤无脑安装即可。<br>Windows命令行下，检查是否成功安装：</p><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\&gt;<span class="title">git</span> --<span class="title">version</span></span></span><br><span class="line"><span class="function"><span class="title">git</span> <span class="title">version</span> 2.22.0.<span class="title">windows</span>.1</span></span><br></pre></td></tr></table></figure><h1 id="配置GitHubSSH"><a href="#配置GitHubSSH" class="headerlink" title="配置GitHubSSH"></a>配置GitHubSSH</h1><h2 id="1-在本地生成SSH-key"><a href="#1-在本地生成SSH-key" class="headerlink" title="1.在本地生成SSH key"></a>1.在本地生成SSH key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure><p>一般默认在 <code>C:\Users\【你的用户名】\.ssh\</code> 目录下生成相应的id_rsa.pub文件。</p><h2 id="2-GitHub添加SSH-Key"><a href="#2-GitHub添加SSH-Key" class="headerlink" title="2.GitHub添加SSH Key"></a>2.GitHub添加SSH Key</h2><p>settings-&gt;SSH and GPG keys-&gt;New SSH key,<br>title随意，key则填写id_rsa.pub中的内容。<br><img src="https://upload-images.jianshu.io/upload_images/20609583-34d6b263e5105822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub添加SSHKey.png"></p><h1 id="Hexo本地博客搭建"><a href="#Hexo本地博客搭建" class="headerlink" title="Hexo本地博客搭建"></a>Hexo本地博客搭建</h1><p>官网（ <a href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a> ），官方文档较为详细，可先自行阅读后再进行搭建工作。</p><h2 id="1-框架搭建"><a href="#1-框架搭建" class="headerlink" title="1.框架搭建"></a>1.框架搭建</h2><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ D:</span><br><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>以上命令是在D盘初始化了一个blog文件夹，该文件夹存放的是Hexo静态资源。<br>使用命令行界面进入D:\blog，执行“hexo server”，使用浏览器访问 <a href="http://localhost:4000/">http://localhost:4000</a> 即可看到我们搭建的博客网站。</p><h2 id="2-主题替换以及相关配置文件修改"><a href="#2-主题替换以及相关配置文件修改" class="headerlink" title="2.主题替换以及相关配置文件修改"></a>2.主题替换以及相关配置文件修改</h2><p>从官网下载自己心仪的主题，解压缩放置到<code>D:\blog\themes\</code>目录下。<br>更改根目录下的_config.yml文件，修改theme后面的值为刚才解压缩的文件夹名。重新执行“hexo server”，刷新浏览器会发现博客网站主题已经改变。<br>配置文件已经插件的下载安装，请自行查阅官网文档以及主题的帮助文档。不在此做过多介绍。</p><h1 id="本地博客发布至GitHub"><a href="#本地博客发布至GitHub" class="headerlink" title="本地博客发布至GitHub"></a>本地博客发布至GitHub</h1><p>在GitHub上新建仓库，名称格式为“【你的GitHub昵称】.github.io”。<br>更改根目录下的_config.yml文件，修改deploy后面的内容。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> [<span class="string">你的仓库地址</span>]</span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure><p>使用命令行界面进入D:\blog，执行如下命令：</p><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>至此，静态博客网站搭建完成。</p><blockquote><p>实际上在搭建过程中，遇到了不少问题，并没有上述那么顺利。本文仅作流程参考，如果在搭建过程中遇到了其他问题，还请自行百度解决。<br>后续几篇文章我将分享下我在搭建过程中遇到的一些问题以及相应的解决办法，供大家参考。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">博客搭建</summary>
-    
-    
-    
-    <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="GitHub" scheme="https://born2do.github.io/tags/GitHub/"/>
     
     <category term="Hexo" scheme="https://born2do.github.io/tags/Hexo/"/>
     
