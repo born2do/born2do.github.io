@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-14T13:41:32.255Z</updated>
+  <updated>2021-03-15T13:10:56.789Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Linux】在shell脚本中获取当前主机的主机名以及IP地址</title>
+    <link href="https://born2do.github.io/2021/03/15/%E3%80%90Linux%E3%80%91%E5%9C%A8shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%B8%BB%E6%9C%BA%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D%E4%BB%A5%E5%8F%8AIP%E5%9C%B0%E5%9D%80/"/>
+    <id>https://born2do.github.io/2021/03/15/%E3%80%90Linux%E3%80%91%E5%9C%A8shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%B8%BB%E6%9C%BA%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D%E4%BB%A5%E5%8F%8AIP%E5%9C%B0%E5%9D%80/</id>
+    <published>2021-03-15T13:10:25.000Z</published>
+    <updated>2021-03-15T13:10:56.789Z</updated>
+    
+    <content type="html"><![CDATA[<p>在命令行模式下，获取当前主机名称：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname</span><br></pre></td></tr></table></figure><p>在命令行模式下，获取IP地址：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure><p>在shell脚本中获取当前主机的主机名以及IP地址：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo `hostname`</span><br><span class="line">echo `ifconfig | grep -A1 &quot;eth0&quot; | grep &#x27;inet addr&#x27; |awk -F &#x27;:&#x27; &#x27;&#123;print $2&#125;&#x27;|awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure><p>说明：<br>`` 表示执行该语句，并返回执行后的结果；<br>grep -A1 “eth0” 表示找出带有“eth0”的行，输出中除显示该行外，还显示之后的一行；<br>awk 则是进行分割。</p>]]></content>
+    
+    
+    <summary type="html">【Linux】在shell脚本中获取当前主机的主机名以及IP地址</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://born2do.github.io/categories/Linux/"/>
+    
+    
+    <category term="shell" scheme="https://born2do.github.io/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>db2中的SYSIBM.SYSDUMMY1</title>
@@ -420,27 +441,6 @@
     <category term="PicGo" scheme="https://born2do.github.io/tags/PicGo/"/>
     
     <category term="SMMS" scheme="https://born2do.github.io/tags/SMMS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub新建仓库，默认分支由master改为main</title>
-    <link href="https://born2do.github.io/2021/03/03/GitHub%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93%EF%BC%8C%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E7%94%B1master%E6%94%B9%E4%B8%BAmain/"/>
-    <id>https://born2do.github.io/2021/03/03/GitHub%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93%EF%BC%8C%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E7%94%B1master%E6%94%B9%E4%B8%BAmain/</id>
-    <published>2021-03-03T05:30:00.000Z</published>
-    <updated>2021-03-03T15:44:18.753Z</updated>
-    
-    <content type="html"><![CDATA[<p>在使用Hexo搭建好本地博客后，推送至GitHub仓库。<br>由于长时间未使用GitHub了，并不知晓新建仓库的默认分支由master改为main了，在站点配置文件中branch的值写成了master。<br>使用git上传后，在原有仓库新增了一个master分支。<br>发现这个问题后，我直接将GitHub仓库中的master分支删除掉了，并修改本地站点配置文件中的master为main，重新进行了推送。<br>幸好及时发现，做了更正，可谓是及时止损呐。</p><blockquote><p>默认分支更名，可以去GitHub上看看 <a href="https://github.com/github/renaming.git">https://github.com/github/renaming.git</a> 。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">GitHub新建仓库，默认分支由master改为main</summary>
-    
-    
-    
-    <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="GitHub" scheme="https://born2do.github.io/tags/GitHub/"/>
     
   </entry>
   
