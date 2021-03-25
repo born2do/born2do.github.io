@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://born2do.github.io/2021/03/25/%E3%80%90Java%E3%80%91%E7%94%A8Java%E5%AE%9E%E7%8E%B0JS%E4%B8%AD%E7%9A%84decodeURIComponent-%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2021-03-25</lastmod>
+  </url>
+  <url>
+    <loc>https://born2do.github.io/2021/03/25/%E3%80%90JS%E3%80%91encodeURIComponent-%E5%92%8CdecodeURIComponent/</loc>
+    <lastmod>2021-03-25</lastmod>
+  </url>
+  <url>
     <loc>https://born2do.github.io/2021/03/15/%E3%80%90Linux%E3%80%91%E5%9C%A8shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%B8%BB%E6%9C%BA%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D%E4%BB%A5%E5%8F%8AIP%E5%9C%B0%E5%9D%80/</loc>
     <lastmod>2021-03-15</lastmod>
   </url>

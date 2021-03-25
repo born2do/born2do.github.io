@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-15T13:10:56.789Z</updated>
+  <updated>2021-03-25T15:06:46.306Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Java】用Java实现JS中的decodeURIComponent()函数</title>
+    <link href="https://born2do.github.io/2021/03/25/%E3%80%90Java%E3%80%91%E7%94%A8Java%E5%AE%9E%E7%8E%B0JS%E4%B8%AD%E7%9A%84decodeURIComponent-%E5%87%BD%E6%95%B0/"/>
+    <id>https://born2do.github.io/2021/03/25/%E3%80%90Java%E3%80%91%E7%94%A8Java%E5%AE%9E%E7%8E%B0JS%E4%B8%AD%E7%9A%84decodeURIComponent-%E5%87%BD%E6%95%B0/</id>
+    <published>2021-03-25T15:06:03.000Z</published>
+    <updated>2021-03-25T15:06:46.306Z</updated>
+    
+    <content type="html"><![CDATA[<p>为防止json数据解析出错，在B/S模式下的前后端交互中，会对数据进行编码encodeURIComponent与解码decodeURIComponent。<br>存储时将数据编码：encodeURIComponent(需要编码的数据)<br>使用时将数据解码：decodeURIComponent(需要解码的数据)</p><p>在爬取数据的过程中，对于使用AJAX进行页面数据渲染的网页，我们爬取到的数据往往会是下面的形式：<br><code>data:%7B%22mode%22%3A%22xml%22%2C%22code%22%3A%22%20%20%20%20%20%20%20%20%3Cdependency%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3CgroupId%3Eorg.springframework.boot%3C%2FgroupId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3CartifactId%3Espring-boot-configuration-processor%3C%2FartifactId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3Coptional%3Etrue%3C%2Foptional%3E%5Cn%20%20%20%20%20%20%20%20%3C%2Fdependency%3E%5Cn%5Cn%5Cn%20%3Cbuild%3E%5Cn%20%20%20%20%20%20%20%20%3Cplugins%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3Cplugin%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CgroupId%3Eorg.springframework.boot%3C%2FgroupId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CartifactId%3Espring-boot-maven-plugin%3C%2FartifactId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cconfiguration%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cexcludes%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cexclude%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CgroupId%3Eorg.springframework.boot%3C%2FgroupId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CartifactId%3Espring-boot-configuration-processor%3C%2FartifactId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fexclude%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fexcludes%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fconfiguration%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fplugin%3E%5Cn%20%20%20%20%20%20%20%20%3C%2Fplugins%3E%5Cn%20%20%20%20%3C%2Fbuild%3E%22%2C%22heightLimit%22%3Atrue%2C%22margin%22%3Atrue%2C%22id%22%3A%22Wptpj%22%7D </code><br>在Java项目中，我们又该如何去对这种原内容为json数据的字符串进行解码呢？<br>网上的处理方法较多，但下面的方法最为简单：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.born2do.code;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> chenhy</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/3/25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DecodeDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String uri = <span class="string">&quot;%7B%22mode%22%3A%22xml%22%2C%22code%22%3A%22%20%20%20%20%20%20%20%20%3Cdependency%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3CgroupId%3Eorg.springframework.boot%3C%2FgroupId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3CartifactId%3Espring-boot-configuration-processor%3C%2FartifactId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3Coptional%3Etrue%3C%2Foptional%3E%5Cn%20%20%20%20%20%20%20%20%3C%2Fdependency%3E%5Cn%5Cn%5Cn%20%3Cbuild%3E%5Cn%20%20%20%20%20%20%20%20%3Cplugins%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3Cplugin%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CgroupId%3Eorg.springframework.boot%3C%2FgroupId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CartifactId%3Espring-boot-maven-plugin%3C%2FartifactId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cconfiguration%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cexcludes%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cexclude%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CgroupId%3Eorg.springframework.boot%3C%2FgroupId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CartifactId%3Espring-boot-configuration-processor%3C%2FartifactId%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fexclude%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fexcludes%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fconfiguration%3E%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fplugin%3E%5Cn%20%20%20%20%20%20%20%20%3C%2Fplugins%3E%5Cn%20%20%20%20%3C%2Fbuild%3E%22%2C%22heightLimit%22%3Atrue%2C%22margin%22%3Atrue%2C%22id%22%3A%22Wptpj%22%7D&quot;</span>;</span><br><span class="line">        String decodeStr = <span class="keyword">new</span> java.net.URI(uri).getPath();</span><br><span class="line">        System.out.println(<span class="string">&quot;decode后的json数据为：&quot;</span> + decodeStr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：</p><blockquote><p>decode后的json数据为：{“mode”:”xml”,”code”:”        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-configuration-processor</artifactId>\n            <optional>true</optional>\n        </dependency>\n\n\n <build>\n        <plugins>\n            <plugin>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-maven-plugin</artifactId>\n                <configuration>\n                    <excludes>\n                        <exclude>\n                            <groupId>org.springframework.boot</groupId>\n                            <artifactId>spring-boot-configuration-processor</artifactId>\n                        </exclude>\n                    </excludes>\n                </configuration>\n            </plugin>\n        </plugins>\n    </build>“,”heightLimit”:true,”margin”:true,”id”:”Wptpj”}</p></blockquote><p>我们再将获取到的结果进行格式化，显示如下：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;mode&quot;</span>: <span class="string">&quot;xml&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;code&quot;</span>: <span class="string">&quot;        &lt;dependency&gt;\n            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;\n            &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;\n            &lt;optional&gt;true&lt;/optional&gt;\n        &lt;/dependency&gt;\n\n\n &lt;build&gt;\n        &lt;plugins&gt;\n            &lt;plugin&gt;\n                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;\n                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;\n                &lt;configuration&gt;\n                    &lt;excludes&gt;\n                        &lt;exclude&gt;\n                            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;\n                            &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;\n                        &lt;/exclude&gt;\n                    &lt;/excludes&gt;\n                &lt;/configuration&gt;\n            &lt;/plugin&gt;\n        &lt;/plugins&gt;\n    &lt;/build&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;heightLimit&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">&quot;margin&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;Wptpj&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使用getPath()实现完美解码。</p>]]></content>
+    
+    
+    <summary type="html">【Java】用Java实现JS中的decodeURIComponent()函数</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="decodeURIComponent()" scheme="https://born2do.github.io/tags/decodeURIComponent/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【JS】encodeURIComponent()和decodeURIComponent()</title>
+    <link href="https://born2do.github.io/2021/03/25/%E3%80%90JS%E3%80%91encodeURIComponent-%E5%92%8CdecodeURIComponent/"/>
+    <id>https://born2do.github.io/2021/03/25/%E3%80%90JS%E3%80%91encodeURIComponent-%E5%92%8CdecodeURIComponent/</id>
+    <published>2021-03-25T15:04:29.000Z</published>
+    <updated>2021-03-25T15:05:25.710Z</updated>
+    
+    <content type="html"><![CDATA[<p>encodeURIComponent()和decodeURIComponent()函数均为JS的全局函数，主流浏览器均支持。主要作用为编码与解码。</p><h1 id="encodeURIComponent"><a href="#encodeURIComponent" class="headerlink" title="encodeURIComponent()"></a>encodeURIComponent()</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>encodeURIComponent() 函数可把字符串作为 URI 组件进行编码。</p><p>该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ‘ ( ) 。</p><p>其他字符（比如 ：;/?:@&amp;=+$,# 这些用于分隔 URI 组件的标点符号），都是由一个或多个十六进制的转义序列替换的。</p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURIComponent</span>(uri)</span><br></pre></td></tr></table></figure><p>说明：uri，必需。一个字符串，含有 URI 组件或其他要编码的文本。</p><h1 id="decodeURIComponent"><a href="#decodeURIComponent" class="headerlink" title="decodeURIComponent()"></a>decodeURIComponent()</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码。</p><h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">decodeURIComponent</span>(uri)</span><br></pre></td></tr></table></figure><p>说明：uri，必需。一个字符串，含有编码 URI 组件或其他要解码的文本。</p><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;encodeAndDecode&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">var uri&#x3D;&quot;https:&#x2F;&#x2F;www.born2do.com&#x2F;&quot;;</span><br><span class="line">document.write(&quot;uri &#x3D; &quot; + uri);</span><br><span class="line">document.write(&quot;&lt;br&gt;&quot;);</span><br><span class="line">var uri_encode&#x3D;encodeURIComponent(uri);</span><br><span class="line">document.write(&quot;encode &#x3D; &quot; + uri_encode);</span><br><span class="line">document.write(&quot;&lt;br&gt;&quot;);</span><br><span class="line">document.write(&quot;decode &#x3D; &quot; + decodeURIComponent(uri_encode));</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure><p>运行结果：</p><blockquote><p>uri = <a href="https://www.born2do.com/">https://www.born2do.com/</a><br>encode = https%3A%2F%2F<a href="http://www.born2do.com%2F">www.born2do.com%2F</a><br>decode = <a href="https://www.born2do.com/">https://www.born2do.com/</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">【JS】encodeURIComponent()和decodeURIComponent()</summary>
+    
+    
+    
+    <category term="JS" scheme="https://born2do.github.io/categories/JS/"/>
+    
+    
+    <category term="encodeURIComponent()" scheme="https://born2do.github.io/tags/encodeURIComponent/"/>
+    
+    <category term="decodeURIComponent()" scheme="https://born2do.github.io/tags/decodeURIComponent/"/>
+    
+  </entry>
   
   <entry>
     <title>【Linux】在shell脚本中获取当前主机的主机名以及IP地址</title>
@@ -393,54 +437,6 @@
     
     
     <category term="Hexo" scheme="https://born2do.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客网站安装gitalk插件</title>
-    <link href="https://born2do.github.io/2021/03/04/Hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85gitalk%E6%8F%92%E4%BB%B6/"/>
-    <id>https://born2do.github.io/2021/03/04/Hexo%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85gitalk%E6%8F%92%E4%BB%B6/</id>
-    <published>2021-03-04T07:30:00.000Z</published>
-    <updated>2021-03-04T16:03:09.451Z</updated>
-    
-    <content type="html"><![CDATA[<p>博客的评论系统，一开始选择了“来必力”（韩国的），但是发现注册个账号要人命，果断放弃。后在Gitalk和Gitment之间选择了Gitalk。开源免费无广告，不要因为是个白嫖党而不好意思，毕竟正是开源促进了IT业的发展。<br>在此记录下，博客网站安装评论系统的全过程。</p><h1 id="注册-GitHub-OAuth-Apps"><a href="#注册-GitHub-OAuth-Apps" class="headerlink" title="注册 GitHub OAuth Apps"></a>注册 GitHub OAuth Apps</h1><p>GitHub头像-&gt;Settings-&gt;Developer settings-&gt;OAuth Apps，点击“new OAuth apps”进行OAuth application的创建。<br><img src="https://i.loli.net/2021/03/04/DBzsdpUtORAfrHu.png" alt="OAuth Apps.png"><br>注册成功后，复制ClientID以及生成的ClientSecret，待用。</p><h1 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h1><p>新建仓库，用于存储评论。</p><h1 id="Hexo引入Gitalk"><a href="#Hexo引入Gitalk" class="headerlink" title="Hexo引入Gitalk"></a>Hexo引入Gitalk</h1><p>打开主题配置文件，修改评论系统相关配置。<br>我使用的Hexo的主题名为pure，主题配置文件中，注释相当详细，在此不做过多赘述。</p><h1 id="上传GitHub并初始化评论系统"><a href="#上传GitHub并初始化评论系统" class="headerlink" title="上传GitHub并初始化评论系统"></a>上传GitHub并初始化评论系统</h1><p>本地的评论系统完成后，将本地博客系统上传至GitHub仓库。<br>访问下在GitHub上的博客，会发现评论模块会提示初始化提示，使用自己的GitHub账号登陆下就好了。</p><h1 id="Gitalk-403报错"><a href="#Gitalk-403报错" class="headerlink" title="Gitalk 403报错"></a>Gitalk 403报错</h1><p>我的Gitalk一开始就显示403报错，查阅相关资料，是因为“Public demo server (cors-anywhere.herokuapp.com) will be very limited by January 2021, 31st”，网站受限了。解决方式就是点击下方的链接进行暂时权限的获取（初始化后就不用管他了）。<br>解锁链接： <a href="http://cors-anywhere.herokuapp.com/corsdemo">http://cors-anywhere.herokuapp.com/corsdemo</a> 。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.cnblogs.com/qisi007/p/13731562.html">https://www.cnblogs.com/qisi007/p/13731562.html</a></p>]]></content>
-    
-    
-    <summary type="html">Hexo博客网站安装gitalk插件</summary>
-    
-    
-    
-    <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="Hexo" scheme="https://born2do.github.io/tags/Hexo/"/>
-    
-    <category term="Gitalk" scheme="https://born2do.github.io/tags/Gitalk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客图床设置</title>
-    <link href="https://born2do.github.io/2021/03/03/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/"/>
-    <id>https://born2do.github.io/2021/03/03/%E5%8D%9A%E5%AE%A2%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</id>
-    <published>2021-03-03T07:30:00.000Z</published>
-    <updated>2021-03-03T15:46:55.254Z</updated>
-    
-    <content type="html"><![CDATA[<p>以前写博客，基本上都是在本地，博客中的图片也都是使用相对路径。<br>在博客园也写过博客，那时图片是上传到博客园的自定义文件夹中，再去复制图片链接使用。<br>但是，这些使用图片的方式都不太友善，不好管理。<br>这次重新搭建整理博客，我开始使用图床了。</p><h1 id="下载图片管理工具PicGo-（不喜欢也可略过）"><a href="#下载图片管理工具PicGo-（不喜欢也可略过）" class="headerlink" title="下载图片管理工具PicGo （不喜欢也可略过）"></a>下载图片管理工具PicGo （不喜欢也可略过）</h1><p>我使用的图片管理工具为PicGo（ <a href="https://picgo.github.io/PicGo-Doc/">https://picgo.github.io/PicGo-Doc/</a> ）。<br>官方文档（ <a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html">https://picgo.github.io/PicGo-Doc/zh/guide/config.html</a> ）极为详细，先无脑安装一波，然后按照官方文档进行配置就好了。</p><h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>图床网站还是比较多的，当然，也可以在GitHub上自行搭建仓库用于存储图片。<br>一开始，我是想用GitHub自行搭建的，但是搭建完成后发现，网络太慢了，基本上加载不出来。<br>然后对比了多家图床网站后，选择了SMMS。速度快，无广告，存储空间还挺大，与PicGo搭配使用配置起来也比较简单。自行注册，生成token，然后配置到PicGo中，配置完成。<br>极力推荐SMMS！！！</p>]]></content>
-    
-    
-    <summary type="html">博客图床设置</summary>
-    
-    
-    
-    <category term="博客搭建" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    <category term="图床" scheme="https://born2do.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E5%BA%8A/"/>
-    
-    
-    <category term="PicGo" scheme="https://born2do.github.io/tags/PicGo/"/>
-    
-    <category term="SMMS" scheme="https://born2do.github.io/tags/SMMS/"/>
     
   </entry>
   
