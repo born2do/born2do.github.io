@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>【WebMagic】抓取前端渲染的页面 | Hexo</title>
+  <meta name="description" content="【WebMagic】抓取前端渲染的页面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【WebMagic】抓取前端渲染的页面">
+<meta property="og:url" content="https://born2do.github.io/2021/03/27/%E3%80%90WebMagic%E3%80%91%E6%8A%93%E5%8F%96%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93%E7%9A%84%E9%A1%B5%E9%9D%A2/index.html">
+<meta property="og:site_name" content="ChenHY的个人博客">
+<meta property="og:description" content="【WebMagic】抓取前端渲染的页面">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/20609583-1f399310f6bd6207.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2021-03-27T11:36:31.000Z">
+<meta property="article:modified_time" content="2021-03-27T11:37:13.413Z">
+<meta property="article:author" content="chenhy">
+<meta property="article:tag" content="WebMagic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/20609583-1f399310f6bd6207.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://born2do.github.io/2021/03/27/%E3%80%90WebMagic%E3%80%91%E6%8A%93%E5%8F%96%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93%E7%9A%84%E9%A1%B5%E9%9D%A2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="ChenHY的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-blue" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/born2do" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">你不懂的阳</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/born2do" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Excel/">Excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/error/">error</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E5%BA%8A/">图床</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E7%BA%A6/">规约</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB2/" rel="tag">DB2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitalk/" rel="tag">Gitalk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/" rel="tag">MYSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PicGo/" rel="tag">PicGo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerPoint-2013/" rel="tag">PowerPoint 2013</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMMS/" rel="tag">SMMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VC-6-0/" rel="tag">VC++6.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebMagic/" rel="tag">WebMagic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c3p0/" rel="tag">c3p0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab/" rel="tag">crontab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/decodeURIComponent/" rel="tag">decodeURIComponent()</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encodeURIComponent/" rel="tag">encodeURIComponent()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/find/" rel="tag">find</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/DB2/" style="font-size: 13px;">DB2</a> <a href="/tags/Excel/" style="font-size: 13px;">Excel</a> <a href="/tags/GitHub/" style="font-size: 13.5px;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 13px;">Gitalk</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/MYSQL/" style="font-size: 13px;">MYSQL</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Navicat/" style="font-size: 13px;">Navicat</a> <a href="/tags/PicGo/" style="font-size: 13px;">PicGo</a> <a href="/tags/PowerPoint-2013/" style="font-size: 13px;">PowerPoint 2013</a> <a href="/tags/SMMS/" style="font-size: 13px;">SMMS</a> <a href="/tags/VC-6-0/" style="font-size: 13px;">VC++6.0</a> <a href="/tags/WebMagic/" style="font-size: 13.5px;">WebMagic</a> <a href="/tags/Windows/" style="font-size: 13.5px;">Windows</a> <a href="/tags/c3p0/" style="font-size: 13px;">c3p0</a> <a href="/tags/crontab/" style="font-size: 13px;">crontab</a> <a href="/tags/decodeURIComponent/" style="font-size: 13.5px;">decodeURIComponent()</a> <a href="/tags/encodeURIComponent/" style="font-size: 13px;">encodeURIComponent()</a> <a href="/tags/find/" style="font-size: 13px;">find</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 13px;">开源</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/27/%E3%80%90WebMagic%E3%80%91%E8%A7%A3%E6%9E%90%E8%8E%B7%E5%8F%96JSON%E6%95%B0%E6%8D%AE/" class="title">【WebMagic】解析获取JSON数据</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-27T11:37:31.000Z" itemprop="datePublished">2021-03-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/27/%E3%80%90WebMagic%E3%80%91%E6%8A%93%E5%8F%96%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93%E7%9A%84%E9%A1%B5%E9%9D%A2/" class="title">【WebMagic】抓取前端渲染的页面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-27T11:36:31.000Z" itemprop="datePublished">2021-03-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/25/%E3%80%90Java%E3%80%91%E7%94%A8Java%E5%AE%9E%E7%8E%B0JS%E4%B8%AD%E7%9A%84decodeURIComponent-%E5%87%BD%E6%95%B0/" class="title">【Java】用Java实现JS中的decodeURIComponent()函数</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-25T15:06:03.000Z" itemprop="datePublished">2021-03-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/25/%E3%80%90JS%E3%80%91encodeURIComponent-%E5%92%8CdecodeURIComponent/" class="title">【JS】encodeURIComponent()和decodeURIComponent()</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-25T15:04:29.000Z" itemprop="datePublished">2021-03-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Linux/">Linux</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/03/15/%E3%80%90Linux%E3%80%91%E5%9C%A8shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%B8%BB%E6%9C%BA%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D%E4%BB%A5%E5%8F%8AIP%E5%9C%B0%E5%9D%80/" class="title">【Linux】在shell脚本中获取当前主机的主机名以及IP地址</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-03-15T13:10:25.000Z" itemprop="datePublished">2021-03-15</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">环境安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">项目搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">说明</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-【WebMagic】抓取前端渲染的页面" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【WebMagic】抓取前端渲染的页面
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/03/27/%E3%80%90WebMagic%E3%80%91%E6%8A%93%E5%8F%96%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93%E7%9A%84%E9%A1%B5%E9%9D%A2/" class="article-date">
+	  <time datetime="2021-03-27T11:36:31.000Z" itemprop="datePublished">2021-03-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/WebMagic/" rel="tag">WebMagic</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/03/27/%E3%80%90WebMagic%E3%80%91%E6%8A%93%E5%8F%96%E5%89%8D%E7%AB%AF%E6%B8%B2%E6%9F%93%E7%9A%84%E9%A1%B5%E9%9D%A2/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 17(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>随着AJAX技术不断的普及，以及现在AngularJS这种Single-page application框架的出现，现在js渲染出的页面越来越多。对于爬虫来说，这种页面是比较讨厌的：仅仅提取HTML内容，往往无法拿到有效的信息。那么如何处理这种页面呢？总的来说有两种做法：</p>
+<ol>
+<li> 在抓取阶段，在爬虫中内置一个浏览器内核，执行js渲染页面后，再抓取。这方面对应的工具有<code>Selenium</code>、<code>HtmlUnit</code>或者<code>PhantomJs</code>。但是这些工具都存在一定的效率问题，同时也不是那么稳定。好处是编写规则同静态页面一样。</li>
+<li> 因为js渲染页面的数据也是从后端拿到，而且基本上都是AJAX获取，所以分析AJAX请求，找到对应数据的请求，也是比较可行的做法。而且相对于页面样式，这种接口变化可能性更小。缺点就是找到这个请求，并进行模拟，是一个相对困难的过程，也需要相对多的分析经验。</li>
+</ol>
+<p>方法一是通过执行js渲染页面获取静态页面来抓取数据，而方法二则是找规律找到目标数据的请求URL来获取数据。<br>本次着重讲解方法一，这种方式相对来说较为简单。</p>
+<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><ol>
+<li>谷歌浏览器+驱动<br>下载谷歌浏览器，然后下载该浏览器对应版本的驱动。<br>查看谷歌浏览器版本：<br>chrome://settings/help<br>驱动下载地址：<br>源地址：<a target="_blank" rel="noopener" href="http://chromedriver.storage.googleapis.com/index.html">http://chromedriver.storage.googleapis.com/index.html</a><br>国内镜像：<a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/chromedriver/">http://npm.taobao.org/mirrors/chromedriver/</a></li>
+</ol>
+<h1 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h1><p>我使用的是SpringBoot框架，项目的目录结构如下：<br><img src="https://upload-images.jianshu.io/upload_images/20609583-1f399310f6bd6207.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="crawler.png"><br>各源文件如下：<br>pom.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot;</span><br><span class="line">         xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.4.0&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;&#x2F;parent&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.born2do&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;crawler&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;8&lt;&#x2F;maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;8&lt;&#x2F;maven.compiler.target&gt;</span><br><span class="line">        &lt;webmagic.version&gt;0.7.4&lt;&#x2F;webmagic.version&gt;</span><br><span class="line">    &lt;&#x2F;properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;org.springframework.boot&#x2F;spring-boot-starter-web --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-web&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;org.springframework.boot&#x2F;spring-boot-starter-data-jpa --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;org.springframework.boot&#x2F;spring-boot-starter-test --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;&#x2F;artifactId&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;mysql&#x2F;mysql-connector-java --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;mysql&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mysql-connector-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;8.0.15&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;us.codecraft&#x2F;webmagic-core --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;us.codecraft&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;webmagic-core&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;webmagic.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;us.codecraft&#x2F;webmagic-extension --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;us.codecraft&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;webmagic-extension&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;webmagic.version&#125;&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;com.google.guava&#x2F;guava --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.google.guava&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;guava&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;30.0-jre&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;org.apache.commons&#x2F;commons-lang3 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.commons&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;commons-lang3&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;3.9&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;com.kotcrab.remark&#x2F;remark --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.kotcrab.remark&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;remark&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.0.0&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">        &lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;org.seleniumhq.selenium&#x2F;selenium-java --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.seleniumhq.selenium&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;selenium-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.33.0&lt;&#x2F;version&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;&#x2F;dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure>
+<p>CrawlerOnSpringBoot2Doc.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">package com.born2do.task;</span><br><span class="line"></span><br><span class="line">import com.born2do.webmagic.downloader.selenium.SeleniumDownloader;</span><br><span class="line">import com.overzealous.remark.Remark;</span><br><span class="line">import org.springframework.scheduling.annotation.Scheduled;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import us.codecraft.webmagic.Page;</span><br><span class="line">import us.codecraft.webmagic.Site;</span><br><span class="line">import us.codecraft.webmagic.Spider;</span><br><span class="line">import us.codecraft.webmagic.processor.PageProcessor;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.nio.file.Files;</span><br><span class="line">import java.nio.file.Path;</span><br><span class="line">import java.nio.file.Paths;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * 获取《SpringBoot2核心技术与响应式编程》教学文档</span><br><span class="line"> * 说明：“语雀”前端页面较为复杂，数据有多层加密，且主要由Ajax渲染页面数据，在这里并没有对代码块以及思维导图进行进一步处理，需人工处理</span><br><span class="line"> *</span><br><span class="line"> * @author chenhy</span><br><span class="line"> * @date 2021&#x2F;3&#x2F;22</span><br><span class="line"> *&#x2F;</span><br><span class="line">@Component</span><br><span class="line">public class CrawlerOnSpringBoot2Doc implements PageProcessor &#123;</span><br><span class="line"></span><br><span class="line">    private static final String website &#x3D; &quot;https:&#x2F;&#x2F;www.yuque.com&#x2F;atguigu&#x2F;springboot&quot;;</span><br><span class="line"></span><br><span class="line">    private static final String file &#x3D; &quot;D:\\SpringBoot2核心技术与响应式编程.md&quot;;</span><br><span class="line"></span><br><span class="line">    private Site site &#x3D; Site.me().setCharset(&quot;UTF8&quot;) &#x2F;&#x2F; 编码格式</span><br><span class="line">            .setTimeOut(1000 * 30) &#x2F;&#x2F; 超时时间</span><br><span class="line">            .setRetrySleepTime(1000 * 5) &#x2F;&#x2F; 重试时间间隔</span><br><span class="line">            .setRetryTimes(10); &#x2F;&#x2F; 重试次数</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void process(Page page) &#123;</span><br><span class="line">        &#x2F;&#x2F; 获取所有目录的url，并加入爬虫队列中</span><br><span class="line">        if (website.equals(page.getUrl().toString())) &#123;</span><br><span class="line">            List&lt;String&gt; urls &#x3D; page.getHtml().xpath(&quot;&#x2F;&#x2F;span[@class&#x3D;&#39;name&#39;]&quot;).links().all();</span><br><span class="line">            for (String url : urls) &#123;</span><br><span class="line">                page.addTargetRequest(url);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            &#x2F;&#x2F; 获取内容</span><br><span class="line">            String content &#x3D; page.getHtml().xpath(&quot;&#x2F;&#x2F;div[@class&#x3D;&#39;index-module_title_1s0gC&#39;]&quot;).toString()</span><br><span class="line">                    + page.getHtml().xpath(&quot;&#x2F;&#x2F;div[@class&#x3D;&#39;yuque-doc-content&#39;]&quot;).toString();</span><br><span class="line">            &#x2F;&#x2F; 将获取到的内容从HTML格式转换为Markdown格式</span><br><span class="line">            Remark remark &#x3D; new Remark();</span><br><span class="line">            content &#x3D; remark.convert(content);</span><br><span class="line">            page.putField(&quot;content&quot;, content);</span><br><span class="line">            System.out.println(page.getUrl() + &quot;   download over!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Site getSite() &#123;</span><br><span class="line">        return site;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Scheduled(fixedDelay &#x3D; 1000 * 60 * 60 * 24)</span><br><span class="line">    private void mainProcess() throws IOException &#123;</span><br><span class="line">        Path filePath &#x3D; Paths.get(file);</span><br><span class="line">        if (Files.exists(filePath)) &#123;</span><br><span class="line">            Files.delete(filePath);</span><br><span class="line">        &#125;</span><br><span class="line">        Files.createFile(filePath);</span><br><span class="line">        Spider.create(new CrawlerOnSpringBoot2Doc())</span><br><span class="line">                .addUrl(website)</span><br><span class="line">                .setDownloader(new SeleniumDownloader(&quot;D:\\chromedriver_win32\\chromedriver.exe&quot;))</span><br><span class="line">                .thread(1)</span><br><span class="line">                .addPipeline(new MarkdownPipeLine(filePath))</span><br><span class="line">                .run();</span><br><span class="line">        System.out.println(&quot;process is over!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MarkdownPipeLine.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">package com.born2do.task;</span><br><span class="line"></span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import us.codecraft.webmagic.ResultItems;</span><br><span class="line">import us.codecraft.webmagic.Task;</span><br><span class="line">import us.codecraft.webmagic.pipeline.Pipeline;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.nio.charset.StandardCharsets;</span><br><span class="line">import java.nio.file.Files;</span><br><span class="line">import java.nio.file.Path;</span><br><span class="line">import java.nio.file.StandardOpenOption;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @author chenhy</span><br><span class="line"> * @date 2021&#x2F;3&#x2F;21</span><br><span class="line"> *&#x2F;</span><br><span class="line">public class MarkdownPipeLine implements Pipeline &#123;</span><br><span class="line"></span><br><span class="line">    private Path filePath;</span><br><span class="line"></span><br><span class="line">    public MarkdownPipeLine(Path filePath) &#123;</span><br><span class="line">        this.filePath &#x3D; filePath;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void process(ResultItems resultItems, Task task) &#123;</span><br><span class="line">        Map&lt;String, Object&gt; result &#x3D; resultItems.getAll();</span><br><span class="line">        String content &#x3D; (String) result.get(&quot;content&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            Files.write(filePath, content.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);</span><br><span class="line">            &#x2F;&#x2F; 换行</span><br><span class="line">            Files.write(filePath, System.getProperty(&quot;line.separator&quot;).getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SeleniumDownloader.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">package com.born2do.webmagic.downloader.selenium;</span><br><span class="line"></span><br><span class="line">import org.openqa.selenium.By;</span><br><span class="line">import org.openqa.selenium.Cookie;</span><br><span class="line">import org.openqa.selenium.WebDriver;</span><br><span class="line">import org.openqa.selenium.WebElement;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line">import us.codecraft.webmagic.Page;</span><br><span class="line">import us.codecraft.webmagic.Request;</span><br><span class="line">import us.codecraft.webmagic.Site;</span><br><span class="line">import us.codecraft.webmagic.Task;</span><br><span class="line">import us.codecraft.webmagic.downloader.Downloader;</span><br><span class="line">import us.codecraft.webmagic.selector.Html;</span><br><span class="line">import us.codecraft.webmagic.selector.PlainText;</span><br><span class="line"></span><br><span class="line">import java.io.Closeable;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * 使用Selenium调用浏览器进行渲染。目前仅支持chrome。&lt;br&gt;</span><br><span class="line"> * 需要下载Selenium driver支持。&lt;br&gt;</span><br><span class="line"> *</span><br><span class="line"> * @author code4crafter@gmail.com &lt;br&gt;</span><br><span class="line"> *         Date: 13-7-26 &lt;br&gt;</span><br><span class="line"> *         Time: 下午1:37 &lt;br&gt;</span><br><span class="line"> *&#x2F;</span><br><span class="line">public class SeleniumDownloader implements Downloader, Closeable &#123;</span><br><span class="line"></span><br><span class="line">	private volatile WebDriverPool webDriverPool;</span><br><span class="line"></span><br><span class="line">	private Logger logger &#x3D; LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">	private int sleepTime &#x3D; 0;</span><br><span class="line"></span><br><span class="line">	private int poolSize &#x3D; 1;</span><br><span class="line"></span><br><span class="line">	private static final String DRIVER_PHANTOMJS &#x3D; &quot;phantomjs&quot;;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * 新建</span><br><span class="line">	 *</span><br><span class="line">	 * @param chromeDriverPath chromeDriverPath</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public SeleniumDownloader(String chromeDriverPath) &#123;</span><br><span class="line">		System.getProperties().setProperty(&quot;webdriver.chrome.driver&quot;,</span><br><span class="line">				chromeDriverPath);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * Constructor without any filed. Construct PhantomJS browser</span><br><span class="line">	 * </span><br><span class="line">	 * @author bob.li.0718@gmail.com</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public SeleniumDownloader() &#123;</span><br><span class="line">		&#x2F;&#x2F; System.setProperty(&quot;phantomjs.binary.path&quot;,</span><br><span class="line">		&#x2F;&#x2F; &quot;&#x2F;Users&#x2F;Bingo&#x2F;Downloads&#x2F;phantomjs-1.9.7-macosx&#x2F;bin&#x2F;phantomjs&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * set sleep time to wait until load success</span><br><span class="line">	 *</span><br><span class="line">	 * @param sleepTime sleepTime</span><br><span class="line">	 * @return this</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public SeleniumDownloader setSleepTime(int sleepTime) &#123;</span><br><span class="line">		this.sleepTime &#x3D; sleepTime;</span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public Page download(Request request, Task task) &#123;</span><br><span class="line">		checkInit();</span><br><span class="line">		WebDriver webDriver;</span><br><span class="line">		try &#123;</span><br><span class="line">			webDriver &#x3D; webDriverPool.get();</span><br><span class="line">		&#125; catch (InterruptedException e) &#123;</span><br><span class="line">			logger.warn(&quot;interrupted&quot;, e);</span><br><span class="line">			return null;</span><br><span class="line">		&#125;</span><br><span class="line">		logger.info(&quot;downloading page &quot; + request.getUrl());</span><br><span class="line">		webDriver.get(request.getUrl());</span><br><span class="line">		try &#123;</span><br><span class="line">			Thread.sleep(sleepTime);</span><br><span class="line">		&#125; catch (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		WebDriver.Options manage &#x3D; webDriver.manage();</span><br><span class="line">		Site site &#x3D; task.getSite();</span><br><span class="line">		if (site.getCookies() !&#x3D; null) &#123;</span><br><span class="line">			for (Map.Entry&lt;String, String&gt; cookieEntry : site.getCookies()</span><br><span class="line">					.entrySet()) &#123;</span><br><span class="line">				Cookie cookie &#x3D; new Cookie(cookieEntry.getKey(),</span><br><span class="line">						cookieEntry.getValue());</span><br><span class="line">				manage.addCookie(cookie);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		&#x2F;*</span><br><span class="line">		 * TODO You can add mouse event or other processes</span><br><span class="line">		 * </span><br><span class="line">		 * @author: bob.li.0718@gmail.com</span><br><span class="line">		 *&#x2F;</span><br><span class="line"></span><br><span class="line">		WebElement webElement &#x3D; webDriver.findElement(By.xpath(&quot;&#x2F;html&quot;));</span><br><span class="line">		String content &#x3D; webElement.getAttribute(&quot;outerHTML&quot;);</span><br><span class="line">		Page page &#x3D; new Page();</span><br><span class="line">		page.setRawText(content);</span><br><span class="line">		page.setHtml(new Html(content, request.getUrl()));</span><br><span class="line">		page.setUrl(new PlainText(request.getUrl()));</span><br><span class="line">		page.setRequest(request);</span><br><span class="line">		webDriverPool.returnToPool(webDriver);</span><br><span class="line">		return page;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private void checkInit() &#123;</span><br><span class="line">		if (webDriverPool &#x3D;&#x3D; null) &#123;</span><br><span class="line">			synchronized (this) &#123;</span><br><span class="line">				webDriverPool &#x3D; new WebDriverPool(poolSize);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void setThread(int thread) &#123;</span><br><span class="line">		this.poolSize &#x3D; thread;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void close() throws IOException &#123;</span><br><span class="line">		webDriverPool.closeAll();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>WebDriverPool.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line">package com.born2do.webmagic.downloader.selenium;</span><br><span class="line"></span><br><span class="line">import org.openqa.selenium.WebDriver;</span><br><span class="line">import org.openqa.selenium.chrome.ChromeDriver;</span><br><span class="line">import org.openqa.selenium.firefox.FirefoxDriver;</span><br><span class="line">import org.openqa.selenium.remote.DesiredCapabilities;</span><br><span class="line">import org.slf4j.Logger;</span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.net.MalformedURLException;</span><br><span class="line">import java.net.URL;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Properties;</span><br><span class="line">import java.util.concurrent.BlockingDeque;</span><br><span class="line">import java.util.concurrent.LinkedBlockingDeque;</span><br><span class="line">import java.util.concurrent.atomic.AtomicInteger;</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * @author code4crafter@gmail.com &lt;br&gt;</span><br><span class="line"> *         Date: 13-7-26 &lt;br&gt;</span><br><span class="line"> *         Time: 下午1:41 &lt;br&gt;</span><br><span class="line"> *&#x2F;</span><br><span class="line">class WebDriverPool &#123;</span><br><span class="line">	private Logger logger &#x3D; LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">	private final static int DEFAULT_CAPACITY &#x3D; 5;</span><br><span class="line"></span><br><span class="line">	private final int capacity;</span><br><span class="line"></span><br><span class="line">	private final static int STAT_RUNNING &#x3D; 1;</span><br><span class="line"></span><br><span class="line">	private final static int STAT_CLODED &#x3D; 2;</span><br><span class="line"></span><br><span class="line">	private AtomicInteger stat &#x3D; new AtomicInteger(STAT_RUNNING);</span><br><span class="line"></span><br><span class="line">	private WebDriver mDriver &#x3D; null;</span><br><span class="line"></span><br><span class="line">	private static final String DEFAULT_CONFIG_FILE &#x3D; &quot;&#x2F;config.ini&quot;;</span><br><span class="line">	private static final String DRIVER_FIREFOX &#x3D; &quot;firefox&quot;;</span><br><span class="line">	private static final String DRIVER_CHROME &#x3D; &quot;chrome&quot;;</span><br><span class="line"></span><br><span class="line">	protected static Properties sConfig;</span><br><span class="line">	protected static DesiredCapabilities sCaps;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * Configure the GhostDriver, and initialize a WebDriver instance. This part</span><br><span class="line">	 * of code comes from GhostDriver.</span><br><span class="line">	 * https:&#x2F;&#x2F;github.com&#x2F;detro&#x2F;ghostdriver&#x2F;tree&#x2F;master&#x2F;test&#x2F;java&#x2F;src&#x2F;test&#x2F;java&#x2F;ghostdriver</span><br><span class="line">	 * </span><br><span class="line">	 * @author bob.li.0718@gmail.com</span><br><span class="line">	 * @throws IOException</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public void configure() throws IOException &#123;</span><br><span class="line">		&#x2F;&#x2F; Read config file</span><br><span class="line">		sConfig &#x3D; new Properties();</span><br><span class="line">		&#x2F;&#x2F; String configFile &#x3D; DEFAULT_CONFIG_FILE;</span><br><span class="line">		String configFile &#x3D; this.getClass().getResource(DEFAULT_CONFIG_FILE).getPath();</span><br><span class="line">		if (System.getProperty(&quot;selenuim_config&quot;)!&#x3D;null)&#123;</span><br><span class="line">			configFile &#x3D; System.getProperty(&quot;selenuim_config&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		sConfig.load(new FileReader(configFile));</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; Prepare capabilities</span><br><span class="line">		sCaps &#x3D; new DesiredCapabilities();</span><br><span class="line">		sCaps.setJavascriptEnabled(true);</span><br><span class="line">		sCaps.setCapability(&quot;takesScreenshot&quot;, false);</span><br><span class="line"></span><br><span class="line">		String driver &#x3D; sConfig.getProperty(&quot;driver&quot;, DRIVER_CHROME);</span><br><span class="line"></span><br><span class="line">		ArrayList&lt;String&gt; cliArgsCap &#x3D; new ArrayList&lt;String&gt;();</span><br><span class="line">		cliArgsCap.add(&quot;--web-security&#x3D;false&quot;);</span><br><span class="line">		cliArgsCap.add(&quot;--ssl-protocol&#x3D;any&quot;);</span><br><span class="line">		cliArgsCap.add(&quot;--ignore-ssl-errors&#x3D;true&quot;);</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F; Start appropriate Driver</span><br><span class="line">		if (driver.equals(DRIVER_FIREFOX)) &#123;</span><br><span class="line">			mDriver &#x3D; new FirefoxDriver(sCaps);</span><br><span class="line">		&#125; else if (driver.equals(DRIVER_CHROME)) &#123;</span><br><span class="line">			mDriver &#x3D; new ChromeDriver(sCaps);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * check whether input is a valid URL</span><br><span class="line">	 * </span><br><span class="line">	 * @author bob.li.0718@gmail.com</span><br><span class="line">	 * @param urlString urlString</span><br><span class="line">	 * @return true means yes, otherwise no.</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	private boolean isUrl(String urlString) &#123;</span><br><span class="line">		try &#123;</span><br><span class="line">			new URL(urlString);</span><br><span class="line">			return true;</span><br><span class="line">		&#125; catch (MalformedURLException mue) &#123;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * store webDrivers created</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	private List&lt;WebDriver&gt; webDriverList &#x3D; Collections</span><br><span class="line">			.synchronizedList(new ArrayList&lt;WebDriver&gt;());</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * store webDrivers available</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	private BlockingDeque&lt;WebDriver&gt; innerQueue &#x3D; new LinkedBlockingDeque&lt;WebDriver&gt;();</span><br><span class="line"></span><br><span class="line">	public WebDriverPool(int capacity) &#123;</span><br><span class="line">		this.capacity &#x3D; capacity;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public WebDriverPool() &#123;</span><br><span class="line">		this(DEFAULT_CAPACITY);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * </span><br><span class="line">	 * @return</span><br><span class="line">	 * @throws InterruptedException</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	public WebDriver get() throws InterruptedException &#123;</span><br><span class="line">		checkRunning();</span><br><span class="line">		WebDriver poll &#x3D; innerQueue.poll();</span><br><span class="line">		if (poll !&#x3D; null) &#123;</span><br><span class="line">			return poll;</span><br><span class="line">		&#125;</span><br><span class="line">		if (webDriverList.size() &lt; capacity) &#123;</span><br><span class="line">			synchronized (webDriverList) &#123;</span><br><span class="line">				if (webDriverList.size() &lt; capacity) &#123;</span><br><span class="line"></span><br><span class="line">					&#x2F;&#x2F; add new WebDriver instance into pool</span><br><span class="line">					try &#123;</span><br><span class="line">						configure();</span><br><span class="line">						innerQueue.add(mDriver);</span><br><span class="line">						webDriverList.add(mDriver);</span><br><span class="line">					&#125; catch (IOException e) &#123;</span><br><span class="line">						e.printStackTrace();</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		return innerQueue.take();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void returnToPool(WebDriver webDriver) &#123;</span><br><span class="line">		checkRunning();</span><br><span class="line">		innerQueue.add(webDriver);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	protected void checkRunning() &#123;</span><br><span class="line">		if (!stat.compareAndSet(STAT_RUNNING, STAT_RUNNING)) &#123;</span><br><span class="line">			throw new IllegalStateException(&quot;Already closed!&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public void closeAll() &#123;</span><br><span class="line">		boolean b &#x3D; stat.compareAndSet(STAT_RUNNING, STAT_CLODED);</span><br><span class="line">		if (!b) &#123;</span><br><span class="line">			throw new IllegalStateException(&quot;Already closed!&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		for (WebDriver webDriver : webDriverList) &#123;</span><br><span class="line">			logger.info(&quot;Quit webDriver&quot; + webDriver);</span><br><span class="line">			webDriver.quit();</span><br><span class="line">			webDriver &#x3D; null;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>config.ini</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># What WebDriver to use for the tests</span><br><span class="line">#driver&#x3D;firefox</span><br><span class="line">driver&#x3D;chrome</span><br><span class="line"></span><br><span class="line">#谷歌浏览器启动程序路径</span><br><span class="line">#chrome_exec_path&#x3D;D:\chromedriver_win32\chromedriver.exe</span><br><span class="line">chrome_driver_loglevel&#x3D;DEBUG</span><br></pre></td></tr></table></figure>
+
+<p>项目地址： <a target="_blank" rel="noopener" href="https://github.com/born2do/crawler.git">https://github.com/born2do/crawler.git</a> </p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>Selenium 已不再支持 PhantomJS，以前还可以通过降低jar包版本的方式解决该问题，但是现在已经不行了，即使版本再低，也不会引入PhantomJS相关的jar包了，所以webmagic作者开发的webmagic-selenium已经不能再用了（好像已经很久都没有更新版本了。。。），我这里的处理是下载源码，在源码的基础上将PhantomJS的相关内容都已经剔除了。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/born2do" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/born2do" target="_blank"><span class="text-dark">你不懂的阳</span><small class="ml-1x">Web Developer</small></a></h3>
+        <div>技术爱好者。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/03/27/%E3%80%90WebMagic%E3%80%91%E8%A7%A3%E6%9E%90%E8%8E%B7%E5%8F%96JSON%E6%95%B0%E6%8D%AE/" title="【WebMagic】解析获取JSON数据"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/03/25/%E3%80%90Java%E3%80%91%E7%94%A8Java%E5%AE%9E%E7%8E%B0JS%E4%B8%AD%E7%9A%84decodeURIComponent-%E5%87%BD%E6%95%B0/" title="【Java】用Java实现JS中的decodeURIComponent()函数"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/born2do" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5de5b8641ae3d1c71c60',
+    clientSecret: 'ce8a9386e3a9cdb0f907f59903cfada55bc8e676',
+    repo: 'blogComments',
+    owner: 'born2do',
+    admin: ['born2do'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
