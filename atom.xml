@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-03-29T15:45:34.546Z</updated>
+  <updated>2021-03-30T11:16:31.315Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>private final static Logger log= LoggerFactory.getLogger(HelloController.class);</title>
+    <link href="https://born2do.github.io/2021/03/30/private-final-static-Logger-log-LoggerFactory-getLogger-HelloController-class/"/>
+    <id>https://born2do.github.io/2021/03/30/private-final-static-Logger-log-LoggerFactory-getLogger-HelloController-class/</id>
+    <published>2021-03-30T11:15:53.000Z</published>
+    <updated>2021-03-30T11:16:31.315Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Logger logger= LoggerFactory.getLogger(HelloController.class);</span><br></pre></td></tr></table></figure><ul><li>设置为private是为了防止其他类使用当前类的日志对象；如果当前类需要被子类继承，并且都使用同一个日志对象时，可设置为protected 。</li><li>设置为static是为了让每个类中的日志对象只生成一份，日志对象是属于类的，不是属于具体的实例的。</li><li>设置成final是为了避免日志对象在运行时被修改。</li></ul>]]></content>
+    
+    
+    <summary type="html">private final static Logger log= LoggerFactory.getLogger(HelloController.class);</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="logback" scheme="https://born2do.github.io/tags/logback/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【logback】SLF4J: Failed to load class org.slf4j.impl.StaticLoggerBinder.</title>
+    <link href="https://born2do.github.io/2021/03/30/%E3%80%90logback%E3%80%91SLF4J-Failed-to-load-class-org-slf4j-impl-StaticLoggerBinder/"/>
+    <id>https://born2do.github.io/2021/03/30/%E3%80%90logback%E3%80%91SLF4J-Failed-to-load-class-org-slf4j-impl-StaticLoggerBinder/</id>
+    <published>2021-03-30T11:14:53.000Z</published>
+    <updated>2021-03-30T11:15:27.484Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试logback，出现了如下报错：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.</span><br><span class="line">SLF4J: Defaulting to no-operation (NOP) logger implementation</span><br><span class="line">SLF4J: See http:<span class="comment">//www.slf4j.org/codes.html#StaticLoggerBinder for further details.</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure><p>使用Maven构建的工程，logback的配置文件也都正常，但却报了上面的错误。<br>仔细察看一番，发现从Maven仓库复制依赖时把scope也给带上了，pom文件中的范围是test，而我的调用代码写在main函数中（非test范围），所以报错了。<br>解决办法：<br>将pom文件中的scope给注释掉，重新加载一下依赖就好。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;ch.qos.logback&#x2F;logback-classic --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;ch.qos.logback&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;logback-classic&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;1.2.3&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.slf4j&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;slf4j-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;1.7.25&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">【logback】SLF4J: Failed to load class org.slf4j.impl.StaticLoggerBinder.</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="logback" scheme="https://born2do.github.io/tags/logback/"/>
+    
+  </entry>
   
   <entry>
     <title>【WebMagic】webmagic-selenium 找不到config.ini文件</title>
@@ -395,48 +437,6 @@
     
     
     <category term="Windows" scheme="https://born2do.github.io/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MYSQL解压版安装</title>
-    <link href="https://born2do.github.io/2021/03/07/MYSQL%E8%A7%A3%E5%8E%8B%E7%89%88%E5%AE%89%E8%A3%85/"/>
-    <id>https://born2do.github.io/2021/03/07/MYSQL%E8%A7%A3%E5%8E%8B%E7%89%88%E5%AE%89%E8%A3%85/</id>
-    <published>2021-03-07T01:50:34.000Z</published>
-    <updated>2021-03-07T01:57:00.587Z</updated>
-    
-    <content type="html"><![CDATA[<p>根据自己的系统，从官网下载Mysql压缩包。将下载到的文件解压缩到自己喜欢的位置，例如我自己的位置是D:\mysql-8.0.11-winx64。</p><h1 id="配置环境变量。"><a href="#配置环境变量。" class="headerlink" title="配置环境变量。"></a>配置环境变量。</h1><p>将Mysql的bin目录配置到path下面。<br><img src="https://i.loli.net/2021/03/06/XUBsK3YGDMhJb4q.png" alt="MYSQL解压版安装-配置环境变量.png"></p><h1 id="配置my-ini文件。"><a href="#配置my-ini文件。" class="headerlink" title="配置my.ini文件。"></a>配置my.ini文件。</h1><p>在D:\mysql-8.0.11-winx64（注意这个目录要是你自己的mysql目录）目录下新建一个配置文件，文件名叫my.ini，然后把下面的配置代码复制到在my.ini（代码中的路径要改成自己的文件存放路径）。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set&#x3D;utf8 </span><br><span class="line">[mysqld]</span><br><span class="line">#设置3306端口</span><br><span class="line">port &#x3D; 3306 </span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir&#x3D;D:\mysql-8.0.11-winx64</span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir&#x3D;D:\mysql-8.0.11-winx64\data</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections&#x3D;200</span><br><span class="line"># 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server&#x3D;utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine&#x3D;INNODB</span><br></pre></td></tr></table></figure><h1 id="安装mysql服务。"><a href="#安装mysql服务。" class="headerlink" title="安装mysql服务。"></a>安装mysql服务。</h1><p>将目录切换到你解压文件的D:\mysql\mysql-5.6.33-winx64\bin目录，<br>初始化和启动Mysql服务：</p><ul><li>以管理员权限运行cmd</li><li>进入mysql的bin下</li><li>初始化，生成data文件夹<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqld  --initialize-insecure （建议使用，不设置root密码）</span><br><span class="line">mysqld  --initialize （不建议使用，生成一个随机的root密码）</span><br></pre></td></tr></table></figure></li><li>安装MySql服务<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld -install</span><br></pre></td></tr></table></figure></li></ul><h1 id="开始mysql服务。"><a href="#开始mysql服务。" class="headerlink" title="开始mysql服务。"></a>开始mysql服务。</h1><p>启动mysql</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure><h1 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h1><p>安装成功并开始mysql服务后，重新进入DOS命令行，输入<code>mysql -u root -p</code>之后回车。<br>登录mysql之后，设置root密码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for root@localhost &#x3D; password(&#39;YourPassword&#39;);</span><br></pre></td></tr></table></figure><p>或者使用mysqlamdin修改root密码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root -p password NewPassword；</span><br></pre></td></tr></table></figure><p>博客最早记载时间为2019年08月30日。</p>]]></content>
-    
-    
-    <summary type="html">MYSQL解压版安装</summary>
-    
-    
-    
-    <category term="软件安装" scheme="https://born2do.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-    
-    <category term="MYSQL" scheme="https://born2do.github.io/tags/MYSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VC++6.0出现Error spawning cl.exe</title>
-    <link href="https://born2do.github.io/2021/03/07/VC-6-0%E5%87%BA%E7%8E%B0Error-spawning-cl-exe/"/>
-    <id>https://born2do.github.io/2021/03/07/VC-6-0%E5%87%BA%E7%8E%B0Error-spawning-cl-exe/</id>
-    <published>2021-03-07T01:49:11.000Z</published>
-    <updated>2021-03-07T01:50:13.891Z</updated>
-    
-    <content type="html"><![CDATA[<p>当我们在VC++6.0中编写好一个C语言程序后，点击“Compile（编译）”或者“Build（构建）”出现的“Compiling… ,Error spawning cl.exe”错误提示，一般都是因为路径设置的问题引起的。</p><ul><li>首先查看VC++6.0的安装路径，一般默认安装都是安装在C:\Program Files\Microsoft Visual Studio目录下，但是你安装时有可能安装在其他目录中，一定要知道安装目录的路径。<br><img src="https://i.loli.net/2021/03/06/mCLRn5FDKjbZGSs.png" alt="VC++6.0安装路径.png"></li><li>打开VC++6.0程序，点击菜单栏上的“工具（T）”，在出现的下拉列表中选择“选项（O）…”，如下图所示。<br><img src="https://i.loli.net/2021/03/06/npCKMIB1q3cm7Z6.png" alt="VC++6.0选项.png"></li><li>弹出一个“选项”窗口，点击窗口菜单栏上的“目录”选项，点击目录（S）对应的下拉框会看到有可执行文件（executatble files）、include files、library files、source files四个选项。<br><img src="https://i.loli.net/2021/03/06/WOi91L6XNxcQAaC.png" alt="VC++6.0选项-目录.png"><br>在“目录（S）”对应的下拉框中选择“include files”，在”路径(D)”中可以看到一共有三行路径，红线框中代表VC++6.0的安装路径，如果不是请改为安装路径。<br>之后，对“可执行文件（executatble files）、library files、source files”做同样的修改。</li><li>改完之后，点击“确定”按钮，重新编译程序，可以发现没有出现“Compiling…,Error spawning cl.exe”这个问题了，程序可以正常编译了。</li></ul><p>博客最早记载时间为2019年08月30日。</p>]]></content>
-    
-    
-    <summary type="html">VC++6.0出现Error spawning cl.exe</summary>
-    
-    
-    
-    <category term="error" scheme="https://born2do.github.io/categories/error/"/>
-    
-    
-    <category term="VC++6.0" scheme="https://born2do.github.io/tags/VC-6-0/"/>
     
   </entry>
   
