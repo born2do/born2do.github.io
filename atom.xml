@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-05T08:41:29.459Z</updated>
+  <updated>2021-04-06T15:15:34.718Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Java】运算符的优先级和结合顺序</title>
+    <link href="https://born2do.github.io/2021/04/06/%E3%80%90Java%E3%80%91%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E7%BB%93%E5%90%88%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://born2do.github.io/2021/04/06/%E3%80%90Java%E3%80%91%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E7%BB%93%E5%90%88%E9%A1%BA%E5%BA%8F/</id>
+    <published>2021-04-06T15:13:26.000Z</published>
+    <updated>2021-04-06T15:15:34.718Z</updated>
+    
+    <content type="html"><![CDATA[<p>1级（左结合） 　　() 圆括号；[]下标运算符；-&gt;指向结构体成员运算符；. 结构体成员运算符。 </p><p>2级（右结合） 　　!逻辑非运算符；~按位取反运算符；++前缀增量运算符；–前缀减量运算符；+正号运算符；-负号运算符；(类型)类型转换运算符；*指针运算符；&amp;地址运算符；sizeof长度运算符。 　　</p><p>3级（左结合） 　　*乘法运算符；/除法运算符；%取余运算符。 　　</p><p>4级（左结合） 　　+加法运算符；-减法运算符。 　　 　　</p><p>5级（左结合） 　　&lt;&lt;左移运算符；&gt;&gt;右移运算符。 　　</p><p>6级（左结合） 　　&lt;、&lt;=、&gt;、&gt;=关系运算符。 　　</p><p>7级（左结合） 　　==等于运算符；!=不等于运算符。 　　</p><p>8级（左结合） 　　&amp;按位与运算符。 　　</p><p>9级（左结合） 　　^按位异或运算符。 　　</p><p>10级（左结合） 　　|按位或运算符。 　　</p><p>11级（左结合） 　　&amp;&amp;逻辑与运算符。 　　</p><p>12级（左结合） 　　||逻辑或运算符。 　　</p><p>13级（右结合） 　　? :条件运算符。 　　</p><p>14级（右结合） 　　=、 +=、 -=、 *=、 /=、 %=、 &amp;=、 ^=、 |=、 &lt;&lt;=、 &gt;&gt;=赋值运算符。 　</p><p>15级（左结合） 　　,逗号运算符。</p>]]></content>
+    
+    
+    <summary type="html">运算符的优先级和结合顺序</summary>
+    
+    
+    
+    <category term="C语言" scheme="https://born2do.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="运算符优先级" scheme="https://born2do.github.io/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>【log4j】logger.isTraceEnabled()</title>
@@ -416,27 +437,6 @@
     
     
     <category term="find" scheme="https://born2do.github.io/tags/find/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开源/免费工具</title>
-    <link href="https://born2do.github.io/2021/03/09/%E5%BC%80%E6%BA%90-%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/"/>
-    <id>https://born2do.github.io/2021/03/09/%E5%BC%80%E6%BA%90-%E5%85%8D%E8%B4%B9%E5%B7%A5%E5%85%B7/</id>
-    <published>2021-03-09T12:38:24.000Z</published>
-    <updated>2021-03-09T12:39:22.923Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h1><ul><li>PuTTY<br>官网： <a href="https://www.putty.org/">https://www.putty.org/</a> </li><li>MTPUTTY （未找到相关licence，但官网表示一切免费）<br>官网： <a href="https://ttyplus.com/">https://ttyplus.com/</a> </li><li>FinalShell（并非开源，仅通用版免费使用）<br>官网： <a href="http://www.hostbuf.com/">http://www.hostbuf.com/</a> </li></ul><h1 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h1><ul><li>WinSCP<br>官网： <a href="https://winscp.net/">https://winscp.net/</a> </li></ul><h1 id="文本编辑器"><a href="#文本编辑器" class="headerlink" title="文本编辑器"></a>文本编辑器</h1><ul><li>Notepad++<br>官网： <a href="https://notepad-plus-plus.org/">https://notepad-plus-plus.org/</a></li><li>Typora （并非开源，但免费）<br>官网： <a href="https://www.typora.io/">https://www.typora.io/</a></li></ul><h1 id="集成开发环境IDE"><a href="#集成开发环境IDE" class="headerlink" title="集成开发环境IDE"></a>集成开发环境IDE</h1><ul><li>Eclipse<br>官网： <a href="https://www.eclipse.org/">https://www.eclipse.org/</a> </li></ul><h1 id="数据库连接工具"><a href="#数据库连接工具" class="headerlink" title="数据库连接工具"></a>数据库连接工具</h1><ul><li>DBeaver（社区版免费）<br>官网： <a href="https://dbeaver.io/">https://dbeaver.io/</a></li></ul><h1 id="数据库模型建模工具"><a href="#数据库模型建模工具" class="headerlink" title="数据库模型建模工具"></a>数据库模型建模工具</h1><ul><li>PDMan<br>官网： <a href="http://www.pdman.cn/">http://www.pdman.cn/</a> </li></ul><h1 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h1><ul><li>火狐<br>官网： <a href="http://www.firefox.com.cn/">http://www.firefox.com.cn/</a> </li></ul><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ul><li>MySQL<br>官网： <a href="https://www.mysql.com/">https://www.mysql.com/</a> </li></ul><h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><ul><li>Apache Tomcat<br>官网： <a href="https://tomcat.apache.org/">https://tomcat.apache.org/</a></li></ul><h1 id="图床工具"><a href="#图床工具" class="headerlink" title="图床工具"></a>图床工具</h1><ul><li>PicGo<br>官网： <a href="https://picgo.github.io/PicGo-Doc/">https://picgo.github.io/PicGo-Doc/</a></li></ul><h1 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h1><ul><li>Git<br>官网： <a href="https://git-scm.com/">https://git-scm.com/</a> </li><li>TortoiseSVN<br>官网： <a href="https://tortoisesvn.net/">https://tortoisesvn.net/</a> </li></ul>]]></content>
-    
-    
-    <summary type="html">开源/免费工具</summary>
-    
-    
-    
-    <category term="工具" scheme="https://born2do.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="开源" scheme="https://born2do.github.io/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
