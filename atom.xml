@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-08T13:51:07.181Z</updated>
+  <updated>2021-04-09T11:59:43.537Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>元字符及其描述</title>
+    <link href="https://born2do.github.io/2021/04/09/%E5%85%83%E5%AD%97%E7%AC%A6%E5%8F%8A%E5%85%B6%E6%8F%8F%E8%BF%B0/"/>
+    <id>https://born2do.github.io/2021/04/09/%E5%85%83%E5%AD%97%E7%AC%A6%E5%8F%8A%E5%85%B6%E6%8F%8F%E8%BF%B0/</id>
+    <published>2021-04-09T11:58:34.000Z</published>
+    <updated>2021-04-09T11:59:43.537Z</updated>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th>元字符</th><th>描述</th></tr></thead><tbody><tr><td>\</td><td>将下一个字符标记符、或一个向后引用、或一个八进制转义符。例如，“\n”匹配\n。“\n”匹配换行符。序列“\”匹配“\”而“(”则匹配“(”。即相当于多种编程语言中都有的“转义字符”的概念。</td></tr><tr><td>^</td><td>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配“\n”或“\r”之后的位置。</td></tr><tr><td>$</td><td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配“\n”或“\r”之前的位置。</td></tr><tr><td>*</td><td>匹配前面的子表达式任意次。例如，zo<em>能匹配“z”，也能匹配“zo”以及“zoo”。</em>等价于o{0,}</td></tr><tr><td>+</td><td>匹配前面的子表达式一次或多次(大于等于1次）。例如，“zo+”能匹配“zo”以及“zoo”，但不能匹配“z”。+等价于{1,}。</td></tr><tr><td>?</td><td>匹配前面的子表达式零次或一次。例如，“do(es)?”可以匹配“do”或“does”中的“do”。?等价于{0,1}。</td></tr><tr><td>{n}</td><td>n是一个非负整数。匹配确定的n次。例如，“o{2}”不能匹配“Bob”中的“o”，但是能匹配“food”中的两个o。</td></tr><tr><td>{n,}</td><td>n是一个非负整数。至少匹配n次。例如，“o{2,}”不能匹配“Bob”中的“o”，但能匹配“foooood”中的所有o。“o{1,}”等价于“o+”。“o{0,}”则等价于“o*”。</td></tr><tr><td>{n,m}</td><td>m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。例如，“o{1,3}”将匹配“fooooood”中的前三个o为一组，后三个o为一组。“o{0,1}”等价于“o?”。请注意在逗号和两个数之间不能有空格。</td></tr><tr><td>?</td><td>当该字符紧跟在任何一个其他限制符（*,+,?，{n}，{n,}，{n,m}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“oooo”，“o+”将尽可能多的匹配“o”，得到结果[“oooo”]，而“o+?”将尽可能少的匹配“o”，得到结果 [‘o’, ‘o’, ‘o’, ‘o’]</td></tr><tr><td>.点</td><td>匹配除“\r\n”之外的任何单个字符。要匹配包括“\r\n”在内的任何字符，请使用像“[\s\S]”的模式。</td></tr><tr><td>(pattern)</td><td>匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用“(”或“)”。</td></tr><tr><td>(?:pattern)</td><td>非获取匹配，匹配pattern但不获取匹配结果，不进行存储供以后使用。这在使用或字符“(|)”来组合一个模式的各个部分时很有用。例如“industr(?:y|ies)”就是一个比“industry|industries”更简略的表达式。</td></tr><tr><td>(?=pattern)</td><td>非获取匹配，正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。例如，“Windows(?=95|98|NT|2000)”能匹配“Windows2000”中的“Windows”，但不能匹配“Windows3.1”中的“Windows”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td></tr><tr><td>(?!pattern)</td><td>非获取匹配，正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。例如“Windows(?!95|98|NT|2000)”能匹配“Windows3.1”中的“Windows”，但不能匹配“Windows2000”中的“Windows”。</td></tr><tr><td>(?&lt;=pattern)</td><td>非获取匹配，反向肯定预查，与正向肯定预查类似，只是方向相反。例如，“(?&lt;=95|98|NT|2000)Windows”能匹配“2000Windows”中的“Windows”，但不能匹配“3.1Windows”中的“Windows”。</td></tr><tr><td>(?&lt;!pattern)</td><td>非获取匹配，反向否定预查，与正向否定预查类似，只是方向相反。例如“(?&lt;!95|98|NT|2000)Windows”能匹配“3.1Windows”中的“Windows”，但不能匹配“2000Windows”中的“Windows”。这个地方不正确，有问题                此处用或任意一项都不能超过2位，如“(?&lt;!95|98|NT|20)Windows正确，“(?&lt;!95|980|NT|20)Windows 报错，若是单独使用则无限制，如(?&lt;!2000)Windows 正确匹配</td></tr><tr><td>x|y</td><td>匹配x或y。例如，“z|food”能匹配“z”或“food”(此处请谨慎)。“[zf]ood”则匹配“zood”或“food”。</td></tr><tr><td>[xyz]</td><td>字符集合。匹配所包含的任意一个字符。例如，“[abc]”可以匹配“plain”中的“a”。</td></tr><tr><td>[^xyz]</td><td>负值字符集合。匹配未包含的任意字符。例如，“[^abc]”可以匹配“plain”中的“plin”。</td></tr><tr><td>[a-z]</td><td>字符范围。匹配指定范围内的任意字符。例如，“[a-z]”可以匹配“a”到“z”范围内的任意小写字母字符。                注意:只有连字符在字符组内部时,并且出现在两个字符之间时,才能表示字符的范围; 如果出字符组的开头,则只能表示连字符本身.</td></tr><tr><td>[^a-z]</td><td>负值字符范围。匹配任何不在指定范围内的任意字符。例如，“[^a-z]”可以匹配任何不在“a”到“z”范围内的任意字符。</td></tr><tr><td>\b</td><td>匹配一个单词边界，也就是指单词和空格间的位置（即正则表达式的“匹配”有两种概念，一种是匹配字符，一种是匹配位置，这里的\b就是匹配位置的）。例如，“er\b”可以匹配“never”中的“er”，但不能匹配“verb”中的“er”。</td></tr><tr><td>\B</td><td>匹配非单词边界。“er\B”能匹配“verb”中的“er”，但不能匹配“never”中的“er”。</td></tr><tr><td>\cx</td><td>匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的“c”字符。</td></tr><tr><td>\d</td><td>匹配一个数字字符。等价于[0-9]。grep 要加上-P，perl正则支持</td></tr><tr><td>\D</td><td>匹配一个非数字字符。等价于[^0-9]。grep要加上-P，perl正则支持</td></tr><tr><td>\f</td><td>匹配一个换页符。等价于\x0c和\cL。</td></tr><tr><td>\n</td><td>匹配一个换行符。等价于\x0a和\cJ。</td></tr><tr><td>\r</td><td>匹配一个回车符。等价于\x0d和\cM。</td></tr><tr><td>\s</td><td>匹配任何不可见字符，包括空格、制表符、换页符等等。等价于[ \f\n\r\t\v]。</td></tr><tr><td>\S</td><td>匹配任何可见字符。等价于[^ \f\n\r\t\v]。</td></tr><tr><td>\t</td><td>匹配一个制表符。等价于\x09和\cI。</td></tr><tr><td>\v</td><td>匹配一个垂直制表符。等价于\x0b和\cK。</td></tr><tr><td>\w</td><td>匹配包括下划线的任何单词字符。类似但不等价于“[A-Za-z0-9_]”，这里的”单词”字符使用Unicode字符集。</td></tr><tr><td>\W</td><td>匹配任何非单词字符。等价于“[^A-Za-z0-9_]”。</td></tr></tbody></table>]]></content>
+    
+    
+    <summary type="html">元字符及其描述</summary>
+    
+    
+    
+    <category term="元字符" scheme="https://born2do.github.io/categories/%E5%85%83%E5%AD%97%E7%AC%A6/"/>
+    
+    
+    <category term="元字符" scheme="https://born2do.github.io/tags/%E5%85%83%E5%AD%97%E7%AC%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Java】栈内存与堆内存的区别</title>
+    <link href="https://born2do.github.io/2021/04/09/%E3%80%90Java%E3%80%91%E6%A0%88%E5%86%85%E5%AD%98%E4%B8%8E%E5%A0%86%E5%86%85%E5%AD%98%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://born2do.github.io/2021/04/09/%E3%80%90Java%E3%80%91%E6%A0%88%E5%86%85%E5%AD%98%E4%B8%8E%E5%A0%86%E5%86%85%E5%AD%98%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2021-04-09T11:57:28.000Z</published>
+    <updated>2021-04-09T11:58:14.549Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>栈内存与堆内存都是Java用来存储数据的地方。与C++不同，Java自动管理栈和堆，程序员不需要也不能够直接对栈或堆进行设置。</li><li>堆，用于存储对象。当Java程序使用 new 关键字创建对象时，堆内存会开辟出相应的内存来存储该对象，这些对象不需要被显式地释放，会有垃圾回收机制来处理这些长期没有被使用的对象。<ul><li>优点：他是在运行时动态分配内存大小，不需要人工管理垃圾数据，会有垃圾回收机制进行相应管理。</li><li>缺点：同样，因为是在运行时动态分配内存大小，故而存取速度较慢。</li></ul></li><li>栈，主要用于存放一些基本数据类型的变量和对象引用。<ul><li>优点：1）存取速度快于堆，仅次于寄存器。2）栈数据可共享。</li><li>缺点：存放在栈中的数据大小与生存期必须是确定的，缺乏灵活性。</li></ul></li></ol>]]></content>
+    
+    
+    <summary type="html">【Java】栈内存与堆内存的区别</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="栈内存" scheme="https://born2do.github.io/tags/%E6%A0%88%E5%86%85%E5%AD%98/"/>
+    
+    <category term="堆内存" scheme="https://born2do.github.io/tags/%E5%A0%86%E5%86%85%E5%AD%98/"/>
+    
+  </entry>
   
   <entry>
     <title>【IDEA社区版】webapp下静态资源无法访问</title>
@@ -395,48 +439,6 @@
     
     
     <category term="linux" scheme="https://born2do.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Linux】查看当前系统默认的shell解释器，修改默认解释器</title>
-    <link href="https://born2do.github.io/2021/03/12/%E3%80%90Linux%E3%80%91%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E7%9A%84shell%E8%A7%A3%E9%87%8A%E5%99%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
-    <id>https://born2do.github.io/2021/03/12/%E3%80%90Linux%E3%80%91%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E7%9A%84shell%E8%A7%A3%E9%87%8A%E5%99%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E8%A7%A3%E9%87%8A%E5%99%A8/</id>
-    <published>2021-03-12T14:24:02.000Z</published>
-    <updated>2021-03-12T14:24:48.513Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="查看系统当前支持哪些shell解释器"><a href="#查看系统当前支持哪些shell解释器" class="headerlink" title="查看系统当前支持哪些shell解释器"></a>查看系统当前支持哪些shell解释器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@Administrator:~# cat  &#x2F;etc&#x2F;shells</span><br><span class="line"># &#x2F;etc&#x2F;shells: valid login shells</span><br><span class="line">&#x2F;bin&#x2F;sh</span><br><span class="line">&#x2F;bin&#x2F;bash</span><br><span class="line">&#x2F;bin&#x2F;rbash</span><br><span class="line">&#x2F;bin&#x2F;dash</span><br></pre></td></tr></table></figure><h1 id="查看系统当前默认的shell解释器"><a href="#查看系统当前默认的shell解释器" class="headerlink" title="查看系统当前默认的shell解释器"></a>查看系统当前默认的shell解释器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@Administrator:~# echo $0</span><br><span class="line">-bash</span><br><span class="line">root@Administrator:~# echo $SHELL</span><br><span class="line">&#x2F;bin&#x2F;bash</span><br><span class="line">root@Administrator:~# env | grep SHELL</span><br><span class="line">SHELL&#x3D;&#x2F;bin&#x2F;bash</span><br><span class="line">root@Administrator:~# ps -p $$</span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line"> 1091 pts&#x2F;1    00:00:00 bash</span><br></pre></td></tr></table></figure><h1 id="修改默认的shell解释器"><a href="#修改默认的shell解释器" class="headerlink" title="修改默认的shell解释器"></a>修改默认的shell解释器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@Administrator:~# chsh -s &#x2F;bin&#x2F;sh</span><br><span class="line">root@Administrator:~# chsh</span><br><span class="line">Changing the login shell for root</span><br><span class="line">Enter the new value, or press ENTER for the default</span><br><span class="line">        Login Shell [&#x2F;bin&#x2F;sh]: &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure><p>说明：修改了系统默认shell之后不会立即生效，之后再次登录系统修改的shell才会生效。</p>]]></content>
-    
-    
-    <summary type="html">【Linux】查看当前系统默认的shell解释器，修改默认解释器</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://born2do.github.io/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://born2do.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java代码注释规约及eclipse相关配置</title>
-    <link href="https://born2do.github.io/2021/03/11/Java%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A%E8%A7%84%E7%BA%A6%E5%8F%8Aeclipse%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/"/>
-    <id>https://born2do.github.io/2021/03/11/Java%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A%E8%A7%84%E7%BA%A6%E5%8F%8Aeclipse%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/</id>
-    <published>2021-03-11T12:31:20.000Z</published>
-    <updated>2021-03-11T12:32:06.440Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java代码注释规约"><a href="#Java代码注释规约" class="headerlink" title="Java代码注释规约"></a>Java代码注释规约</h1><p>1.【强制】类、类属性、类方法的注释必须使用Javadoc规范，使用 <code>/** 内容 */</code> 格式，不得使用 <code>// xxx</code> 方式。<br>说明：在IDE编辑窗口中，Javadoc方式会提示相关注释，生成Javadoc可以正确输出相应注释；在IDE中，工程调用方法时，不进入方法即可悬浮提示方法、参数、返回值的意义，提高阅读效率。<br>2.【强制】所有的抽象方法（包括接口中的方法）必须要用Javadoc注释、除了返回值、参数、异常说明外，还必须指出该方法做什么事情，实现什么功能。<br>说明：对子类的实现要求，或者调用注意事项，请一并说明。<br>3.【强制】所有的类都必须添加创建者和创建日期。<br>4.【强制】方法内部单行注释，在被注释语句上方另起一行，使用 <code>//</code> 注释。方法内部多行注释使用 <code>/* */</code> 注释，注意与代码对齐。<br>5.【强制】所有的枚举类型字段必须要有注释，说明每个数据项的用途。<br>6.【推荐】与其“半吊子”英文来注释，不如用中文注释把问题说清楚。专有名词与关键字保持英文原文即可。<br>反例：“TCP连接超时”解释成“传输控制协议连接超时”，理解反而费脑筋。<br>7.【推荐】代码修改的同时，注释也要进行相应的修改，尤其是参数、返回值、异常、核心逻辑等的修改。<br>说明：代码与注释更新不同步，就像路网与导航软件更新不同步一样，如果导航软件严重滞后，就失去了导航的意义。<br>8.【参考】谨慎注释掉代码。在上方详细说明，而不是简单地注释掉。如果无用，则删除。<br>说明：代码被注释掉有两种可能性：1）后续会恢复此段代码逻辑。2）永久不用。前者如果没有备注信息，难以知晓注释动机。后者建议直接删掉（代码仓库保存了历史代码）。<br>9.【参考】对于注释的要求：第一、能够准确反应设计思想和代码逻辑；第二、能够描述业务含义，使别的程序员能够迅速了解到代码背后的信息。完全没有注释的大段代码对于阅读者形同天书，注释是给自己看的，即使隔很长时间，也能清晰理解当时的思路；注释也是给继任者看的，使其能够快速接替自己的工作。<br>10.【参考】好的命名、代码结构是自解释的，注释力求精简准确、表达到位。避免出现注释的一个极端：过多过滥的注释，代码的逻辑一旦修改，修改注释是相当大的负担。<br>反例：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// put elephant into fridge</span></span><br><span class="line">put(elephant, fridge);</span><br></pre></td></tr></table></figure><p>方法名put，加上两个有意义的变量名elephant和fridge，已经说明了这是在干什么，语义清晰的代码不需要额外的注释。<br>11.【参考】特殊注释标记，请注明标记人与标记时间。注意及时处理这些标记，通过标记扫描，经常清理此类标记。线上故障有时候就是来源于这些标记处的代码。<br>1）待办事宜（TODO）:（ 标记人，标记时间，[预计处理时间]）<br>表示需要实现，但目前还未实现的功能。这实际上是一个Javadoc的标签，目前的Javadoc还没有实现，但已经被广泛使用。只能应用于类，接口和方法（因为它是一个Javadoc标签）。<br>2）错误，不能工作（FIXME）:（标记人，标记时间，[预计处理时间]）<br>在注释中用FIXME标记某代码是错误的，而且不能工作，需要及时纠正的情况。</p><h1 id="eclipse相关配置"><a href="#eclipse相关配置" class="headerlink" title="eclipse相关配置"></a>eclipse相关配置</h1><p>Window-&gt;Preferences-&gt;Java-&gt;Code Style-&gt;Code Templates-&gt;Comments-&gt;</p><h2 id="类、接口"><a href="#类、接口" class="headerlink" title="类、接口"></a>类、接口</h2><p>Types-&gt;edit<br>填入以下内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * $&#123;tags&#125;</span><br><span class="line"> * @author $&#123;user&#125;</span><br><span class="line"> * @date $&#123;date&#125;</span><br><span class="line"> *&#x2F;</span><br></pre></td></tr></table></figure><h2 id="方法体"><a href="#方法体" class="headerlink" title="方法体"></a>方法体</h2><p>Methods-&gt;edit<br>填入以下内容（一般会有默认格式，无需修改）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * $&#123;tags&#125;</span><br><span class="line"> *&#x2F;</span><br></pre></td></tr></table></figure><h2 id="修改保存"><a href="#修改保存" class="headerlink" title="修改保存"></a>修改保存</h2><p>修改后勾选下方的“Automatically add commects for new methods,types……”，然后点击“Apply and Close”即可。<br>说明：<br>1）以上修改的部分为强制内容，必须填写！！！也可自行额外添加其他标签内容。<br>2）接口或抽象类的JavaDoc必须填写，实现类中对接口或是抽象类的重写方法的JavaDoc可以不写，只要有<code>@Override</code>注解即可。</p>]]></content>
-    
-    
-    <summary type="html">Java代码注释规约及eclipse相关配置</summary>
-    
-    
-    
-    <category term="规约" scheme="https://born2do.github.io/categories/%E8%A7%84%E7%BA%A6/"/>
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/tags/Java/"/>
     
   </entry>
   
