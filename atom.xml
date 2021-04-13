@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-13T13:14:12.037Z</updated>
+  <updated>2021-04-13T13:55:13.291Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://born2do.github.io/2021/04/13/%E3%80%90Java%E3%80%91Spring%E4%B8%AD%E6%B3%A8%E8%A7%A3%E5%8F%AF%E4%BB%A5%E5%9C%A8%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9/"/>
     <id>https://born2do.github.io/2021/04/13/%E3%80%90Java%E3%80%91Spring%E4%B8%AD%E6%B3%A8%E8%A7%A3%E5%8F%AF%E4%BB%A5%E5%9C%A8%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9/</id>
     <published>2021-04-13T13:13:37.000Z</published>
-    <updated>2021-04-13T13:14:12.037Z</updated>
+    <updated>2021-04-13T13:55:13.291Z</updated>
     
-    <content type="html"><![CDATA[<p>Spring中的注解根据所在位置主要分为两类：</p><p>类级别的注解：如@Component、@Repository、@Controller、@Service以及JavaEE6的@ManagedBean和@Named注解，都是添加在类上面的类级别注解。</p><p>类内部的注解：如@Autowire、@Value、@Resource以及EJB和WebService相关的注解等，都是添加在类内部的字段或者方法上的类内部注解。</p><p>正常情况下，接口以及抽象类文件中是不能使用注解的。<br>因为spring的原理是启动服务器时读取配置文件，取得类名后利用反射机制在spring上下文中生成一个单例的对象，由spring注入属性并维护此对象的状态，抽象类/接口在反射生成对象时就已经失败了，spring无法注入，后续的其他操作也将不会进行。</p>]]></content>
+    <content type="html"><![CDATA[<p>Spring中的注解根据所在位置主要分为两类：</p><p>类级别的注解：如@Component、@Repository、@Controller、@Service以及JavaEE6的@ManagedBean和@Named注解，都是添加在类上面的类级别注解。</p><p>类内部的注解：如@Autowired、@Value、@Resource以及EJB和WebService相关的注解等，都是添加在类内部的字段或者方法上的类内部注解。</p><p>正常情况下，接口以及抽象类文件中是不能使用注解的。<br>因为spring的原理是启动服务器时读取配置文件，取得类名后利用反射机制在spring上下文中生成一个单例的对象，由spring注入属性并维护此对象的状态，抽象类/接口在反射生成对象时就已经失败了，spring无法注入，后续的其他操作也将不会进行。</p>]]></content>
     
     
     <summary type="html">【Java】Spring中注解可以在哪些地方</summary>

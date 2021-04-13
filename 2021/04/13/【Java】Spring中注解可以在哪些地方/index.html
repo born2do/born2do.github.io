@@ -26,7 +26,7 @@
 <meta property="og:description" content="【Java】Spring中注解可以在哪些地方">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-13T13:13:37.000Z">
-<meta property="article:modified_time" content="2021-04-13T13:14:12.037Z">
+<meta property="article:modified_time" content="2021-04-13T13:55:13.291Z">
 <meta property="article:author" content="chenhy">
 <meta property="article:tag" content="注解">
 <meta name="twitter:card" content="summary">
@@ -399,7 +399,7 @@
       
         <p>Spring中的注解根据所在位置主要分为两类：</p>
 <p>类级别的注解：如@Component、@Repository、@Controller、@Service以及JavaEE6的@ManagedBean和@Named注解，都是添加在类上面的类级别注解。</p>
-<p>类内部的注解：如@Autowire、@Value、@Resource以及EJB和WebService相关的注解等，都是添加在类内部的字段或者方法上的类内部注解。</p>
+<p>类内部的注解：如@Autowired、@Value、@Resource以及EJB和WebService相关的注解等，都是添加在类内部的字段或者方法上的类内部注解。</p>
 <p>正常情况下，接口以及抽象类文件中是不能使用注解的。<br>因为spring的原理是启动服务器时读取配置文件，取得类名后利用反射机制在spring上下文中生成一个单例的对象，由spring注入属性并维护此对象的状态，抽象类/接口在反射生成对象时就已经失败了，spring无法注入，后续的其他操作也将不会进行。</p>
 
       
