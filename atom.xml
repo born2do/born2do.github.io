@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-14T14:09:19.590Z</updated>
+  <updated>2021-04-16T09:41:25.827Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C语言零碎知识</title>
+    <link href="https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/"/>
+    <id>https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/</id>
+    <published>2021-04-16T09:41:01.000Z</published>
+    <updated>2021-04-16T09:41:25.827Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="printf-格式字符"><a href="#printf-格式字符" class="headerlink" title="printf()格式字符"></a>printf()格式字符</h2><table><thead><tr><th>printf()格式字符</th><th>英文</th><th>含义</th></tr></thead><tbody><tr><td>%c</td><td>character</td><td>以字符形式输出单个字符</td></tr><tr><td>%s</td><td>string</td><td>输出一个字符串</td></tr><tr><td>%d</td><td>decimal</td><td>以带符号十进制整数输出</td></tr><tr><td>%f</td><td>float</td><td>以小数形式输出浮点数（6位小数）</td></tr><tr><td>%e</td><td>exponent</td><td>以标准指数形式输出（6位小数）</td></tr><tr><td>%g</td><td></td><td>选用%f，%e中输出宽度较小的一种格式</td></tr><tr><td>%o</td><td>octal</td><td>以八进制无符号整数输出（无前导0）</td></tr><tr><td>%x</td><td>hex</td><td>以十六进制无符号整数输出（无前导0x）</td></tr><tr><td>%u</td><td>unsigned</td><td>以十进制无符号整数输出</td></tr></tbody></table><h2 id="printf-的格式修饰符"><a href="#printf-的格式修饰符" class="headerlink" title="printf()的格式修饰符"></a>printf()的格式修饰符</h2><table><thead><tr><th>printf()格式修饰符</th><th>含义</th></tr></thead><tbody><tr><td>m</td><td>表示数据占用的最小宽度。数据宽度大于m，按实际宽度输出；数据宽度小于m时，补空格。</td></tr><tr><td>n</td><td>对实数表示输出n位小数。对字符串表示最多输出的字符个数。</td></tr><tr><td>l</td><td>长整型整数，加在d、o、x、u前</td></tr><tr><td>L</td><td>long double型数，加在f、e、g前</td></tr><tr><td>-</td><td>改变输出内容的对齐方式为左对齐，默认为右对齐</td></tr></tbody></table><h2 id="scanf-的格式字符"><a href="#scanf-的格式字符" class="headerlink" title="scanf()的格式字符"></a>scanf()的格式字符</h2><table><thead><tr><th>scanf()格式字符</th><th>含义</th></tr></thead><tbody><tr><td>%c</td><td>以字符形式输入单个字符</td></tr><tr><td>%s</td><td>输入字符串,以非空字符开始,遇第一个空白字符结束</td></tr><tr><td>%d</td><td>以带符号十进制形式输入整型数据</td></tr><tr><td>%f</td><td>以小数形式输入浮点数</td></tr><tr><td>%e</td><td>以标准指数形式输入</td></tr><tr><td>%o</td><td>以八进制无符号形式输入（无前导0）</td></tr><tr><td>%x</td><td>以十六进制无符号形式输入（无前导0x）</td></tr></tbody></table><h2 id="scanf-的格式修饰符"><a href="#scanf-的格式修饰符" class="headerlink" title="scanf()的格式修饰符"></a>scanf()的格式修饰符</h2><table><thead><tr><th>scanf()格式修饰符</th><th>含义</th></tr></thead><tbody><tr><td>m</td><td>表示数据占用的宽度</td></tr><tr><td>l</td><td>加在d、o、x、u前：输入长整型；加在f、e 前：输入双精度型</td></tr><tr><td>L</td><td>加在f、e 前：输入long double型</td></tr><tr><td>h</td><td>加在d、o、x 前:输入短整型</td></tr><tr><td>*</td><td>本输入项在读入后不赋给相应的变量</td></tr></tbody></table><h2 id="文件打开方式（mode）："><a href="#文件打开方式（mode）：" class="headerlink" title="文件打开方式（mode）："></a>文件打开方式（mode）：</h2><p>①对应文本文件<br>“r”    只读    必须是已存在的文件<br>“w”    只写    不论该文件是否存在，都新建一个文件<br>“a”    追加    向文本文件尾增加数据，该文件必须存在<br>“r+”   读写    打开一个已存在的文件，用于读写<br>“w+”  读写    建立一个新文件，可读可写<br>“a+”   读写    向文件尾追加数据，也可读<br>②对应二进制文件<br>“rb”<br>“wb”<br>“ab”<br>“rb+”<br>“wb+”<br>“ab+”</p>]]></content>
+    
+    
+    <summary type="html">C语言零碎知识</summary>
+    
+    
+    
+    <category term="C语言" scheme="https://born2do.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="零碎知识" scheme="https://born2do.github.io/tags/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言关键字</title>
+    <link href="https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <id>https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97/</id>
+    <published>2021-04-16T09:38:58.000Z</published>
+    <updated>2021-04-16T09:39:22.807Z</updated>
+    
+    <content type="html"><![CDATA[<p>由ANSI标准定义的C语言关键字共32个 : </p><p>auto  double  int  struct  break  else  long  switch</p><p>case  enum  register  typedef  char  extern  return  union</p><p>const  float  short  unsigned  continue  for  signed  void</p><p>default  goto  sizeof  volatile  do  if  while  static </p><p>根据关键字的作用，可以将关键字分为数据类型关键字和流程控制关键字两大类。</p><p>1． 数据类型关键字</p><p>A基本数据类型（5个）</p><p>void ：声明函数无返回值或无参数，声明无类型指针，显式丢弃运算结果</p><p>char ：字符型类型数据，属于整型数据的一种</p><p>int ：整型数据，通常为编译器指定的机器字长</p><p>float ：单精度浮点型数据，属于浮点数据的一种</p><p>double ：双精度浮点型数据，属于浮点数据的一种</p><p>B 类型修饰关键字（4个）</p><p>short ：修饰int，短整型数据，可省略被修饰的int。</p><p>long ：修饰int，长整形数据，可省略被修饰的int。</p><p>signed ：修饰整型数据，有符号数据类型</p><p>unsigned ：修饰整型数据，无符号数据类型</p><p>C 复杂类型关键字（5个）</p><p>struct ：结构体声明</p><p>union ：共用体声明</p><p>enum ：枚举声明</p><p>typedef ：声明类型别名</p><p>sizeof ：得到特定类型或特定类型变量的大小</p><p>D 存储级别关键字（6个）</p><p>auto ：指定为自动变量，由编译器自动分配及释放。通常在栈上分配</p><p>static ：指定为静态变量，分配在静态变量区，修饰函数时，指定函数作用域为文件内部</p><p>register ：指定为寄存器变量，建议编译器将变量存储到寄存器中使用，也可以修饰函数形参，建议编译器通过寄存器而不是堆栈传递参数</p><p>extern ：指定对应变量为外部变量，即在另外的目标文件中定义，可以认为是约定由另外文件声明的韵蟮囊桓觥耙?谩?</p><p>const ：与volatile合称“cv特性”，指定变量不可被当前线程/进程改变（但有可能被系统或其他线程/进程改变）</p><p>volatile ：与const合称“cv特性”，指定变量的值有可能会被系统或其他进程/线程改变，强制编译器每次从内存中取得该变量的值</p><p>2． 流程控制关键字</p><p>A 跳转结构（4个）</p><p>return ：用在函数体中，返回特定值（或者是void值，即不返回值）</p><p>continue ：结束当前循环，开始下一轮循环</p><p>break ：跳出当前循环或switch结构</p><p>goto ：无条件跳转语句</p><p>B 分支结构（5个）</p><p>if ：条件语句</p><p>else ：条件语句否定分支（与if连用）</p><p>switch ：开关语句（多重分支语句）</p><p>case ：开关语句中的分支标记</p><p>default ：开关语句中的“其他”分治，可选。</p><p>C 循环结构（3个）</p><p>for ：for循环结构，for(1;2;3)4;的执行顺序为1-&gt;2-&gt;4-&gt;3-&gt;2…循环，其中2为循环条件</p><p>do ：do循环结构，do 1 while(2); 的执行顺序是 1-&gt;2-&gt;1…循环，2为循环条件</p><p>while ：while循环结构，while(1) 2; 的执行顺序是1-&gt;2-&gt;1…循环，1为循环条件</p><p>以上循环语句，当循环条件表达式为真则继续循环，为假则跳出循环。</p>]]></content>
+    
+    
+    <summary type="html">C语言关键字</summary>
+    
+    
+    
+    <category term="C语言" scheme="https://born2do.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="关键字" scheme="https://born2do.github.io/tags/%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    
+  </entry>
   
   <entry>
     <title>XML初识</title>
@@ -395,48 +437,6 @@
     
     
     <category term="SLF4J" scheme="https://born2do.github.io/tags/SLF4J/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>private final static Logger log= LoggerFactory.getLogger(HelloController.class);</title>
-    <link href="https://born2do.github.io/2021/03/30/private-final-static-Logger-log-LoggerFactory-getLogger-HelloController-class/"/>
-    <id>https://born2do.github.io/2021/03/30/private-final-static-Logger-log-LoggerFactory-getLogger-HelloController-class/</id>
-    <published>2021-03-30T11:15:53.000Z</published>
-    <updated>2021-03-30T11:16:31.315Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Logger logger= LoggerFactory.getLogger(HelloController.class);</span><br></pre></td></tr></table></figure><ul><li>设置为private是为了防止其他类使用当前类的日志对象；如果当前类需要被子类继承，并且都使用同一个日志对象时，可设置为protected 。</li><li>设置为static是为了让每个类中的日志对象只生成一份，日志对象是属于类的，不是属于具体的实例的。</li><li>设置成final是为了避免日志对象在运行时被修改。</li></ul>]]></content>
-    
-    
-    <summary type="html">private final static Logger log= LoggerFactory.getLogger(HelloController.class);</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="logback" scheme="https://born2do.github.io/tags/logback/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【logback】SLF4J: Failed to load class org.slf4j.impl.StaticLoggerBinder.</title>
-    <link href="https://born2do.github.io/2021/03/30/%E3%80%90logback%E3%80%91SLF4J-Failed-to-load-class-org-slf4j-impl-StaticLoggerBinder/"/>
-    <id>https://born2do.github.io/2021/03/30/%E3%80%90logback%E3%80%91SLF4J-Failed-to-load-class-org-slf4j-impl-StaticLoggerBinder/</id>
-    <published>2021-03-30T11:14:53.000Z</published>
-    <updated>2021-03-30T11:15:27.484Z</updated>
-    
-    <content type="html"><![CDATA[<p>测试logback，出现了如下报错：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.</span><br><span class="line">SLF4J: Defaulting to no-operation (NOP) logger implementation</span><br><span class="line">SLF4J: See http:<span class="comment">//www.slf4j.org/codes.html#StaticLoggerBinder for further details.</span></span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure><p>使用Maven构建的工程，logback的配置文件也都正常，但却报了上面的错误。<br>仔细察看一番，发现从Maven仓库复制依赖时把scope也给带上了，pom文件中的范围是test，而我的调用代码写在main函数中（非test范围），所以报错了。<br>解决办法：<br>将pom文件中的scope给注释掉，重新加载一下依赖就好。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;ch.qos.logback&#x2F;logback-classic --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;ch.qos.logback&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;logback-classic&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;1.2.3&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.slf4j&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;slf4j-api&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;1.7.25&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;&#x2F;dependencies&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">【logback】SLF4J: Failed to load class org.slf4j.impl.StaticLoggerBinder.</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="logback" scheme="https://born2do.github.io/tags/logback/"/>
     
   </entry>
   
