@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-16T09:41:25.827Z</updated>
+  <updated>2021-04-17T03:31:14.347Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【MD】Typora快捷键</title>
+    <link href="https://born2do.github.io/2021/04/17/%E3%80%90MD%E3%80%91Typora%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://born2do.github.io/2021/04/17/%E3%80%90MD%E3%80%91Typora%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2021-04-17T03:30:37.000Z</published>
+    <updated>2021-04-17T03:31:14.347Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Typora快捷键"><a href="#Typora快捷键" class="headerlink" title="Typora快捷键"></a>Typora快捷键</h1><ol><li><p> 无序列表：输入“-”之后输入空格</p></li><li><p> 有序列表：输入数字+“.”之后输入空格</p></li><li><p>代码：</p><ol><li><p> 单行：一对 “`”</p></li><li><p> 多行：一对 “```”</p></li></ol></li><li><p> 任务列表：-[空格]空格 文字</p></li><li><p> 标题：ctrl+数字</p></li><li><p> 表格：ctrl+t</p></li><li><p> 引用：&gt;+空格</p></li><li><p> 生成目录：[TOC]按回车</p></li><li><p> 选中一整行：ctrl+l</p></li><li><p> 选中单词：ctrl+d</p></li><li><p> 选中相同格式的文字：ctrl+e</p></li><li><p> 跳转到文章开头：ctrl+home</p></li><li><p> 跳转到文章结尾：ctrl+end</p></li><li><p> 搜索：ctrl+f</p></li><li><p> 替换：ctrl+h</p></li><li><p> 引用：输入&gt;之后输入空格</p></li><li><p> 代码块：ctrl+alt+f</p></li><li><p> 加粗：ctrl+b</p></li><li><p> 倾斜：ctrl+i</p></li><li><p> 下划线：ctrl+u</p></li><li><p> 删除线：alt+shift+5</p></li><li><p> 插入图片：直接拖动到指定位置即可或者ctrl+shift+i</p></li><li><p> 插入链接：ctrl+k</p></li><li><p> 一级标题：输入#之后输入空格，然后再输入内容</p></li><li><p> Typora支持<a href="http://jekyllrb.com/docs/frontmatter/">YAML Front Matter</a>， 在<strong>文章开头</strong>输入<code>---</code>，然后按回车即可。</p></li></ol><h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>1.怎么退出“无序列表”？</p><p>答：回车删除前面的点之后，用Shift+Tab去除缩进即可。</p>]]></content>
+    
+    
+    <summary type="html">【MD】Typora快捷键</summary>
+    
+    
+    
+    <category term="MD" scheme="https://born2do.github.io/categories/MD/"/>
+    
+    
+    <category term="快捷键" scheme="https://born2do.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Java】内部类</title>
+    <link href="https://born2do.github.io/2021/04/17/%E3%80%90Java%E3%80%91%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+    <id>https://born2do.github.io/2021/04/17/%E3%80%90Java%E3%80%91%E5%86%85%E9%83%A8%E7%B1%BB/</id>
+    <published>2021-04-17T03:27:18.000Z</published>
+    <updated>2021-04-17T03:27:47.561Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Java中，可以将一个类定义在另一个类里面或者一个方法里边，这样的类称为内部类，广泛意义上的内部类一般包括四种：成员内部类，局部内部类，匿名内部类，静态内部类 。<br>1.成员内部类<br>（1）该类像是外部类的一个成员，可以无条件的访问外部类的所有成员属性和成员方法（包括private成员和静态成员）；<br>（2）成员内部类拥有与外部类同名的成员变量时，会发生隐藏现象，即默认情况下访问的是成员内部类中的成员。如果要访问外部类中的成员，需要以下形式访问：【外部类.this.成员变量  或  外部类.this.成员方法】；<br>（3）在外部类中如果要访问成员内部类的成员，必须先创建一个成员内部类的对象，再通过指向这个对象的引用来访问；<br>（4）成员内部类是依附外部类而存在的，也就是说，如果要创建成员内部类的对象，前提是必须存在一个外部类的对象；<br>（5）内部类可以拥有private访问权限、protected访问权限、public访问权限及包访问权限。如果成员内部类用private修饰，则只能在外部类的内部访问；如果用public修饰，则任何地方都能访问；如果用protected修饰，则只能在同一个包下或者继承外部类的情况下访问；如果是默认访问权限，则只能在同一个包下访问。外部类只能被public和包访问两种权限修饰。<br>2.局部内部类<br>（1）局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内；<br>（2）局部内部类就像是方法里面的一个局部变量一样，是不能有public、protected、private以及static修饰符的。<br>3.匿名内部类<br>（1）一般使用匿名内部类的方法来编写事件监听代码；<br>（2）匿名内部类是不能有访问修饰符和static修饰符的；<br>（3）匿名内部类是唯一一种没有构造器的类；<br>（4）匿名内部类用于继承其他类或是实现接口，并不需要增加额外的方法，只是对继承方法的实现或是重写。<br>4.内部静态类<br>（1）静态内部类是不需要依赖于外部类的，这点和类的静态成员属性有点类似；<br>（2）不能使用外部类的非static成员变量或者方法。 </p><p>提醒：<br>大多数企业级应用开发是要求减少内部类的使用，毕竟能用内部类实现的，基本类都是可以实现的。内部类并没有太大的优势体现出来。</p><h3 id="Java内部类思维导图"><a href="#Java内部类思维导图" class="headerlink" title="Java内部类思维导图"></a>Java内部类思维导图</h3><p><img src="https://i.loli.net/2021/04/17/Iwaks3vntSYpbWr.png" alt="Java内部类思维导图.png"></p>]]></content>
+    
+    
+    <summary type="html">【Java】内部类</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="内部类" scheme="https://born2do.github.io/tags/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>C语言零碎知识</title>
@@ -395,48 +437,6 @@
     
     
     <category term="运算符优先级" scheme="https://born2do.github.io/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【log4j】logger.isTraceEnabled()</title>
-    <link href="https://born2do.github.io/2021/04/05/%E3%80%90log4j%E3%80%91logger-isTraceEnabled/"/>
-    <id>https://born2do.github.io/2021/04/05/%E3%80%90log4j%E3%80%91logger-isTraceEnabled/</id>
-    <published>2021-04-05T08:41:04.000Z</published>
-    <updated>2021-04-05T08:41:29.459Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们经常可以看到，在使用日志框架时，会有如下写法：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">    logger.trace(<span class="string">&quot;trace&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>为什么要这样写呢？这样写有什么好处？<br>首先我们来看下这两个方法的源码：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isTraceEnabled</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.repository.isDisabled(<span class="number">5000</span>) ? <span class="keyword">false</span> : Level.TRACE.isGreaterOrEqual(<span class="keyword">this</span>.getEffectiveLevel());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trace</span><span class="params">(Object message)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">super</span>.repository.isDisabled(<span class="number">5000</span>)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Level.TRACE.isGreaterOrEqual(<span class="keyword">this</span>.getEffectiveLevel())) &#123;</span><br><span class="line">            <span class="keyword">this</span>.forcedLog(FQCN, Level.TRACE, message, (Throwable)<span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们可以看到，在使用trace方法打印日志时，会有与isTraceEnabled方法中一样的方法调用，也就是说等同于在trace中调用了isTraceEnabled方法。<br>那么为什么我们在使用时还要在外层进行一次判断呢？<br>官方的说法是：出于效率考虑，看具体情况而定。<br>我们就以下两种情况进行分析：</p><ol><li>直接传入参数，无其他处理<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.trace(<span class="string">&quot;trace&quot;</span>);</span><br></pre></td></tr></table></figure>对于这种情况，则完全没有必要在外层进行筛选判断。</li><li>传参数时引入了其他方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.debug(<span class="string">&quot;The money is &quot;</span> + getTotal());  </span><br></pre></td></tr></table></figure>对于这种情况，则需要考虑考虑了。如果getTotal()方法是一个较为复杂的、计算量庞大的方法，则在外层进行一下判断就是很有必要的了。无论当前系统的日志级别为哪一等级，程序程序都会调用debug方法，会执行getTotal方法，只不过最后的结果可能是不打印日志而已（日志级别为info或更高）。debug中调用这个方法会消耗较大资源，得不偿失。</li></ol>]]></content>
-    
-    
-    <summary type="html">【log4j】logger.isTraceEnabled()</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="log4j" scheme="https://born2do.github.io/tags/log4j/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SLF4J日志级别</title>
-    <link href="https://born2do.github.io/2021/04/04/SLF4J%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB/"/>
-    <id>https://born2do.github.io/2021/04/04/SLF4J%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB/</id>
-    <published>2021-04-04T15:34:56.000Z</published>
-    <updated>2021-04-04T15:35:57.663Z</updated>
-    
-    <content type="html"><![CDATA[<p>SLF4J将日志分为trace、debug、info、warn、error五个级别，每个级别对应记录不同的日志，对应不同的使用场景。<br>优先级从高到低依次为trace、debug、info、warn、error，相对而言，打印的日志会越来越少。</p><ul><li>trace: 一般用来追踪详细的程序运行流，比如程序的运行过程中，运行到了哪一个方法，进入了哪一条分支。通过trace程序的运行流程，可以判断程序是否按照期望的逻辑在运行。</li><li>debug: 这类日志往往用在判断是否有出现bug的场景，且往往记录了代码运行的详细信息，比如方法调用传入的参数信息。</li><li>info：用来记录程序运行的一些关键信息，它不像trace那样记录程序运行的整个流程，也不像debug那样为了解决问题而记录详细的信息。info记录的是整个系统的运行信息，比如系统运行到了哪一个阶段，到达了哪一个状态。</li><li>warn：用来记录一些警告信息。警告信息表示，程序进入了一个特殊的状态，在该状态下程序可以继续运行，但是不建议让程序进入该状态，因为该状态可能导致结果出现问题。</li><li>error：用来记录运行时的错误信息，表示程序运行过程中出现了需要被解决的问题，往往是一些异常。使用error日志的时候，一般会将详细的异常出现的原因记录。</li></ul>]]></content>
-    
-    
-    <summary type="html">SLF4J日志级别</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="SLF4J" scheme="https://born2do.github.io/tags/SLF4J/"/>
     
   </entry>
   
