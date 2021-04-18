@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-17T03:31:14.347Z</updated>
+  <updated>2021-04-18T10:47:56.533Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Java】Java中重写与重载的区别</title>
+    <link href="https://born2do.github.io/2021/04/18/%E3%80%90Java%E3%80%91Java%E4%B8%AD%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://born2do.github.io/2021/04/18/%E3%80%90Java%E3%80%91Java%E4%B8%AD%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2021-04-18T10:47:24.000Z</published>
+    <updated>2021-04-18T10:47:56.533Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>重写<ul><li>发生在父类与子类之间 </li><li>方法名，参数列表，返回类型（除子类中方法的返回类型是父类中返回类型的子类）必须相同 </li><li>访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private) </li><li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li></ul></li><li>重载<ul><li>重载Overload是一个类中多态性的一种表现 </li><li>重载要求同名方法的参数列表不同(参数类型，参数个数甚至是参数顺序) </li><li>重载的时候，返回值类型可以相同也可以不相同。无法以返回型别作为重载函数的区分标准</li></ul></li><li>总结</li></ol><table><thead><tr><th></th><th>重载</th><th>重写（也称覆盖）</th></tr></thead><tbody><tr><td>英文</td><td>overloading</td><td>overriding</td></tr><tr><td>定义</td><td>方法名相同，参数列表不同（参数的类型、个数甚至顺序不同），对返回值无要求</td><td>方法名称，参数列表，返回值类型，完全相同</td></tr><tr><td>权限</td><td>对权限没有要求</td><td>被重写的方法不能拥有比父类更加严格的权限</td></tr><tr><td>范围</td><td>发生在同一个类中</td><td>发生在继承中</td></tr></tbody></table>]]></content>
+    
+    
+    <summary type="html">【Java】Java中重写与重载的区别</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="重写" scheme="https://born2do.github.io/tags/%E9%87%8D%E5%86%99/"/>
+    
+    <category term="重载" scheme="https://born2do.github.io/tags/%E9%87%8D%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【基金】基金基础专业术语解释</title>
+    <link href="https://born2do.github.io/2021/04/17/%E3%80%90%E5%9F%BA%E9%87%91%E3%80%91%E5%9F%BA%E9%87%91%E5%9F%BA%E7%A1%80%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A/"/>
+    <id>https://born2do.github.io/2021/04/17/%E3%80%90%E5%9F%BA%E9%87%91%E3%80%91%E5%9F%BA%E9%87%91%E5%9F%BA%E7%A1%80%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A/</id>
+    <published>2021-04-17T11:04:06.000Z</published>
+    <updated>2021-04-17T11:04:28.349Z</updated>
+    
+    <content type="html"><![CDATA[<p>1.仓位说明<br>建仓：开始买进一些<br>加仓：继续买进，会拉高成本价（也即拉高成本净值）<br>补仓：跌了买一些<br>减仓：卖一些<br>全仓：投入所有资金<br>重仓：买进自有资产的80%左右<br>半仓：用掉所有资金一半买进<br>轻仓：只买了一小部分，比如20%-30%<br>2.操作说明<br>止损：亏钱卖出<br>追涨：基金一直涨，仍一直买进<br>杀跌：基金跌了，忍不住卖掉<br>踏空：一直在看，没上车买进<br>3.常见术语<br>累计净值：基金成立到现在的价格<br>交易确定日：确定你买入基金份额的日期<br>北上资金：北是沪深的股票，从香港股票流入大陆股市的资金<br>南下资金：南是香港的股票，从大陆股票流入香港股市的资金<br>现金分红：直接获取现金分红，免个人所得税，落袋为安</p>]]></content>
+    
+    
+    <summary type="html">【基金】基金基础专业术语解释</summary>
+    
+    
+    
+    <category term="基金" scheme="https://born2do.github.io/categories/%E5%9F%BA%E9%87%91/"/>
+    
+    
+    <category term="专业术语" scheme="https://born2do.github.io/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>【MD】Typora快捷键</title>
@@ -395,48 +439,6 @@
     
     
     <category term="IO" scheme="https://born2do.github.io/tags/IO/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Java】Html转Markdown格式</title>
-    <link href="https://born2do.github.io/2021/04/07/%E3%80%90Java%E3%80%91Html%E8%BD%ACMarkdown%E6%A0%BC%E5%BC%8F/"/>
-    <id>https://born2do.github.io/2021/04/07/%E3%80%90Java%E3%80%91Html%E8%BD%ACMarkdown%E6%A0%BC%E5%BC%8F/</id>
-    <published>2021-04-07T13:55:28.000Z</published>
-    <updated>2021-04-07T13:56:00.418Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近在做爬虫项目，其中一个需求是将网页上的帮助文档，下载至本地并形成Markdown文档，方便离线查阅。</p><h1 id="探索及解决"><a href="#探索及解决" class="headerlink" title="探索及解决"></a>探索及解决</h1><p>找到两个具有该功能的Java类库，如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;com.kotcrab.remark&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;remark&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;1.0.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;com.github.houbb&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;html2md&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;0.0.1&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure><p>相比较之下，我选择了remark。<br>使用html2md进行格式转换之后，最终文档与预期的格式差异较大。<br>而remark转换后则较为中规中矩，比较符合实际使用中的Markdown语法。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将获取到的内容从HTML格式转换为Markdown格式</span></span><br><span class="line">Remark remark = <span class="keyword">new</span> Remark();</span><br><span class="line">content = remark.convert(content);</span><br></pre></td></tr></table></figure><p>转换前的Html</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">id</span>=<span class="string">&quot;12-总体架构&quot;</span>&gt;</span>1.2 总体架构<span class="tag">&lt;/<span class="name">h3</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>WebMagic的结构分为<span class="tag">&lt;<span class="name">code</span>&gt;</span>Downloader<span class="tag">&lt;/<span class="name">code</span>&gt;</span>、<span class="tag">&lt;<span class="name">code</span>&gt;</span>PageProcessor<span class="tag">&lt;/<span class="name">code</span>&gt;</span>、<span class="tag">&lt;<span class="name">code</span>&gt;</span>Scheduler<span class="tag">&lt;/<span class="name">code</span>&gt;</span>、<span class="tag">&lt;<span class="name">code</span>&gt;</span>Pipeline<span class="tag">&lt;/<span class="name">code</span>&gt;</span>四大组件，并由Spider将它们彼此组织起来。这四大组件对应爬虫生命周期中的下载、处理、管理和持久化等功能。WebMagic的设计参考了Scapy，但是实现方式更Java化一些。<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>而Spider则将这几个组件组织起来，让它们可以互相交互，流程化的执行，可以认为Spider是一个大的容器，它也是WebMagic逻辑的核心。<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br></pre></td></tr></table></figure><p>转换后的Markdown</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 1.2 总体架构 ###</span></span><br><span class="line"></span><br><span class="line">WebMagic的结构分为<span class="code">`Downloader`</span>、<span class="code">`PageProcessor`</span>、<span class="code">`Scheduler`</span>、<span class="code">`Pipeline`</span>四大组件，并由Spider将它们彼此组织起来。这四大组件对应爬虫生命周期中的下载、处理、管理和持久化等功能。WebMagic的设计参考了Scapy，但是实现方式更Java化一些。</span><br><span class="line"></span><br><span class="line">而Spider则将这几个组件组织起来，让它们可以互相交互，流程化的执行，可以认为Spider是一个大的容器，它也是WebMagic逻辑的核心。</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">【Java】Html转Markdown格式</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="Html转Markdown" scheme="https://born2do.github.io/tags/Html%E8%BD%ACMarkdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Java】运算符的优先级和结合顺序</title>
-    <link href="https://born2do.github.io/2021/04/06/%E3%80%90Java%E3%80%91%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E7%BB%93%E5%90%88%E9%A1%BA%E5%BA%8F/"/>
-    <id>https://born2do.github.io/2021/04/06/%E3%80%90Java%E3%80%91%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E7%BB%93%E5%90%88%E9%A1%BA%E5%BA%8F/</id>
-    <published>2021-04-06T15:13:26.000Z</published>
-    <updated>2021-04-06T15:15:34.718Z</updated>
-    
-    <content type="html"><![CDATA[<p>1级（左结合） 　　() 圆括号；[]下标运算符；-&gt;指向结构体成员运算符；. 结构体成员运算符。 </p><p>2级（右结合） 　　!逻辑非运算符；~按位取反运算符；++前缀增量运算符；–前缀减量运算符；+正号运算符；-负号运算符；(类型)类型转换运算符；*指针运算符；&amp;地址运算符；sizeof长度运算符。 　　</p><p>3级（左结合） 　　*乘法运算符；/除法运算符；%取余运算符。 　　</p><p>4级（左结合） 　　+加法运算符；-减法运算符。 　　 　　</p><p>5级（左结合） 　　&lt;&lt;左移运算符；&gt;&gt;右移运算符。 　　</p><p>6级（左结合） 　　&lt;、&lt;=、&gt;、&gt;=关系运算符。 　　</p><p>7级（左结合） 　　==等于运算符；!=不等于运算符。 　　</p><p>8级（左结合） 　　&amp;按位与运算符。 　　</p><p>9级（左结合） 　　^按位异或运算符。 　　</p><p>10级（左结合） 　　|按位或运算符。 　　</p><p>11级（左结合） 　　&amp;&amp;逻辑与运算符。 　　</p><p>12级（左结合） 　　||逻辑或运算符。 　　</p><p>13级（右结合） 　　? :条件运算符。 　　</p><p>14级（右结合） 　　=、 +=、 -=、 *=、 /=、 %=、 &amp;=、 ^=、 |=、 &lt;&lt;=、 &gt;&gt;=赋值运算符。 　</p><p>15级（左结合） 　　,逗号运算符。</p>]]></content>
-    
-    
-    <summary type="html">运算符的优先级和结合顺序</summary>
-    
-    
-    
-    <category term="C语言" scheme="https://born2do.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
-    
-    
-    <category term="运算符优先级" scheme="https://born2do.github.io/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"/>
     
   </entry>
   
