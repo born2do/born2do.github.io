@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-21T13:47:23.770Z</updated>
+  <updated>2021-04-22T14:18:32.512Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Linux】Echo详解</title>
+    <link href="https://born2do.github.io/2021/04/22/%E3%80%90Linux%E3%80%91Echo%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://born2do.github.io/2021/04/22/%E3%80%90Linux%E3%80%91Echo%E8%AF%A6%E8%A7%A3/</id>
+    <published>2021-04-22T14:18:10.000Z</published>
+    <updated>2021-04-22T14:18:32.512Z</updated>
+    
+    <content type="html"><![CDATA[<p>官方文档：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">NAME</span><br><span class="line">       echo - display a line of text</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">       echo [SHORT-OPTION]... [STRING]...</span><br><span class="line">       echo LONG-OPTION</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Echo the STRING(s) to standard output.</span><br><span class="line"></span><br><span class="line">       -n     do not output the trailing newline</span><br><span class="line"></span><br><span class="line">       -e     enable interpretation of backslash escapes</span><br><span class="line"></span><br><span class="line">       -E     disable interpretation of backslash escapes (default)</span><br><span class="line"></span><br><span class="line">       --help display this help and exit</span><br><span class="line"></span><br><span class="line">       --version</span><br><span class="line">              output version information and exit</span><br><span class="line"></span><br><span class="line">       If -e is in effect, the following sequences are recognized:</span><br><span class="line"></span><br><span class="line">       \\     backslash</span><br><span class="line"></span><br><span class="line">       \a     alert (BEL)</span><br><span class="line"></span><br><span class="line">       \b     backspace</span><br><span class="line"></span><br><span class="line">       \c     produce no further output</span><br><span class="line"></span><br><span class="line">       \e     escape</span><br><span class="line"></span><br><span class="line">       \f     form feed</span><br><span class="line"></span><br><span class="line">       \n     new line</span><br><span class="line"></span><br><span class="line">       \r     carriage return</span><br><span class="line"></span><br><span class="line">       \t     horizontal tab</span><br><span class="line"></span><br><span class="line">       \v     vertical tab</span><br><span class="line"></span><br><span class="line">       \0NNN  byte with octal value NNN (1 to 3 digits)</span><br><span class="line"></span><br><span class="line">       \xHH   byte with hexadecimal value HH (1 to 2 digits)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>说明：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-n     不换行输出</span><br><span class="line"></span><br><span class="line">-e     激活转义字符</span><br><span class="line"></span><br><span class="line">-E     不激活转义字符(default)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">【Linux】Echo详解</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://born2do.github.io/categories/Linux/"/>
+    
+    
+    <category term="Echo" scheme="https://born2do.github.io/tags/Echo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Linux】chmod命令给脚本赋权限</title>
+    <link href="https://born2do.github.io/2021/04/22/%E3%80%90Linux%E3%80%91chmod%E5%91%BD%E4%BB%A4%E7%BB%99%E8%84%9A%E6%9C%AC%E8%B5%8B%E6%9D%83%E9%99%90/"/>
+    <id>https://born2do.github.io/2021/04/22/%E3%80%90Linux%E3%80%91chmod%E5%91%BD%E4%BB%A4%E7%BB%99%E8%84%9A%E6%9C%AC%E8%B5%8B%E6%9D%83%E9%99%90/</id>
+    <published>2021-04-22T14:17:07.000Z</published>
+    <updated>2021-04-22T14:17:45.306Z</updated>
+    
+    <content type="html"><![CDATA[<p>Linux环境下不同的文件类型会有不同的颜色：</p><ul><li>蓝色表示目录；</li><li>绿色表示可执行文件，可执行的程序；</li><li>红色表示压缩文件或包文件；</li><li>浅蓝色表示链接文件；</li><li>灰色表示其它文件；</li><li>红色闪烁表示链接的文件有问题了；</li><li>黄色表示设备文件。</li></ul><p>在Linux环境下编写并保存脚本，该脚本将会是灰色的，是无法执行的，需要为其赋权限，可执行的权限。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x shfile.sh</span><br></pre></td></tr></table></figure><p>即为shfile.sh赋了可执行的权限。此时文件将会显示为绿色的。</p><p>不过，大多数情况下，我都是直接 <code>chmod 777 filename </code> ，简单快捷。</p>]]></content>
+    
+    
+    <summary type="html">【Linux】chmod命令给脚本赋权限</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://born2do.github.io/categories/Linux/"/>
+    
+    
+    <category term="chmod" scheme="https://born2do.github.io/tags/chmod/"/>
+    
+  </entry>
   
   <entry>
     <title>【Java】Java关键字</title>
@@ -397,48 +439,6 @@
     <category term="@Autowired" scheme="https://born2do.github.io/tags/Autowired/"/>
     
     <category term="@Resource" scheme="https://born2do.github.io/tags/Resource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【数据库】联合主键</title>
-    <link href="https://born2do.github.io/2021/04/11/%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%91%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE/"/>
-    <id>https://born2do.github.io/2021/04/11/%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%91%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE/</id>
-    <published>2021-04-11T12:13:50.000Z</published>
-    <updated>2021-04-11T12:14:10.791Z</updated>
-    
-    <content type="html"><![CDATA[<p>无意间看到数据库中有张表的主键有三个，没记错的话应该是“每张表都只有一个主键，唯一、不为空”，随后搜索查阅了一下。看到以下结论：</p><p>1、数据库的每张表只能有一个主键，不可能有多个主键。</p><p>2、所谓的一张表多个主键，我们称之为<strong>联合主键</strong>。</p><p>   注：联合主键：就是用多个字段一起作为一张表的主键。</p><p>3、主键的主键的作用是保证数据的唯一性和完整性，同时通过主键检索表能够增加检索速度。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE STUDENT (</span><br><span class="line"></span><br><span class="line">STU_ID CHARACTER(4) NOT NULL,</span><br><span class="line"></span><br><span class="line">STU_NAME VARCHAR(32) NOT NULL,</span><br><span class="line"></span><br><span class="line">STU_MSG VARCHAR(128),</span><br><span class="line"></span><br><span class="line">STU_SEX VARCHAR(4),</span><br><span class="line"></span><br><span class="line">PRIMARY KEY (INST_ID, INST_RESP_CODE)</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">【数据库】联合主键</summary>
-    
-    
-    
-    <category term="数据库" scheme="https://born2do.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="联合主键" scheme="https://born2do.github.io/tags/%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库易混述语总结</title>
-    <link href="https://born2do.github.io/2021/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%93%E6%B7%B7%E8%BF%B0%E8%AF%AD%E6%80%BB%E7%BB%93/"/>
-    <id>https://born2do.github.io/2021/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%93%E6%B7%B7%E8%BF%B0%E8%AF%AD%E6%80%BB%E7%BB%93/</id>
-    <published>2021-04-11T12:09:14.000Z</published>
-    <updated>2021-04-11T12:10:34.561Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><blockquote><ul><li>DB，数据库（DataBase）</li><li>DBMS，数据库管理系统（DataBase Management System）</li><li>DBA，数据库管理员（DataBase Administrator）</li><li>DBS，数据库系统（DataBase System）</li><li>DBS是由DB、DBMS（及其应用开发工具）、应用数据和DBA组成的存储、管理、处理和维护数据的系统。</li></ul></blockquote></li><li><blockquote><h3 id="外模式"><a href="#外模式" class="headerlink" title="外模式"></a>外模式</h3><p>外模式又称子模式或用户模式，对应于<strong>用户级</strong>。它是某个或某几个用户所看到的数据库的数据视图，是与某一应用有关的数据的逻辑表示。外模式是从模式导出的一个子集，包含模式中允许特定用户使用的那部分数据。用户可以通过外模式描述语言来描述、定义对应于用户的数据记录(外模式)，也可以利用数据操纵语言(Data Manipulation Language，DML)对这些数据记录进行操作。外模式反映了数据库系统的用户观。</p><h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>模式又称概念模式或逻辑模式，对应于<strong>概念级</strong>。它是由数据库设计者综合所有用户的数据，按照统一的观点构造的<strong>全局逻辑结构</strong>，是对数据库中全部数据的逻辑结构和特征的总体描述，是所有用户的公共数据视图(全局视图)。它是由数据库管理系统提供的数据模式描述语言(Data Description Language，DDL)来描述、定义的。概念模式反映了数据库系统的整体观。</p><h3 id="内模式"><a href="#内模式" class="headerlink" title="内模式"></a>内模式</h3><p>内模式又称存储模式，对应于<strong>物理级</strong>。它是数据库中全体数据的内部表示或底层描述，是数据库最低一级的逻辑描述，它描述了数据在存储介质上的<strong>存储方式和物理结构</strong>，对应着实际存储在外存储介质上的数据库。内模式由内模式描述语言来描述、定义的。内模式反映了数据库系统的存储观。</p><h3 id="外模式-模式映象"><a href="#外模式-模式映象" class="headerlink" title="外模式/模式映象"></a>外模式/模式映象</h3><p>模式描述的是数据的全局逻辑结构，外模式描述的是数据的局部逻辑结构。</p><p>对应于同一个模式可以有任意多个外模式。对于每一个外模式，数据库系统都有一个外模式/模式映像，它定义了该外模式与模式之间的对应关系。这些映像定义通常包含在各模式的描述中。 当模式改变时，由数据库管理员对各个外模式/模式映像作相应的改变，可以使外模式保持不变。应用程序是依据数据的外模式编写的，从而应用程序可以不必修改，保证了数据与程序的<strong>逻辑独立性</strong>。</p><h3 id="模式-内模式映像"><a href="#模式-内模式映像" class="headerlink" title="模式/内模式映像"></a>模式/内模式映像</h3><p>数据库中不仅只有一个模式，而且也只有一个内模式，所以模式/内模式映像是唯一的，由它定义数据库全局逻辑结构与存储结构之间的对应关系。<br>模式/内模式映像定义通常包含在模式描述中。当数据库的存储设备和存储方法发生变化时，数据库管理员对模式/内模式映像要做相应的改变，使模式保持不变，从而应用程序也不变，保证了数据与程序的物理独立性，简称为数据的<strong>物理独立性</strong>。</p></blockquote></li></ol>]]></content>
-    
-    
-    <summary type="html">数据库易混述语总结</summary>
-    
-    
-    
-    <category term="数据库" scheme="https://born2do.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="易混述语" scheme="https://born2do.github.io/tags/%E6%98%93%E6%B7%B7%E8%BF%B0%E8%AF%AD/"/>
     
   </entry>
   
