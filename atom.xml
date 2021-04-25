@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-24T04:58:07.129Z</updated>
+  <updated>2021-04-25T00:44:18.104Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue无法加载文件vue.ps1，因为在此系统上禁止运行脚本</title>
+    <link href="https://born2do.github.io/2021/04/25/vue%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6vue-ps1%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/"/>
+    <id>https://born2do.github.io/2021/04/25/vue%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6vue-ps1%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/</id>
+    <published>2021-04-25T00:43:45.000Z</published>
+    <updated>2021-04-25T00:44:18.104Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vue : 无法加载文件 C:\Users\born2do\AppData\Roaming\npm\vue.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?Link </span><br><span class="line">ID&#x3D;135170 中的 about_Execution_Policies。</span><br><span class="line">所在位置 行:1 字符: 1</span><br><span class="line">+ vue create hotel-manager</span><br><span class="line">    + CategoryInfo          : SecurityError: (:) []，PSSecurityException</span><br><span class="line">    + FullyQualifiedErrorId : UnauthorizedAccess</span><br></pre></td></tr></table></figure><p>使用VS Code命令终端新建VUE项目，报错如题。</p><ul><li>出错原因<br>被系统禁止运行脚本。</li><li>解决</li></ul><ol><li>右键桌面左下角的小窗口，点击“Windows PowerShell(管理员)(A)”。</li><li>执行：set-ExecutionPolicy RemoteSigned （签名或运行这些脚本），在对话框中输入“y”，确认更改策略。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS C:\WINDOWS\system32&gt; set-ExecutionPolicy RemoteSigned</span><br><span class="line"></span><br><span class="line">执行策略更改</span><br><span class="line">执行策略可帮助你防止执行不信任的脚本。更改执行策略可能会产生安全风险，如 https:&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;135170</span><br><span class="line">中的 about_Execution_Policies 帮助主题所述。是否要更改执行策略?</span><br><span class="line">[Y] 是(Y)  [A] 全是(A)  [N] 否(N)  [L] 全否(L)  [S] 暂停(S)  [?] 帮助 (默认值为“N”): y</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <summary type="html">vue无法加载文件vue.ps1，因为在此系统上禁止运行脚本</summary>
+    
+    
+    
+    <category term="VUE" scheme="https://born2do.github.io/categories/VUE/"/>
+    
+    
+    <category term="VUE" scheme="https://born2do.github.io/tags/VUE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>无法将vue项识别为 cmdlet、函数、脚本文件或可运行程序的名称</title>
+    <link href="https://born2do.github.io/2021/04/25/%E6%97%A0%E6%B3%95%E5%B0%86vue%E9%A1%B9%E8%AF%86%E5%88%AB%E4%B8%BA-cmdlet%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E6%88%96%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%90%8D%E7%A7%B0/"/>
+    <id>https://born2do.github.io/2021/04/25/%E6%97%A0%E6%B3%95%E5%B0%86vue%E9%A1%B9%E8%AF%86%E5%88%AB%E4%B8%BA-cmdlet%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E6%88%96%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%90%8D%E7%A7%B0/</id>
+    <published>2021-04-25T00:40:58.000Z</published>
+    <updated>2021-04-25T00:41:31.330Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vue : 无法将“vue”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。</span><br><span class="line">所在位置 行:1 字符: 1</span><br><span class="line">+ vue create hotel-manager</span><br><span class="line">+ ~~~</span><br><span class="line">    + FullyQualifiedErrorId : CommandNotFoundException</span><br></pre></td></tr></table></figure><p>使用VS Code命令终端新建VUE项目，报错如题。</p><ul><li>出错原因<br>第一次学习VUE，未安装VUE程序。</li><li>解决：</li></ul><ol><li>安装node.js 。<br>从官网下载对应版本的安装包，无脑安装即可。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 查看node版本号</span><br><span class="line">C:\Program Files&gt;node -v</span><br><span class="line">v12.19.0</span><br><span class="line">&#x2F;&#x2F; 查看npm版本号</span><br><span class="line">C:\Program Files&gt;npm -v</span><br><span class="line">6.14.8</span><br></pre></td></tr></table></figure></li><li>安装vue 。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Vue CLI 2.x 安装</span><br><span class="line">npm install vue-cli -g</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Vue CLI 3 安装</span><br><span class="line">npm install -g @vue&#x2F;cli</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 若想将2.x升级至3</span><br><span class="line">npm uninstall -g vue-cli</span><br><span class="line">npm install -g @vue&#x2F;cli</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 查看vue版本号</span><br><span class="line">C:\Program Files&gt;vue -V</span><br><span class="line">@vue&#x2F;cli 4.5.12</span><br></pre></td></tr></table></figure></li><li>配置环境变量<br>将node以及vue命令所在位置配置到环境变量Path中。<br>全局搜索下npm.cmd和vue.cmd文件，将其路径添加至Path中即可。</li></ol>]]></content>
+    
+    
+    <summary type="html">无法将vue项识别为 cmdlet、函数、脚本文件或可运行程序的名称</summary>
+    
+    
+    
+    <category term="VUE" scheme="https://born2do.github.io/categories/VUE/"/>
+    
+    
+    <category term="VUE" scheme="https://born2do.github.io/tags/VUE/"/>
+    
+  </entry>
   
   <entry>
     <title>【MySQL】MySQL安装教程</title>
@@ -397,48 +439,6 @@
     
     
     <category term="关键字" scheme="https://born2do.github.io/tags/%E5%85%B3%E9%94%AE%E5%AD%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XML初识</title>
-    <link href="https://born2do.github.io/2021/04/14/XML%E5%88%9D%E8%AF%86/"/>
-    <id>https://born2do.github.io/2021/04/14/XML%E5%88%9D%E8%AF%86/</id>
-    <published>2021-04-14T14:08:16.000Z</published>
-    <updated>2021-04-14T14:09:19.590Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-什么是-XML"><a href="#1-什么是-XML" class="headerlink" title="1.什么是 XML?"></a>1.什么是 XML?</h3><ul><li><p>  XML 指可扩展标记语言（EXtensible Markup Language）</p></li><li><p>  XML 是一种标记语言，很类似 HTML</p></li><li><p>  XML 的设计宗旨是传输数据，而非显示数据</p></li><li><p>  XML 标签没有被预定义。需要自行定义标签。</p></li><li><p>  XML 被设计为具有自我描述性。</p></li><li><p>  XML 是 W3C 的推荐标准</p></li></ul><h3 id="2-XML-与-HTML-的主要差异"><a href="#2-XML-与-HTML-的主要差异" class="headerlink" title="2.XML 与 HTML 的主要差异"></a>2.XML 与 HTML 的主要差异</h3><ul><li><p>  XML 不是 HTML 的替代。</p></li><li><p>XML 和 HTML 为不同的目的而设计：</p><ul><li><p>  XML 被设计为传输和存储数据，其焦点是数据的内容。</p></li><li><p>  HTML 被设计用来显示数据，其焦点是数据的外观。</p></li><li><p>  HTML 旨在显示信息，而 XML 旨在传输信息。</p></li></ul></li></ul><h3 id="3-没有任何行为的-XML"><a href="#3-没有任何行为的-XML" class="headerlink" title="3.没有任何行为的 XML"></a>3.没有任何行为的 XML</h3><p>XML 是不作为的。  也许这有点难以理解，但是 XML 不会做任何事情。XML 被设计用来结构化、存储以及传输信息。  下面是 John 写给 George 的便签，存储为 XML：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure><p>上面的这条便签具有自我描述性。它拥有标题以及留言，同时包含了发送者和接受者的信息。  但是，这个 XML 文档仍然没有做任何事情。它仅仅是包装在 XML 标签中的纯粹的信息。我们需要编写软件或者程序，才能传送、接收和显示出这个文档。</p><h3 id="4-XML-仅仅是纯文本"><a href="#4-XML-仅仅是纯文本" class="headerlink" title="4.XML 仅仅是纯文本"></a>4.XML 仅仅是纯文本</h3><p>XML 没什么特别的。它仅仅是纯文本而已。有能力处理纯文本的软件都可以处理 XML。  不过，能够读懂 XML 的应用程序可以有针对性地处理 XML 的标签。标签的功能性意义依赖于应用程序的特性。</p><h3 id="5-通过-XML-你可以发明自己的标签"><a href="#5-通过-XML-你可以发明自己的标签" class="headerlink" title="5.通过 XML 你可以发明自己的标签"></a>5.通过 XML 你可以发明自己的标签</h3><p>上例中的标签没有在任何 XML 标准中定义过（比如 <code>&lt;to&gt;</code> 和 <code>&lt;from&gt;</code>）。这些标签是由文档的创作者发明的。  这是因为 XML 没有预定义的标签。  在 HTML 中使用的标签（以及 HTML 的结构）是预定义的。HTML 文档只使用在 HTML 标准中定义过的标签（比如 <code>&lt;p&gt;</code> 、<code>&lt;h1&gt;</code> 等等）。  XML 允许创作者定义自己的标签和自己的文档结构。</p><h3 id="6-XML-不是对-HTML-的替代"><a href="#6-XML-不是对-HTML-的替代" class="headerlink" title="6.XML 不是对 HTML 的替代"></a>6.XML 不是对 HTML 的替代</h3><p>XML 是对 HTML 的补充。  XML 不会替代 HTML，理解这一点很重要。在大多数 web 应用程序中，XML 用于传输数据，而 HTML 用于格式化并显示数据。  对 XML 最好的描述是：  XML 是独立于软件和硬件的信息传输工具。</p><p>参考文章：<a href="http://www.w3school.com.cn/xml/xml_intro.asp">http://www.w3school.com.cn/xml/xml_intro.asp</a></p>]]></content>
-    
-    
-    <summary type="html">XML初识</summary>
-    
-    
-    
-    <category term="XML" scheme="https://born2do.github.io/categories/XML/"/>
-    
-    
-    <category term="XML" scheme="https://born2do.github.io/tags/XML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Java】JSF中Bean的作用域</title>
-    <link href="https://born2do.github.io/2021/04/14/%E3%80%90Java%E3%80%91JSF%E4%B8%ADBean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
-    <id>https://born2do.github.io/2021/04/14/%E3%80%90Java%E3%80%91JSF%E4%B8%ADBean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/</id>
-    <published>2021-04-14T14:02:55.000Z</published>
-    <updated>2021-04-14T14:03:23.028Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="JSF-2-x"><a href="#JSF-2-x" class="headerlink" title="JSF 2.x"></a>JSF 2.x</h1><p>从JSF 2.x开始，有4个Bean范围：<br>@ViewScoped<br>@RequestScoped<br>@SessionScoped<br>@ApplicationScoped</p><p>ViewScope： View范围是在JSF 2.0中添加的。 重新显示相同的JSF页面时，视图范围内的bean仍然存在。 （JSF规范将术语“视图”用于JSF页面。）一旦用户导航到另一个页面，Bean就会超出范围。</p><p>RequestScope：请求范围是短暂的。 它在提交HTTP请求时开始，在将响应发送回客户端后结束。 如果将托管bean放入请求范围，则会为每个请求创建一个新实例。 如果您担心会话范围存储的成本，则值得考虑请求范围。</p><p>SessionScoped：会话范围从建立会话到会话终止一直存在。 如果Web应用程序在HttpSession对象上调用invalidate方法，或者会话超时，则会话终止。</p><p>ApplicationScope：应用程序作用域在Web应用程序的整个过程中一直存在。 该范围在所有请求和所有会话之间共享。 如果应在Web应用程序的所有实例之间共享单个bean，则将托管bean放入应用程序范围。 Bean是在应用程序的任何用户首次请求时构造的，并且一直保持活动状态，直到从应用程序服务器中删除Web应用程序为止。</p><p>根据需要选择范围。</p><h1 id="JSF-2-3"><a href="#JSF-2-3" class="headerlink" title="JSF 2.3"></a>JSF 2.3</h1><p>从JSF 2.3开始，已弃用javax.faces.bean包中定义的所有bean作用域，以使作用域与CDI对齐。 此外，它们仅在您的bean使用@ManagedBean注释时才适用。 如果您使用的JSF版本低于2.3，请参考最后的遗留答案。</p><p>从JSF 2.3开始，这里是可以在JSF Backing Bean上使用的范围：</p><ol><li><p>@javax.enterprise.context.ApplicationScoped ：应用程序作用域在Web应用程序的整个持续时间内一直存在。 该范围在所有请求和所有会话之间共享。 当您拥有整个应用程序的数据时，这很有用。</p></li><li><p>@javax.enterprise.context.SessionScoped ：会话范围从建立会话的时间一直持续到会话终止为止。 会话上下文在同一HTTP会话中发生的所有请求之间共享。 当您不想为特定会话保存特定客户端的数据时，此功能很有用。</p></li><li><p>@javax.enterprise.context.ConversationScoped ：对话范围随着bean的存在而保持为日志。 范围提供2种方法： Conversation.begin()和Conversation.end() 。 这些方法应显式调用，以开始或结束Bean的生命。</p></li><li><p>@javax.enterprise.context.RequestScoped ：请求范围是短暂的。 它在提交HTTP请求时开始，在将响应发送回客户端后结束。 如果将托管bean放入请求范围，则会为每个请求创建一个新实例。 如果您担心会话范围存储的成本，则值得考虑请求范围。</p></li><li><p>@javax.faces.flow.FlowScoped ：只要Flow存在，Flow范围就会持续存在。 流可以定义为一组包含页面（或视图）的页面，这些页面定义了一个工作单元。 只要用户在Flow中进行导航，作用域就可以激活。</p></li><li><p>@javax.faces.view.ViewScoped ：视图范围内的Bean在重新显示同一JSF页面时仍然存在。 一旦用户导航到另一个页面，Bean就会超出范围。</p></li></ol><p>转载自 <a href="https://my.oschina.net/u/3797416/blog/3166873">https://my.oschina.net/u/3797416/blog/3166873</a> 。</p>]]></content>
-    
-    
-    <summary type="html">【Java】JSF中Bean的作用域</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="JSF" scheme="https://born2do.github.io/tags/JSF/"/>
     
   </entry>
   
