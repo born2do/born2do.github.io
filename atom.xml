@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-25T00:44:18.104Z</updated>
+  <updated>2021-04-25T16:11:32.292Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Page指令</title>
+    <link href="https://born2do.github.io/2021/04/26/Page%E6%8C%87%E4%BB%A4/"/>
+    <id>https://born2do.github.io/2021/04/26/Page%E6%8C%87%E4%BB%A4/</id>
+    <published>2021-04-25T16:11:09.000Z</published>
+    <updated>2021-04-25T16:11:32.292Z</updated>
+    
+    <content type="html"><![CDATA[<p>page指令称为页面指令，用来定义JSP页面的全局属性，该配置会作用于整个页面。</p><p>page指令的属性可以定义MIME类型、定义需要导入的包、错误页的指定等。</p><p>page指令的语法格式如下：</p><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> 属性<span class="number">1</span>=<span class="string">&quot;属性值1&quot;</span> 属性<span class="number">2</span>=<span class="string">&quot;属性值2&quot;</span> ...... %&gt;</span><br></pre></td></tr></table></figure><h2 id="page指令"><a href="#page指令" class="headerlink" title="page指令"></a>page指令</h2><p>page指令是针对当前页面的指令，常用的page指令如下：</p><blockquote><p>1.&lt;%@page language=”java”%&gt; 设置jsp中用到的语言，用到的是java，也是目前唯一有效的设定。</p><p>2.&lt;%@page extends=”mypackage.myclass”%&gt; 设置目前jsp要继承的父类，一般不需要设置，在默认情况下，jsp页面默认的父类是HttpJspBase。</p><p>3.&lt;%@page import=”java.sql.*”% &gt; jsp页面所用到的类。</p><p>4.&lt;%@page errorPage=”error.jsp”%&gt; 设置该jsp页面出现异常时所要转到的页面，如果没设定，容器将使用当前的页面显示错误信息。</p><p>5.&lt;%@page isErrorPage=”true”%&gt; 设置该jsp页面是否作为错误显示页面，默认是false，如果设置为true，容器则会在当前页面生成一个exception对象，和4搭配使用。</p><p>6.&lt;%@page contentType=”text/html;charset=gb2312”%&gt; 设置页面文件格式和编码方式。</p><p>7.&lt;%@page isThreadSafe=”true”% &gt; 设置容器以多线程还是单线程运行该jsp页面，默认是true，是多线程。设置为false，则以单线程的方式运行该jsp页面。</p><p>8.&lt;%@page session=”true”% &gt; 设置该jsp页面是否可以用到session对象(jsp内置对象，为web容器创建)，默认是true，能用到session；设置为false，则用不到。</p></blockquote><h2 id="page指令属性"><a href="#page指令属性" class="headerlink" title="page指令属性"></a>page指令属性</h2><p>page指令属性说明：</p><table><thead><tr><th>属性</th><th>定义</th></tr></thead><tbody><tr><td>language=”ScriptLanguage”</td><td>指定JSP Container用什么语言来编译，目前只支持JAVA语言。默认为JAVA</td></tr><tr><td>extends=”className”</td><td>定义此JSP网页产生的Servlet是继承哪个</td></tr><tr><td>import=”importList”</td><td>定义此JSP网页要使用哪些Java API</td></tr><tr><td>session=”true|false”</td><td>决定此页面是否使用session对象。默认为true</td></tr><tr><td>buffer=”none|size in kb”</td><td>决定输出流(Input stream)是否又缓冲区。默认为8kb</td></tr><tr><td>autoFlush=”true|false”</td><td>决定输出流的缓冲区慢了后是否需要自动清除，缓冲区慢了后会产生异常错误(Exception).默认为true</td></tr><tr><td>isThreadSafe=”true|false”</td><td>是否支持线程。默认为true</td></tr><tr><td>errorPage=”url”</td><td>如果此页发生异常，网页会重新指向一个url</td></tr><tr><td>isErrorPage=”true|false”</td><td>表示此页面是否为错误处理页面。默认为false</td></tr><tr><td>contentType=”text/html;charset=gb2312”</td><td>表示MIME类型和JSP的编码方式。笔者使用例左</td></tr><tr><td>pageEncoding=”ISO-8859-1”</td><td>编码方式。（笔者已经加入使用的编码）</td></tr><tr><td>isELLgnored=”true|false”</td><td>表示是否在此JSP页面中EL表达式。true则忽略，反之false则支持。默认为false</td></tr></tbody></table><p>language：定义要使用的脚本语言，目前只能是“java”，即language=”java”。</p><p>import：和一般的Java import意义一样，用于引入要使用的类，只是用逗号“,”隔开包或者类列表。默认省略，即不引入其他类或者包。例如，import=”java.io.*,java.util.Hashtable”。</p><p>session：指定所在页面是否参与HTTP会话。默认值为true，session=”true”。</p><p>buffer：指定到客户输出流的缓冲模式。如果为none，则不缓冲；如果指定数值，那么输出就用不小于这个值的缓冲区进行缓冲。与autoFlash一起使用。默认不小于8KB，根据不同的服务器可设置。例如，buffer=”64kb”。</p><p>autoFlash：如果为true缓冲区满时，到客户端输出被刷新；如果为false缓冲区满时，出现运行异常，表示缓冲区溢出。默认为true，例如autoFlash=”true”。</p><p>info：关于JSP页面的信息，定义一个字符串，可以使用servlet.getServletInfo()获得。 默认省略。例如，info=”测试页面”。</p><p>isErrorPage：表明当前页是否为其他页的errorPage目标。如果被设置为true，则可以使用exception对象。相反，如果被设置为false，则不可以使用exception对象。默认为false，例如，isErrorPage=”true”。</p><p>errorPage：定义此页面出现异常时调用的页面。默认忽略，例如errorPage=”error.jsp”。</p><p>isThreadSafe：用来设置JSP文件是否能多线程使用。如果设置为true，那么一个JSP能够同时处理多个用户的请求；相反，如果设置为false，一个JSP只能一次处理一个请求。例如，isThreadSafe=”true”。</p><p>contentType：定义JSP字符编码和页面响应的MIME类型。TYPE=MIME TYPE;charset=CHARSET。默认为TYPE=text/html,CHARSET=iso8859-1。例如contentType=”text/html;charset=gb2312”</p><p>pageEncoding：JSP页面的字符编码 ，默认值为pageEncoding=”iso-8859-1”，例如pageEncoding=”gb2312”。</p><p>isELIgnored：指定EL（表达式语言）是否被忽略。如果为true，则容器忽略”${}”表达式的计算。默认值由web.xml描述文件的版本确定，servlet2.3以前的版本将忽略。例如isELIgnored=”true”。</p>]]></content>
+    
+    
+    <summary type="html">Page指令</summary>
+    
+    
+    
+    <category term="JSP" scheme="https://born2do.github.io/categories/JSP/"/>
+    
+    
+    <category term="Page" scheme="https://born2do.github.io/tags/Page/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Java】System.out.println()简析</title>
+    <link href="https://born2do.github.io/2021/04/26/%E3%80%90Java%E3%80%91System-out-println-%E7%AE%80%E6%9E%90/"/>
+    <id>https://born2do.github.io/2021/04/26/%E3%80%90Java%E3%80%91System-out-println-%E7%AE%80%E6%9E%90/</id>
+    <published>2021-04-25T16:09:44.000Z</published>
+    <updated>2021-04-25T16:10:18.249Z</updated>
+    
+    <content type="html"><![CDATA[<p>Java编程中，我们经常用<code>System.out.println();</code>来向控制台输出变量值或是字符串，但是这条语句，究竟是什么样的，你深究过吗？</p><p>首先，System是java.lang包中的一个类；</p><p>其次，out是System类的一个静态成员变量，而且这个成员变量是java.io.PrintStream类的引用。</p><p><img src="https://i.loli.net/2021/04/26/vnRQKjUpAGTuLDI.png" alt="System.out.println__简析.png"></p><p>最后，println()是java.io.PrintStream类里的一个方法，它的作用是向控制台输出信息。</p><p>总结：被关键字static修饰的成员变量可以直接通过”类名.成员名”来引用，而无需创建类的实例。所以System.out是调用了System类的静态成员变量out。又因为System.out是java.io.PrintStream类的实例的引用，所以可以通过 System.out.println(); 来调用此方法。</p>]]></content>
+    
+    
+    <summary type="html">【Java】System.out.println()简析</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="println" scheme="https://born2do.github.io/tags/println/"/>
+    
+  </entry>
   
   <entry>
     <title>vue无法加载文件vue.ps1，因为在此系统上禁止运行脚本</title>
@@ -397,48 +439,6 @@
     
     
     <category term="内部类" scheme="https://born2do.github.io/tags/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言零碎知识</title>
-    <link href="https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/"/>
-    <id>https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/</id>
-    <published>2021-04-16T09:41:01.000Z</published>
-    <updated>2021-04-16T09:41:25.827Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="printf-格式字符"><a href="#printf-格式字符" class="headerlink" title="printf()格式字符"></a>printf()格式字符</h2><table><thead><tr><th>printf()格式字符</th><th>英文</th><th>含义</th></tr></thead><tbody><tr><td>%c</td><td>character</td><td>以字符形式输出单个字符</td></tr><tr><td>%s</td><td>string</td><td>输出一个字符串</td></tr><tr><td>%d</td><td>decimal</td><td>以带符号十进制整数输出</td></tr><tr><td>%f</td><td>float</td><td>以小数形式输出浮点数（6位小数）</td></tr><tr><td>%e</td><td>exponent</td><td>以标准指数形式输出（6位小数）</td></tr><tr><td>%g</td><td></td><td>选用%f，%e中输出宽度较小的一种格式</td></tr><tr><td>%o</td><td>octal</td><td>以八进制无符号整数输出（无前导0）</td></tr><tr><td>%x</td><td>hex</td><td>以十六进制无符号整数输出（无前导0x）</td></tr><tr><td>%u</td><td>unsigned</td><td>以十进制无符号整数输出</td></tr></tbody></table><h2 id="printf-的格式修饰符"><a href="#printf-的格式修饰符" class="headerlink" title="printf()的格式修饰符"></a>printf()的格式修饰符</h2><table><thead><tr><th>printf()格式修饰符</th><th>含义</th></tr></thead><tbody><tr><td>m</td><td>表示数据占用的最小宽度。数据宽度大于m，按实际宽度输出；数据宽度小于m时，补空格。</td></tr><tr><td>n</td><td>对实数表示输出n位小数。对字符串表示最多输出的字符个数。</td></tr><tr><td>l</td><td>长整型整数，加在d、o、x、u前</td></tr><tr><td>L</td><td>long double型数，加在f、e、g前</td></tr><tr><td>-</td><td>改变输出内容的对齐方式为左对齐，默认为右对齐</td></tr></tbody></table><h2 id="scanf-的格式字符"><a href="#scanf-的格式字符" class="headerlink" title="scanf()的格式字符"></a>scanf()的格式字符</h2><table><thead><tr><th>scanf()格式字符</th><th>含义</th></tr></thead><tbody><tr><td>%c</td><td>以字符形式输入单个字符</td></tr><tr><td>%s</td><td>输入字符串,以非空字符开始,遇第一个空白字符结束</td></tr><tr><td>%d</td><td>以带符号十进制形式输入整型数据</td></tr><tr><td>%f</td><td>以小数形式输入浮点数</td></tr><tr><td>%e</td><td>以标准指数形式输入</td></tr><tr><td>%o</td><td>以八进制无符号形式输入（无前导0）</td></tr><tr><td>%x</td><td>以十六进制无符号形式输入（无前导0x）</td></tr></tbody></table><h2 id="scanf-的格式修饰符"><a href="#scanf-的格式修饰符" class="headerlink" title="scanf()的格式修饰符"></a>scanf()的格式修饰符</h2><table><thead><tr><th>scanf()格式修饰符</th><th>含义</th></tr></thead><tbody><tr><td>m</td><td>表示数据占用的宽度</td></tr><tr><td>l</td><td>加在d、o、x、u前：输入长整型；加在f、e 前：输入双精度型</td></tr><tr><td>L</td><td>加在f、e 前：输入long double型</td></tr><tr><td>h</td><td>加在d、o、x 前:输入短整型</td></tr><tr><td>*</td><td>本输入项在读入后不赋给相应的变量</td></tr></tbody></table><h2 id="文件打开方式（mode）："><a href="#文件打开方式（mode）：" class="headerlink" title="文件打开方式（mode）："></a>文件打开方式（mode）：</h2><p>①对应文本文件<br>“r”    只读    必须是已存在的文件<br>“w”    只写    不论该文件是否存在，都新建一个文件<br>“a”    追加    向文本文件尾增加数据，该文件必须存在<br>“r+”   读写    打开一个已存在的文件，用于读写<br>“w+”  读写    建立一个新文件，可读可写<br>“a+”   读写    向文件尾追加数据，也可读<br>②对应二进制文件<br>“rb”<br>“wb”<br>“ab”<br>“rb+”<br>“wb+”<br>“ab+”</p>]]></content>
-    
-    
-    <summary type="html">C语言零碎知识</summary>
-    
-    
-    
-    <category term="C语言" scheme="https://born2do.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
-    
-    
-    <category term="零碎知识" scheme="https://born2do.github.io/tags/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言关键字</title>
-    <link href="https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97/"/>
-    <id>https://born2do.github.io/2021/04/16/C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97/</id>
-    <published>2021-04-16T09:38:58.000Z</published>
-    <updated>2021-04-16T09:39:22.807Z</updated>
-    
-    <content type="html"><![CDATA[<p>由ANSI标准定义的C语言关键字共32个 : </p><p>auto  double  int  struct  break  else  long  switch</p><p>case  enum  register  typedef  char  extern  return  union</p><p>const  float  short  unsigned  continue  for  signed  void</p><p>default  goto  sizeof  volatile  do  if  while  static </p><p>根据关键字的作用，可以将关键字分为数据类型关键字和流程控制关键字两大类。</p><p>1． 数据类型关键字</p><p>A基本数据类型（5个）</p><p>void ：声明函数无返回值或无参数，声明无类型指针，显式丢弃运算结果</p><p>char ：字符型类型数据，属于整型数据的一种</p><p>int ：整型数据，通常为编译器指定的机器字长</p><p>float ：单精度浮点型数据，属于浮点数据的一种</p><p>double ：双精度浮点型数据，属于浮点数据的一种</p><p>B 类型修饰关键字（4个）</p><p>short ：修饰int，短整型数据，可省略被修饰的int。</p><p>long ：修饰int，长整形数据，可省略被修饰的int。</p><p>signed ：修饰整型数据，有符号数据类型</p><p>unsigned ：修饰整型数据，无符号数据类型</p><p>C 复杂类型关键字（5个）</p><p>struct ：结构体声明</p><p>union ：共用体声明</p><p>enum ：枚举声明</p><p>typedef ：声明类型别名</p><p>sizeof ：得到特定类型或特定类型变量的大小</p><p>D 存储级别关键字（6个）</p><p>auto ：指定为自动变量，由编译器自动分配及释放。通常在栈上分配</p><p>static ：指定为静态变量，分配在静态变量区，修饰函数时，指定函数作用域为文件内部</p><p>register ：指定为寄存器变量，建议编译器将变量存储到寄存器中使用，也可以修饰函数形参，建议编译器通过寄存器而不是堆栈传递参数</p><p>extern ：指定对应变量为外部变量，即在另外的目标文件中定义，可以认为是约定由另外文件声明的韵蟮囊桓觥耙?谩?</p><p>const ：与volatile合称“cv特性”，指定变量不可被当前线程/进程改变（但有可能被系统或其他线程/进程改变）</p><p>volatile ：与const合称“cv特性”，指定变量的值有可能会被系统或其他进程/线程改变，强制编译器每次从内存中取得该变量的值</p><p>2． 流程控制关键字</p><p>A 跳转结构（4个）</p><p>return ：用在函数体中，返回特定值（或者是void值，即不返回值）</p><p>continue ：结束当前循环，开始下一轮循环</p><p>break ：跳出当前循环或switch结构</p><p>goto ：无条件跳转语句</p><p>B 分支结构（5个）</p><p>if ：条件语句</p><p>else ：条件语句否定分支（与if连用）</p><p>switch ：开关语句（多重分支语句）</p><p>case ：开关语句中的分支标记</p><p>default ：开关语句中的“其他”分治，可选。</p><p>C 循环结构（3个）</p><p>for ：for循环结构，for(1;2;3)4;的执行顺序为1-&gt;2-&gt;4-&gt;3-&gt;2…循环，其中2为循环条件</p><p>do ：do循环结构，do 1 while(2); 的执行顺序是 1-&gt;2-&gt;1…循环，2为循环条件</p><p>while ：while循环结构，while(1) 2; 的执行顺序是1-&gt;2-&gt;1…循环，1为循环条件</p><p>以上循环语句，当循环条件表达式为真则继续循环，为假则跳出循环。</p>]]></content>
-    
-    
-    <summary type="html">C语言关键字</summary>
-    
-    
-    
-    <category term="C语言" scheme="https://born2do.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
-    
-    
-    <category term="关键字" scheme="https://born2do.github.io/tags/%E5%85%B3%E9%94%AE%E5%AD%97/"/>
     
   </entry>
   
