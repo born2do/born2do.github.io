@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-28T14:29:27.088Z</updated>
+  <updated>2021-04-29T12:44:36.022Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>localhost、127.0.0.1和本机IP之间的区别</title>
+    <link href="https://born2do.github.io/2021/04/29/localhost%E3%80%81127-0-0-1%E5%92%8C%E6%9C%AC%E6%9C%BAIP%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://born2do.github.io/2021/04/29/localhost%E3%80%81127-0-0-1%E5%92%8C%E6%9C%AC%E6%9C%BAIP%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2021-04-29T12:44:10.000Z</published>
+    <updated>2021-04-29T12:44:36.022Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、localhost 是一个域名，在过去它指向 127.0.0.1 这个IP地址。在操作系统支持 IPv6 后，它同时还指向 IPv6 的地址 [::1] 。</p><p>2、127.0.0.1 是一个IP地址，这个地址通常分配给 loopback 接口。loopback 是一个特殊的网络接口(可理解成虚拟网卡)，用于本机中各个应用之间的网络交互。只要操作系统的网络组件是正常的，loopback 就能工作。</p><p>3、本机IP，确切地说，“本机地址”并不是一个规范的名词。通常情况下，指的是“本机物理网卡所绑定的网络协议地址”。由于目前常用网络协议只剩下了IPv4，IPX/Apple Tak消失了，IPv6还没普及，所以通常仅指IP地址甚至IPv4地址。</p><p>4、一般情况下，localhost指向127.0.0.1，无需联网，供本机访问；而本机IP需要联网，供本机或外部访问。</p>]]></content>
+    
+    
+    <summary type="html">localhost、127.0.0.1和本机IP之间的区别</summary>
+    
+    
+    
+    <category term="IP" scheme="https://born2do.github.io/categories/IP/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【Linux】Linux、Unix环境下的环境变量设置</title>
+    <link href="https://born2do.github.io/2021/04/29/%E3%80%90Linux%E3%80%91Linux%E3%80%81Unix%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://born2do.github.io/2021/04/29/%E3%80%90Linux%E3%80%91Linux%E3%80%81Unix%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE/</id>
+    <published>2021-04-29T12:42:38.000Z</published>
+    <updated>2021-04-29T12:43:03.289Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例1. </span><br><span class="line">export JAVA_HOME=&quot;/var/java/lib&quot;</span><br><span class="line"></span><br><span class="line">例2. </span><br><span class="line">export PATH=$&#123;PATH&#125;:/var/java/lib</span><br></pre></td></tr></table></figure><p>说明：</p><p>1、如果是系统已有变量（如PATH），那么采用例2的连接方法。在原有路径后添加新路径，如果不连接原来的${PATH}，那么原有的PATH将被覆盖，后果很严重。</p><p>2、如果是新设置的变量，则按例1设置。</p><p>3、变量名和变量值之间的等号两侧不能有空格，否则报错!</p><p>4、等号右侧的变量值可以加双引号(例1)也可以不加(例2)。</p><p>5、特殊字符简介。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export a=/a/img:aa/img</span><br><span class="line">export B=.:/xiaomi/xiaoai</span><br><span class="line">export A=/ca/car:$A</span><br></pre></td></tr></table></figure><p><code>:</code>    表示并列含义，例如变量值有多个，用:符号进行分隔。</p><p><code>.</code>    表示你操作的当前目录。</p><p><code>$</code>    表示引用已定义好的变量的值。</p><p>6、set命令，显示所有本地定义的shell变量。</p><p>7、常见的环境变量</p><p>PATH:决定了shell将到哪些目录中寻找命令或程序</p><p>HOME:当前用户主目录</p><p>HISTSIZE:是指保存历史命令记录的条数</p><p>LOGNAME:是指当前用户的登录名</p>]]></content>
+    
+    
+    <summary type="html">【Linux】Linux、Unix环境下的环境变量设置</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://born2do.github.io/categories/Linux/"/>
+    
+    
+    <category term="环境变量" scheme="https://born2do.github.io/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>【Linux】Linux上的tar包拿到Windows下解压缩后新增了PaxHeaders文件夹以及其他文件</title>
@@ -395,50 +435,6 @@
     
     
     <category term="WebStorm" scheme="https://born2do.github.io/tags/WebStorm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Java】Java中重写与重载的区别</title>
-    <link href="https://born2do.github.io/2021/04/18/%E3%80%90Java%E3%80%91Java%E4%B8%AD%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://born2do.github.io/2021/04/18/%E3%80%90Java%E3%80%91Java%E4%B8%AD%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2021-04-18T10:47:24.000Z</published>
-    <updated>2021-04-18T10:47:56.533Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>重写<ul><li>发生在父类与子类之间 </li><li>方法名，参数列表，返回类型（除子类中方法的返回类型是父类中返回类型的子类）必须相同 </li><li>访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private) </li><li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li></ul></li><li>重载<ul><li>重载Overload是一个类中多态性的一种表现 </li><li>重载要求同名方法的参数列表不同(参数类型，参数个数甚至是参数顺序) </li><li>重载的时候，返回值类型可以相同也可以不相同。无法以返回型别作为重载函数的区分标准</li></ul></li><li>总结</li></ol><table><thead><tr><th></th><th>重载</th><th>重写（也称覆盖）</th></tr></thead><tbody><tr><td>英文</td><td>overloading</td><td>overriding</td></tr><tr><td>定义</td><td>方法名相同，参数列表不同（参数的类型、个数甚至顺序不同），对返回值无要求</td><td>方法名称，参数列表，返回值类型，完全相同</td></tr><tr><td>权限</td><td>对权限没有要求</td><td>被重写的方法不能拥有比父类更加严格的权限</td></tr><tr><td>范围</td><td>发生在同一个类中</td><td>发生在继承中</td></tr></tbody></table>]]></content>
-    
-    
-    <summary type="html">【Java】Java中重写与重载的区别</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="重写" scheme="https://born2do.github.io/tags/%E9%87%8D%E5%86%99/"/>
-    
-    <category term="重载" scheme="https://born2do.github.io/tags/%E9%87%8D%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【基金】基金基础专业术语解释</title>
-    <link href="https://born2do.github.io/2021/04/17/%E3%80%90%E5%9F%BA%E9%87%91%E3%80%91%E5%9F%BA%E9%87%91%E5%9F%BA%E7%A1%80%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A/"/>
-    <id>https://born2do.github.io/2021/04/17/%E3%80%90%E5%9F%BA%E9%87%91%E3%80%91%E5%9F%BA%E9%87%91%E5%9F%BA%E7%A1%80%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A/</id>
-    <published>2021-04-17T11:04:06.000Z</published>
-    <updated>2021-04-17T11:04:28.349Z</updated>
-    
-    <content type="html"><![CDATA[<p>1.仓位说明<br>建仓：开始买进一些<br>加仓：继续买进，会拉高成本价（也即拉高成本净值）<br>补仓：跌了买一些<br>减仓：卖一些<br>全仓：投入所有资金<br>重仓：买进自有资产的80%左右<br>半仓：用掉所有资金一半买进<br>轻仓：只买了一小部分，比如20%-30%<br>2.操作说明<br>止损：亏钱卖出<br>追涨：基金一直涨，仍一直买进<br>杀跌：基金跌了，忍不住卖掉<br>踏空：一直在看，没上车买进<br>3.常见术语<br>累计净值：基金成立到现在的价格<br>交易确定日：确定你买入基金份额的日期<br>北上资金：北是沪深的股票，从香港股票流入大陆股市的资金<br>南下资金：南是香港的股票，从大陆股票流入香港股市的资金<br>现金分红：直接获取现金分红，免个人所得税，落袋为安</p>]]></content>
-    
-    
-    <summary type="html">【基金】基金基础专业术语解释</summary>
-    
-    
-    
-    <category term="基金" scheme="https://born2do.github.io/categories/%E5%9F%BA%E9%87%91/"/>
-    
-    
-    <category term="专业术语" scheme="https://born2do.github.io/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/"/>
     
   </entry>
   
