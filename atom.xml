@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-04-29T12:44:36.022Z</updated>
+  <updated>2021-04-30T10:04:35.671Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Windows】Windows环境生成树形目录结构</title>
+    <link href="https://born2do.github.io/2021/04/30/%E3%80%90Windows%E3%80%91Windows%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/"/>
+    <id>https://born2do.github.io/2021/04/30/%E3%80%90Windows%E3%80%91Windows%E7%8E%AF%E5%A2%83%E7%94%9F%E6%88%90%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/</id>
+    <published>2021-04-30T10:03:37.000Z</published>
+    <updated>2021-04-30T10:04:35.671Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">以图形显示驱动器或路径的文件夹结构。</span><br><span class="line"></span><br><span class="line"><span class="built_in">TREE</span> [drive:][<span class="built_in">path</span>] [/F] [/A]</span><br><span class="line"></span><br><span class="line">   /F   显示每个文件夹中文件的名称。</span><br><span class="line">   /A   使用 ASCII 字符，而不使用扩展字符。</span><br></pre></td></tr></table></figure><p>实例：</p><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tree</span> D:\backup\软件 /F &gt; <span class="built_in">tree</span>.txt</span><br></pre></td></tr></table></figure><p>执行tree命令，并将结果重定向到 tree.txt 。</p><p><img src="https://i.loli.net/2021/04/30/sQPW8chavRdo6wG.png" alt="Windows环境生成树形目录结构-tree.png"></p>]]></content>
+    
+    
+    <summary type="html">【Windows】Windows环境生成树形目录结构</summary>
+    
+    
+    
+    <category term="Windows" scheme="https://born2do.github.io/categories/Windows/"/>
+    
+    
+    <category term="树形目录结构" scheme="https://born2do.github.io/tags/%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决从github下载项目速度过慢或下载失败</title>
+    <link href="https://born2do.github.io/2021/04/30/%E8%A7%A3%E5%86%B3%E4%BB%8Egithub%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE%E9%80%9F%E5%BA%A6%E8%BF%87%E6%85%A2%E6%88%96%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5/"/>
+    <id>https://born2do.github.io/2021/04/30/%E8%A7%A3%E5%86%B3%E4%BB%8Egithub%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE%E9%80%9F%E5%BA%A6%E8%BF%87%E6%85%A2%E6%88%96%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5/</id>
+    <published>2021-04-30T10:02:31.000Z</published>
+    <updated>2021-04-30T10:03:10.628Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候从github上下载个项目或是文件，几兆大小却花费十几分钟，速度低到极致。遇上个稍微大点的项目，运气好的下载半天好歹给你下载下来了，运气差点的下载到一半甚至90%就给你中止了，提示你网络已断开，你说气人不。</p><p>说到底还是因为那堵墙，不做过多评论。</p><p>直接来干货：将存储于github上的项目克隆到gitee上即可。</p><p>Gitee （中文名：码云 ，原名 Git@OSC ）是开源中国推出的基于 Git 的代码托管服务。因为服务器在国内，速度可不是github能比拟的。</p><p>1.打开码云（<a href="https://gitee.com/">https://gitee.com/</a>），注册并登录。</p><p>2.创建仓库。</p><p><img src="https://i.loli.net/2021/04/30/mRePXTF1uhx5t7i.png" alt="create.png"></p><p>3.在新建仓库页选择 “导入已有仓库”。</p><p><img src="https://i.loli.net/2021/04/30/95ofMkTAxSKu1YJ.png" alt="import.png"></p><p>4.复制需要下载的github项目的链接，如<a href="https://github.com/lehaifeng/T-GCN.git">https://github.com/lehaifeng/T-GCN.git</a>放到导入已有仓库中。</p><p><img src="https://i.loli.net/2021/04/30/yGnUFbV4MpZmulh.png" alt="importFromGitHub.png"></p><p>5.点击创建，然后下载即可。</p><p><img src="https://i.loli.net/2021/04/30/8EctPuBlemkMfbG.png" alt="download.png"></p><p>说明：有些项目在gitee上已经有过的，克隆会比较快，但如果是新项目，会稍稍耗时，但总比我们自己下载要来得快，耐心等待即可。</p><p>图片来自：<a href="https://www.cnblogs.com/USTC-ZCC/p/11163292.html">https://www.cnblogs.com/USTC-ZCC/p/11163292.html</a></p>]]></content>
+    
+    
+    <summary type="html">解决从github下载项目速度过慢或下载失败</summary>
+    
+    
+    
+    <category term="下载" scheme="https://born2do.github.io/categories/%E4%B8%8B%E8%BD%BD/"/>
+    
+    
+    <category term="github" scheme="https://born2do.github.io/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>localhost、127.0.0.1和本机IP之间的区别</title>
@@ -393,48 +435,6 @@
     
     
     <category term="MySQL" scheme="https://born2do.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Typora修改内容字体样式</title>
-    <link href="https://born2do.github.io/2021/04/19/Typora%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F/"/>
-    <id>https://born2do.github.io/2021/04/19/Typora%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F/</id>
-    <published>2021-04-19T11:02:53.000Z</published>
-    <updated>2021-04-19T11:03:48.580Z</updated>
-    
-    <content type="html"><![CDATA[<p>Typora文档编辑器，近年来越来越受到广大编程人员的喜爱，使用起来极易上手，文档格式编辑也更美观。但是，默认的中文字体样式是“宋体”，就本人而言，不喜欢。但是怎么修改呢？</p><h2 id="字体样式修改教程"><a href="#字体样式修改教程" class="headerlink" title="字体样式修改教程"></a>字体样式修改教程</h2><ol><li><p>在 Typora 中依次打开 文件-&gt;偏好设置-&gt;打开主题文件夹。</p><hr></li></ol><p><img src="https://i.loli.net/2021/04/19/A6Pq84aRdTEmfJK.png" alt="Typora01.png"></p><pre><code>* * *</code></pre><p><img src="https://i.loli.net/2021/04/19/Pxny5Kfug3osaIe.png" alt="Typora02.png"></p><pre><code>* * *</code></pre><p><img src="https://i.loli.net/2021/04/19/uf1k95XZ3ztLNBe.png" alt="Typora03.png"></p><ol start="2"><li><p>这里以GitHub主题为例，修改字体样式。</p><p> 用Sublime或WebStorm打开github.css，大约在40行左右有body标签样式，在font-family添加上你自己想要的字体名称，注意所有标点要用英文字符（名称是汉字的除外）。我这里增加了”楷体”。修改后保存关闭文件，再打开Typora，内容字体样式成功修改。</p></li></ol><p><img src="https://i.loli.net/2021/04/19/e7NcDVtURHrXh2p.png" alt="Typora04.png"></p>]]></content>
-    
-    
-    <summary type="html">Typora修改内容字体样式</summary>
-    
-    
-    
-    <category term="Typora" scheme="https://born2do.github.io/categories/Typora/"/>
-    
-    
-    <category term="Typora" scheme="https://born2do.github.io/tags/Typora/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebStorm找不到文件chrome</title>
-    <link href="https://born2do.github.io/2021/04/19/WebStorm%E6%89%BE%E4%B8%8D%E5%88%B0%E6%96%87%E4%BB%B6chrome/"/>
-    <id>https://born2do.github.io/2021/04/19/WebStorm%E6%89%BE%E4%B8%8D%E5%88%B0%E6%96%87%E4%BB%B6chrome/</id>
-    <published>2021-04-19T11:01:49.000Z</published>
-    <updated>2021-04-19T11:02:11.294Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近重装了系统，软件也都重新装了一遍，但是在使用WebStorm的时候突然出现了无法使用google chrome，提示”windows 找不到文件chrome，请确定文件名是否正确后，再试一次”，这个问题的本质是WebStorm中关于chrome浏览器的路径是错误的，修改浏览器路径即可。</p><ol><li> 找到你本机中chrome浏览器的位置。右击桌面上的chrome浏览器图标，找到属性–&gt;快捷方式–&gt;目标，复制路径（即chrome浏览器.exe文件的路径）。</li></ol><p><img src="https://i.loli.net/2021/04/19/j6hTXsdGimNvegC.png" alt="WebStorm找不到文件chrome01.png"></p><ol start="2"><li> 修改WebStorm中chrome浏览器的路径。打开WebStorm软件，找到file–&gt;settings–&gt;Web Browsers，在chrome那一栏最右边的path中粘贴之前复制的路径，点击OK,问题即可解决。</li></ol><p><img src="https://i.loli.net/2021/04/19/gUmS9u5ZOy3MvK1.png" alt="WebStorm找不到文件chrome02.png"></p>]]></content>
-    
-    
-    <summary type="html">WebStorm找不到文件chrome</summary>
-    
-    
-    
-    <category term="WebStorm" scheme="https://born2do.github.io/categories/WebStorm/"/>
-    
-    
-    <category term="WebStorm" scheme="https://born2do.github.io/tags/WebStorm/"/>
     
   </entry>
   
