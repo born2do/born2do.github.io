@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>牛客网数据库刷题笔记 | Hexo</title>
+  <meta name="description" content="牛客网数据库刷题笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客网数据库刷题笔记">
+<meta property="og:url" content="https://born2do.github.io/2021/05/03/%E7%89%9B%E5%AE%A2%E7%BD%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="ChenHY的个人博客">
+<meta property="og:description" content="牛客网数据库刷题笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-02T23:24:42.000Z">
+<meta property="article:modified_time" content="2021-05-02T23:25:19.975Z">
+<meta property="article:author" content="chenhy">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://born2do.github.io/2021/05/03/%E7%89%9B%E5%AE%A2%E7%BD%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="ChenHY的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-blue" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/born2do" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">你不懂的阳</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/born2do" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Excel/">Excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IP/">IP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD/">MD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Navicat/">Navicat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/">Typora</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/VUE/">VUE</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WebStorm/">WebStorm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XML/">XML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/error/">error</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%8B%E8%BD%BD/">下载</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%83%E5%AD%97%E7%AC%A6/">元字符</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E5%BA%8A/">图床</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9F%BA%E9%87%91/">基金</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E7%BA%A6/">规约</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autowired/" rel="tag">@Autowired</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">@Resource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB2/" rel="tag">DB2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date/" rel="tag">Date</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echo/" rel="tag">Echo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitalk/" rel="tag">Gitalk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html%E8%BD%ACMarkdown/" rel="tag">Html转Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSF/" rel="tag">JSF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedList/" rel="tag">LinkedList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/" rel="tag">MYSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Page/" rel="tag">Page</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PicGo/" rel="tag">PicGo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerPoint-2013/" rel="tag">PowerPoint 2013</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SLF4J/" rel="tag">SLF4J</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMMS/" rel="tag">SMMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuffer/" rel="tag">StringBuffer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuilder/" rel="tag">StringBuilder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VC-6-0/" rel="tag">VC++6.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE/" rel="tag">VUE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebMagic/" rel="tag">WebMagic</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/" rel="tag">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c3p0/" rel="tag">c3p0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chmod/" rel="tag">chmod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab/" rel="tag">crontab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/decodeURIComponent/" rel="tag">decodeURIComponent()</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encodeURIComponent/" rel="tag">encodeURIComponent()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/" rel="tag">error</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/find/" rel="tag">find</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log4j/" rel="tag">log4j</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logback/" rel="tag">logback</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/println/" rel="tag">println</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tar/" rel="tag">tar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp%E4%B8%8B%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" rel="tag">webapp下静态资源无法访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webmagic-selenium/" rel="tag">webmagic-selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/" rel="tag">专业术语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%83%E5%AD%97%E7%AC%A6/" rel="tag">元字符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" rel="tag">堆内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A9%BA%E9%97%B4%E5%92%8C%E7%B4%A2%E5%BC%95%E8%A1%A8%E7%A9%BA%E9%97%B4/" rel="tag">数据表空间和索引表空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%93%E6%B7%B7%E8%BF%B0%E8%AF%AD/" rel="tag">易混述语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E5%86%85%E5%AD%98/" rel="tag">栈内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" rel="tag">树形目录结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE/" rel="tag">联合主键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">访问修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">运算符优先级</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%8D%E5%86%99/" rel="tag">重写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%8D%E8%BD%BD/" rel="tag">重载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/" rel="tag">零碎知识</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Autowired/" style="font-size: 13px;">@Autowired</a> <a href="/tags/Resource/" style="font-size: 13px;">@Resource</a> <a href="/tags/ArrayList/" style="font-size: 13px;">ArrayList</a> <a href="/tags/DB2/" style="font-size: 13px;">DB2</a> <a href="/tags/Date/" style="font-size: 13px;">Date</a> <a href="/tags/Echo/" style="font-size: 13px;">Echo</a> <a href="/tags/Excel/" style="font-size: 13px;">Excel</a> <a href="/tags/GitHub/" style="font-size: 13.33px;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 13px;">Gitalk</a> <a href="/tags/HashMap/" style="font-size: 13px;">HashMap</a> <a href="/tags/HashTable/" style="font-size: 13px;">HashTable</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Html%E8%BD%ACMarkdown/" style="font-size: 13px;">Html转Markdown</a> <a href="/tags/IO/" style="font-size: 13px;">IO</a> <a href="/tags/JSF/" style="font-size: 13px;">JSF</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/LinkedList/" style="font-size: 13px;">LinkedList</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/MYSQL/" style="font-size: 13px;">MYSQL</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tags/Navicat/" style="font-size: 13.33px;">Navicat</a> <a href="/tags/Page/" style="font-size: 13px;">Page</a> <a href="/tags/PicGo/" style="font-size: 13px;">PicGo</a> <a href="/tags/PowerPoint-2013/" style="font-size: 13px;">PowerPoint 2013</a> <a href="/tags/SLF4J/" style="font-size: 13px;">SLF4J</a> <a href="/tags/SMMS/" style="font-size: 13px;">SMMS</a> <a href="/tags/String/" style="font-size: 13px;">String</a> <a href="/tags/StringBuffer/" style="font-size: 13px;">StringBuffer</a> <a href="/tags/StringBuilder/" style="font-size: 13px;">StringBuilder</a> <a href="/tags/Typora/" style="font-size: 13px;">Typora</a> <a href="/tags/VC-6-0/" style="font-size: 13px;">VC++6.0</a> <a href="/tags/VUE/" style="font-size: 13.33px;">VUE</a> <a href="/tags/WebMagic/" style="font-size: 13.67px;">WebMagic</a> <a href="/tags/WebStorm/" style="font-size: 13px;">WebStorm</a> <a href="/tags/Windows/" style="font-size: 13.33px;">Windows</a> <a href="/tags/XML/" style="font-size: 13px;">XML</a> <a href="/tags/c3p0/" style="font-size: 13px;">c3p0</a> <a href="/tags/chmod/" style="font-size: 13px;">chmod</a> <a href="/tags/crontab/" style="font-size: 13.33px;">crontab</a> <a href="/tags/decodeURIComponent/" style="font-size: 13.33px;">decodeURIComponent()</a> <a href="/tags/encodeURIComponent/" style="font-size: 13px;">encodeURIComponent()</a> <a href="/tags/error/" style="font-size: 13px;">error</a> <a href="/tags/find/" style="font-size: 13px;">find</a> <a href="/tags/github/" style="font-size: 13px;">github</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/log4j/" style="font-size: 13px;">log4j</a> <a href="/tags/logback/" style="font-size: 13.33px;">logback</a> <a href="/tags/println/" style="font-size: 13px;">println</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/tar/" style="font-size: 13px;">tar</a> <a href="/tags/webapp%E4%B8%8B%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" style="font-size: 13px;">webapp下静态资源无法访问</a> <a href="/tags/webmagic-selenium/" style="font-size: 13px;">webmagic-selenium</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/" style="font-size: 13px;">专业术语</a> <a href="/tags/%E5%85%83%E5%AD%97%E7%AC%A6/" style="font-size: 13px;">元字符</a> <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" style="font-size: 13.33px;">关键字</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">单元测试</a> <a href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" style="font-size: 13px;">堆内存</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 13px;">开源</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 13px;">快捷键</a> <a href="/tags/%E6%8A%A5%E9%94%99/" style="font-size: 13px;">报错</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A9%BA%E9%97%B4%E5%92%8C%E7%B4%A2%E5%BC%95%E8%A1%A8%E7%A9%BA%E9%97%B4/" style="font-size: 13px;">数据表空间和索引表空间</a> <a href="/tags/%E6%98%93%E6%B7%B7%E8%BF%B0%E8%AF%AD/" style="font-size: 13px;">易混述语</a> <a href="/tags/%E6%A0%88%E5%86%85%E5%AD%98/" style="font-size: 13px;">栈内存</a> <a href="/tags/%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" style="font-size: 13px;">树形目录结构</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 13.33px;">注解</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" style="font-size: 13px;">环境变量</a> <a href="/tags/%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE/" style="font-size: 13px;">联合主键</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">访问修饰符</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 13px;">软件安装</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" style="font-size: 13px;">运算符优先级</a> <a href="/tags/%E9%87%8D%E5%86%99/" style="font-size: 13px;">重写</a> <a href="/tags/%E9%87%8D%E8%BD%BD/" style="font-size: 13px;">重载</a> <a href="/tags/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/" style="font-size: 13px;">零碎知识</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/03/%E7%89%9B%E5%AE%A2%E7%BD%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="title">牛客网数据库刷题笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-02T23:24:42.000Z" itemprop="datePublished">2021-05-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/03/Eclipse%E3%80%81spring%E6%8F%92%E4%BB%B6%E5%8F%8A%E5%8F%8D%E7%BC%96%E8%AF%91%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/" class="title">Eclipse、spring插件及反编译插件安装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-02T23:18:41.000Z" itemprop="datePublished">2021-05-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/03/Intellij%E9%85%8D%E7%BD%AE/" class="title">Intellij配置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-02T23:17:46.000Z" itemprop="datePublished">2021-05-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/MySQL/">MySQL</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/02/%E3%80%90MySQL%E3%80%91The-MySQL-server-is-running-with-the-skip-grant-tables-option-so-it-cannot-execute-this/" class="title">【MySQL】The MySQL server is running with the --skip-grant-tables option so it cannot execute this ...</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-02T00:04:45.000Z" itemprop="datePublished">2021-05-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/02/%E3%80%90Java%E3%80%91Java%E4%B8%AD%E5%AD%90%E7%B1%BB%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%E7%88%B6%E7%B1%BB%E6%89%80%E6%9C%89%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95/" class="title">【Java】Java中子类可以继承父类所有的属性和方法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-02T00:03:51.000Z" itemprop="datePublished">2021-05-02</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E6%98%9F%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">一星题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E6%98%9F%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">两星题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%98%9F%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">三星题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E6%98%9F%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">四星题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Over"><span class="toc-number"></span> <span class="toc-text">Over</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PS%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">PS：</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-牛客网数据库刷题笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      牛客网数据库刷题笔记
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/05/03/%E7%89%9B%E5%AE%A2%E7%BD%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
+	  <time datetime="2021-05-02T23:24:42.000Z" itemprop="datePublished">2021-05-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+  </span>
+
+        
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/03/%E7%89%9B%E5%AE%A2%E7%BD%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 6.8k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 23(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="一星题"><a href="#一星题" class="headerlink" title="一星题"></a>一星题</h2><ol>
+<li><p><strong>日志文件</strong>用来记录对数据库中数据进行的每一次更新操作。</p>
+</li>
+<li><p>索引是在基本表的列上建立的一种数据库对象，它同基本表分开存储，使用它能够加快数据的（查询）速度。</p>
+</li>
+<li><p>where子句后不能放聚合函数。</p>
+</li>
+<li><p>用二维表来表示实体集及实体集之间联系的数据模型称为关系模型。</p>
+</li>
+<li><p>数据库系统与文件系统的主要区别是：文件系统不能解决数据冗余和数据独立性问题，而数据库系统可以解决。</p>
+</li>
+<li><p>数据库管理系统DBMS是系统软件。</p>
+</li>
+<li><p>数据库系统一般由数据库、数据库管理系统（DBMS）、应用系统、数据库管理员和用户构成。DBMS是数据库系统的基础和核心。</p>
+</li>
+<li><p>MySQL忘记root密码，不管哪种解决方案，最终都要实现更新mysql数据库下的<strong>user</strong>表。</p>
+</li>
+<li><p>SQL 采用集合操作方式。</p>
+</li>
+<li><p>概念模型是用于信息世界的建模，与具体的 DBMS 无关。</p>
+</li>
+<li><p>数据库系统不仅包括数据库本身,还要包括相应的硬件、软件和各类相关人员。</p>
+</li>
+<li><p>在Access数据库的表设计器中可以修改字段类型、设置索引和增加字段。要想删除表中的记录，需要打开表进行删除。</p>
+</li>
+<li><p>SQL支持的备份类型有四种：</p>
+<ul>
+<li>完全数据库备份 </li>
+<li>差异备份或称增量备份</li>
+<li>事务日志备份</li>
+<li>数据库文件和文件组备份</li>
+</ul>
+</li>
+<li><ul>
+<li>串行读(Serializable):完全串行化的读,每次读都需要获得表级共享锁,读写相互都会阻塞</li>
+<li>未提交读(Read Uncommitted):允许脏读,也就是可能读取到其他会话中未提交事务修改的数据</li>
+<li>提交读(Read Committed):只能读取到已经提交的数据</li>
+<li>可重复读(Repeated Read):在同一个事务内的查询都是事务开始时刻一致的</li>
+</ul>
+</li>
+<li><p>数据库分类：</p>
+<ul>
+<li>Mongodb数据库属于文档型非关系数据库</li>
+<li>PostgreSQL属于关系型数据库</li>
+<li>Redis属于KV键值数据库</li>
+<li>Hbase属于列数据库</li>
+</ul>
+</li>
+<li><p>在手机开发中常用的数据库是sqlLite。</p>
+</li>
+<li><p>关系模型中，一个关键字，可由一个或多个其值能惟一标识该关系模式中任何元组的属性组成。</p>
+</li>
+<li><p>在合并分E-R图时必须消除各分图中的不一致。各分E-R图之间的冲突主要有三类，即属性冲突、命名冲突和结构冲突，其中命名冲突是指同名异义或同义异名。</p>
+</li>
+<li><p>在数据系统中，对存取权限的定义称为授权。</p>
+</li>
+<li><p>索引的描述存放在数据字典中。</p>
+</li>
+<li><p>SQL语言具有两种使用方式，分别称为交互式SQL和嵌入式SQL。</p>
+</li>
+<li><p>数据库的物理结构设计的目的是：找到一个有效、可实现的数据库存储结构。</p>
+</li>
+<li><blockquote>
+<p>（1）若视图的字段是来自字段表达式或常数，则不允许对此视图执行INSERT、UPDATE操作，允许执行DELETE操作；<br>（2）若视图的字段是来自库函数，则此视图不允许更新；<br>（3）若视图的定义中有GROUP BY子句或聚集函数时，则此视图不允许更新；<br>（4）若视图的定义中有DISTINCT任选项，则此视图不允许更新；<br>（5）若视图的定义中有嵌套查询，并且嵌套查询的FROM子句中涉及的表也是导出该视图的基表，则此视图不允许更新；<br>（6）若视图是由两个以上的基表导出的，此视图不允许更新；<br>（7）一个不允许更新的视图上定义的视图也不允许更新；<br>（8）由一个基表定义的视图，只含有基表的主键或候补键，并且视图中没有用表达式或函数定义的属性，才允许更新。</p>
+</blockquote>
+</li>
+<li><p>相对于非关系模型，关系数据模型的缺点之一是：存取路径对用户透明，需查询优化。</p>
+</li>
+<li><p>一个关系数据库文件中的各条记录，前后顺序可以任意颠倒，不影响库中的数据关系。</p>
+</li>
+<li><p>不借助第三方工具，通过<code>explain plan</code>查看SQL的执行计划。</p>
+</li>
+<li><p>数据库的<strong>网状模型</strong>应满足的条件是：允许一个以上结点无双亲，也允许一个结点有多个双亲。</p>
+</li>
+<li><p>数据库并发操作带来的数据不一致性包括丢失修改、不可重复读、读“脏”数据。</p>
+</li>
+<li><blockquote>
+<p>事务四大特性(简称ACID) </p>
+<p>1、原子性(Atomicity)：事务中的全部操作在数据库中是不可分割的，要么全部完成，要么均不执行。<br>2、一致性(Consistency)：几个并行执行的事务，其执行结果必须与按某一顺序串行执行的结果相一致。<br>3、隔离性(Isolation)：事务的执行不受其他事务的干扰，事务执行的中间结果对其他事务必须是透明的。<br>4、持久性(Durability)：对于任意已提交事务，系统必须保证该事务对数据库的改变不被丢失，即使数据库出现故障。</p>
+</blockquote>
+</li>
+<li><p>左连接时，结果集的行数可能大于左表的行数。</p>
+<p>解释：如果 left join on的条件在右表中有所重复，那么最终记录数目会大于原表数量。</p>
+</li>
+<li><p>创建表：CREATE TABLE</p>
+<p>创建视图：CREATE VIEW</p>
+<p>创建索引：CREATE INDEX </p>
+<p>CREATE SCHEMA 是 CREATE DATABASE 的一个代名词。</p>
+</li>
+<li><p>子模式DDL用来描述，数据库的局部逻辑结构。</p>
+</li>
+<li><p>SQL语言是（非过程化）的语言。</p>
+</li>
+<li><blockquote>
+<p>1.等值连接，在两个表中的广义笛卡尔积中选取属性值相等的元组</p>
+<p>2.自然连接（特殊的等值连接），在等值连接的基础上去掉重复项</p>
+<p>3.外连接分为左外连接右外连接</p>
+<p>注：等值连接需要标出具体哪个元组相等</p>
+</blockquote>
+</li>
+<li><p>对数据表进行修改时，删除列可以省略column，添加列必须说明数据类型。</p>
+<p><code>alter table employee drop column age;</code></p>
+<p><code>alter table employee drop age;</code></p>
+</li>
+<li><p>关系模型的三个组成部分，是指关系数据模型的<strong>数据结构、数据操作和完整性约束</strong>。</p>
+</li>
+<li><p>存储过程的好处：重复使用、SQL优化、更加安全。</p>
+</li>
+<li><p>并发控制指的是当多个用户同时更新运行时，用于保护数据库完整性的各种技术。</p>
+</li>
+<li><blockquote>
+<ol>
+<li>DCL(数据控制语言)：grant revoke   </li>
+<li>DML(数据操纵语言)：insert delete update select   </li>
+<li>DDL(数据定义语言)：create drop alter   </li>
+<li>TCL(事物控制语言)：commit rollback </li>
+</ol>
+</blockquote>
+</li>
+<li><p>物理独立性是指用户的应用程序与存储在磁盘上的数据库中数据是相互独立的。</p>
+<p>逻辑独立性是指用户的应用程序与数据库的逻辑结构是相互独立的。</p>
+<p>在数据库系统中，外模式/模式映象保证数据的逻辑独立性，模式/内模式映象保证数据的物理独立性。</p>
+</li>
+<li><p>对于串行调度，各个事务的操作没有交叉，也就没有相互干扰，当然也不会产生并发所引起的。事务对数据库的作用是将数据库从一个一致的状态转变为另一个一致的状态。多个事务串行执行后，数据库仍旧保持一致的状态。 可串行性(Serializability)  是并发事务正确调度的准则。在RDBMS中，作为并发控制的正确性准则。一个给定的并发调度，当且仅当它是可串行化的，才认为是正确调度。</p>
+</li>
+<li><p>聚合函数MAX(＜列名＞)用于求某一列值的最大值，它对列名不限制数据类型。</p>
+</li>
+<li><p>数据库保护又叫做数据库控制，是通过四方面实现的，即安全性控制、完整性控制、并发性和数据恢复。</p>
+</li>
+<li><blockquote>
+<p>第一范式（1NF）：强调的是列的原子性，即列不能够再分成其他几列。</p>
+<p>第二范式（2NF）：首先是1NF，另外包含两部分内容，一是表必须有一个主键；二是没有包含在主键中的列必须完全依赖于主键，而不能只依赖于主键的一部分。</p>
+<p>第三范式（3NF）：首先是 2NF，另外非主键列必须直接依赖于主键，不能存在传递依赖。即不能存在：非主键列 A 依赖于非主键列 B，非主键列 B 依赖于主键的情况。</p>
+<p>第二范式（2NF）和第三范式（3NF）的概念很容易混淆，区分它们的关键点在于，2NF：非主键列是否完全依赖于主键，还是依赖于主键的一部分；3NF：非主键列是直接依赖于主键，还是直接依赖于非主键列。</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>（1）实体类型的转换<br>将每个实体类型转换成一个关系模式，实体的属性即为关系的属性，实体标识符即为关系的键。<br>（2）联系类型的转换<br>1）实体间的联系是1:1，<br>可以在两个实体类型转换成两个关系模式中的任意一个关系模式的属性中加入另一个关系模式的键和联系类型的属性。<br>2）实体间的联系是1:N，<br>则在N端实体类型转换成的关系模式中加入1端实体类型转换成的关系模式的键和联系类型的属性。<br>3）实体间的联系是M:N，<br>则将联系类型也转换成关系模式，其属性为两端实体类型的键加上联系类型的属性，而键为两端实体键的组合。</p>
+</blockquote>
+<p>注意：一对一关系，一对多关系不需要新表。</p>
+</li>
+</ol>
+<h2 id="两星题"><a href="#两星题" class="headerlink" title="两星题"></a>两星题</h2><ol>
+<li><p>为了反映事物本身及事物之间的联系，数据库中的数据必须有一定的结构，这种结构用数据模型来表示，一个具体的数据模型应当正确地反映出数据之间存在的整体逻辑关系，所以数据模型质量的高低直接影响数据库性能的好坏。</p>
+</li>
+<li><p>共享锁：是非独占的，允许其他事物同时读取其锁定的资源（也可再加共享锁），但不允许修改。</p>
+<p>独占锁（即排他锁）：只能自己使用，不允许其他事物读取和修改。</p>
+</li>
+<li><p>如果想使用NULL，则需要使用IS NULL或者IS NOT NULL。如果将NULL与比较运算符，则结果都是NULL。</p>
+</li>
+<li><p>在使用limit子句时，如果没有足够的行，MySQL将只返回它能返回的那么多行。</p>
+</li>
+<li><p>数据库的基本特点是：</p>
+<p>（1）数据可以共享（或数据结构化） （2）数据独立性<br>（3）数据冗余小，易扩充 （4）统一管理和控制</p>
+</li>
+<li><p>数据库是按照一定的数据模型组织的，长期存储在计算机内，可为多个用户共享的数据的聚集。</p>
+</li>
+<li><p>选择是将表进行水平分割的运算，其目的是为了保留某些符合条件的元组。投影是对表进行垂直分割的运算，其目的是实现属性的筛选。</p>
+</li>
+<li><p>关系的描述称为关系模式。对关系的描述，一般表示为：关系名（属性1，属性2…..属性n）。例如：课程(课程号、课程名称、学分、任课老师)</p>
+</li>
+<li><p>限制输入到列的值的范围，应使用CHECK约束。</p>
+</li>
+<li><p>外键中的属性允许为null，只要没有被声明为not null。</p>
+</li>
+<li><p>在数据库的安全控制中，为了保证用户只能存取他有权存取的数据，在授权的定义中数据对象的（范围越小），授权子系统就越灵活 。</p>
+</li>
+<li><p>在嵌入式 SQL 中，当 SQL 语句中引用宿主语言的程序变量时，程序变量应（加前缀:）。</p>
+</li>
+<li><p>“元组”所表达的概念与二维表的”行”的概念最接近。</p>
+</li>
+<li><p>数据库系统包括数据库和数据库管理系统 [数据库系统&gt;数据库管理系统&gt;数据库]。</p>
+</li>
+<li><blockquote>
+<p>实体完整性指表中行的完整性 </p>
+<p>域完整性指列的值域的完整性，如数据类型、格式、值域范围、是否允许空值等等 </p>
+<p>参照完整性基于外键与被引用主键之间的关系，确保键值在所有表中的一致性 </p>
+</blockquote>
+</li>
+<li><p>数据库管理员（Database Administrator，简称DBA），是从事管理和维护数据库管理系统(DBMS)的相关工作人员的统称，属于运维工程师的一个分支，主要负责业务数据库从设计、测试到部署交付的全生命周期管理。</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th>关系术语</th>
+<th>一般表格的术语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关系名</td>
+<td>表名</td>
+</tr>
+<tr>
+<td>关系模式</td>
+<td>表头（表格的描述）</td>
+</tr>
+<tr>
+<td>关系</td>
+<td>一张二维表</td>
+</tr>
+<tr>
+<td>元组</td>
+<td>记录或行</td>
+</tr>
+<tr>
+<td>属性</td>
+<td>列</td>
+</tr>
+<tr>
+<td>属性名</td>
+<td>列名</td>
+</tr>
+<tr>
+<td>属性值</td>
+<td>列值</td>
+</tr>
+<tr>
+<td>分量</td>
+<td>一条记录中的一个列值</td>
+</tr>
+<tr>
+<td>非规范关系</td>
+<td>大表中嵌着小表</td>
+</tr>
+</tbody></table>
+</li>
+<li><blockquote>
+<p>外模式又称子模式，对应于用户级。外模式反映了数据库的用户观。<br>内模式又称存储模式，对应于物理级，它是数据库中全体数据的内部表示或底层描述,它是数据库的存储观<br>模式又称概念模式或逻辑模式，对应于概念级.反映了数据库系统的整体观</p>
+</blockquote>
+</li>
+<li><ul>
+<li>SQL语句关键字顺序为：select, from, where, group by, having, order by, limit</li>
+<li>where增加分组前的限定，having增加分组后的限定</li>
+<li>group by 通常和集合函数SUM()，AVG()，MAX()，MIN()，COUNT()等结合在一起，后接限制条件语句 having,不可用where语句！</li>
+</ul>
+</li>
+<li><blockquote>
+<p>数据库常用的关系运算有三种 </p>
+<p>1、选择  从二维表中选出符合条件的记录，它是从行的角度对关系进行运算 </p>
+<p>2、投影，从二维表中选出所需要的列，它是从列的角度对关系进行运算：从关系中挑选出指定的属性组成新关系的运算 </p>
+<p>3、连接，同时涉及到两个二维表的运算，它是将两个关系在给定的属性上满足一定条件的记录连接起来 从而得到一个新的关系</p>
+</blockquote>
+</li>
+<li><ul>
+<li>聚集索引：该索引中键值的逻辑顺序决定了表中相应行的物理顺序。</li>
+<li>非聚集索引：数据存储在一个地方，索引存储在另一个地方，索引带有指针指向数据的存储位置。</li>
+<li>一个表只能有一个聚集索引和多个非聚集索引。</li>
+</ul>
+</li>
+<li><p>按所使用的数据模型来分，数据库可分为三种模型：层次、关系和网状。</p>
+</li>
+<li><p>在数据库中存储的是数据以及数据之间的联系。</p>
+</li>
+<li><p>数据库系统的数据独立性体现在不会因为数据存储结构与数据逻辑结构的变化而影响应用程序。</p>
+</li>
+<li><ul>
+<li>丢失更新：当两个或多个事物读入同一数据并修改，会发生丢失更新问题，即后一个事物更新的结果被前一事务所做更新覆盖 即当事务A和B同事进行时，事务A对数据已经改变但并未提交时B又对同一数据进行了修改（注意此时数据是A还未提交改变的数据），到时A做的数据改动丢失了</li>
+<li>读‘脏数据’：指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。</li>
+<li>不可重复读：这是由于查询时系统中其他事务修改的提交而引起的。比如事务T1读取某一数据，事务T2读取并修改了该数据，T1为了对读取值进行检验而再次读取该数据，便得到了不同的结果。</li>
+<li>幻读：幻读是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，比如这种修改涉及到表中的“全部数据行”。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入“一行新数据”。那么，以后就会发生操作第一个事务的用户发现表中还存在没有修改的数据行，就好象发生了幻觉一样.一般解决幻读的方法是增加范围锁RangeS，锁定检索范围为只读，这样就避免了幻读。</li>
+</ul>
+</li>
+<li><blockquote>
+<p>按照规范的设计方法，一个完整的 数据库设计 一般分为以下六个阶段：<br>⑴需求分析：分析用户的需求，包括数据、功能和性能需求；<br>⑵概念结构设计：主要采用E-R模型进行设计，包括画E-R图；<br>⑶逻辑结构设计：通过将E-R图转换成表，实现从E-R模型到关系模型的转换；进行关系规范化。<br>⑷数据库物理设计：主要是为所设计的数据库选择合适的存储结构和存取路径；<br>⑸数据库的实施：包括编程、测试和试运行；<br>⑹数据库运行与维护：系统的运行与数据库的日常维护。</p>
+</blockquote>
+</li>
+<li><p>数据库恢复的基础是利用转储的冗余数据。这些转储的冗余数据包括：日志文件、数据库后备副本。</p>
+</li>
+<li><p>数据库中，<code>optimize table TabName;</code>命令可以整理表数据文件的碎片。</p>
+</li>
+<li><p>对数据库中表的字段进行相关操作时，添加时column可以省略，删除时column不能省略。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE tableName DROP COLUMN columnName;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE tableName ADD columnName;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="三星题"><a href="#三星题" class="headerlink" title="三星题"></a>三星题</h2><ol>
+<li><blockquote>
+<p>1）候选键： 关系中的一个属性组，其值能唯一标识一个元组，若从该属性组中去掉任何一个属性，它就不具有这一性质了。（即该属性组内不应该存在一个真子集也能标识一个元组）。这样的属性组称作候选码。</p>
+<p>2）主键：当有多个候选码时，可以选定一个作为主码，选定的候选码称主键</p>
+<p>3）外键：关系R中的一个属性组，它不是R的候选码，但它与另一个关系S的候选码相对应，则称这个属性组为R的外码或外键。</p>
+</blockquote>
+<p>候选码可以唯一标识一个实体，可以有一个或者多个。 </p>
+<p>主码唯一且非空，也是唯一标识一个实体的码。</p>
+<p>如果候选码有多个，可以从中选定一个主码。</p>
+</li>
+<li><ul>
+<li>模式：只能有一个</li>
+<li>内模式：只能有一个</li>
+<li>外模式：任意多个</li>
+</ul>
+</li>
+<li><p>索引类型分类：</p>
+<p>普通索引：没有任何限制</p>
+<p>唯一索引：不允许建立索引的列有重复的值，但可以有空值</p>
+<p>主索引：特殊的唯一索引，不允许有空值</p>
+<p>候选索引：也要求唯一性，一个表中可以有多个候选索引</p>
+</li>
+<li><p>视图设计的几种方法：   </p>
+<ul>
+<li>自顶向下。先全局框架，然后逐步细化</li>
+<li>自底向上。先局部概念结构，再集成为全局结构</li>
+<li>由里向外。先核心结构，再向外扩张</li>
+<li>混合策略。1与2相结合，先自顶向下设计一个概念结构的框架，再自底向上为框架设计局部概念结构 </li>
+</ul>
+</li>
+<li><p>对于各种范式之间的关系如下： 5NF⊂ 4NF⊂ BCNF ⊂3NF ⊂ 2NF⊂ 1NF </p>
+</li>
+<li><ul>
+<li>等值连接是从关系R和S的广义笛卡尔积中选取A和B“属性值”相等的元组，所以只要两个关系里面的有元组属性值相等就可以进行</li>
+<li>自然连接是要求R和S中有一个或者多个相同的属性组</li>
+</ul>
+</li>
+<li><blockquote>
+<p>3NF——只消除非主属性对主属性的传递依赖<br>BCNF——消除所有属性对主属性的传递依赖</p>
+</blockquote>
+</li>
+<li><p>为了提高数据库的性能，需要针对系统设计基准测试进行压力测试，那么进行压力测试时需要考虑以下指标：</p>
+<ul>
+<li>响应时间</li>
+<li>并发性</li>
+<li>吞吐量</li>
+</ul>
+</li>
+<li><p>关系运算中花费时间可能最长的运算是笛卡尔积。</p>
+</li>
+<li><p>数据库对象的四种视图模式：详细模式，小图标，大图标，列表。</p>
+</li>
+<li><p>WITH CHECK OPTION 用于限制视图，通过视图进行修改时，必须要能通过该视图看到修改后的结果，即对其的修改要再次满足查询中的条件。</p>
+</li>
+<li><p>若数据库中只包含成功事务提交的结果，则此数据库就称为处于(一致)状态。</p>
+</li>
+<li><p>ACCESS的字段属性，定义字段默认值的含义是该字段值不允许为空。</p>
+</li>
+<li><p>SQL结构化查询语言，是一种数据库查询和<strong>程序设计语言</strong>，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+</li>
+<li><p>规范化过程主要为克服数据库逻辑结构中的插入异常、删除异常以及（冗余度大）的缺陷。</p>
+</li>
+<li><p>关于oracle系统进程和作用的描述：</p>
+<ul>
+<li>数据写进程(dbwr)：负责将更改的数据从数据库缓冲区高速缓存写入数据文件</li>
+<li>监控进程(pmon) ：负责在一个 Oracle 进程失败时清理资源</li>
+<li>归档进程(arcn) ：在每次日志切换时把已满的日志组进行备份或归档</li>
+<li>系统监控(smon) ：检查数据库的一致性，如有必要还会在数据库打开时启动数据库的恢复</li>
+</ul>
+</li>
+<li><p>概念模型是现实世界的第一层抽象，这一类模型中最著名的模型是实体-联系模型。</p>
+</li>
+<li><p>数据库技术的根本目标是要解决数据共享的问题。</p>
+</li>
+<li><p>ORDB（对象关系数据库）中，同类元素的无序集合，并且允许一个成员可多次出现，称为多集类型。</p>
+<blockquote>
+<p>复合类型有下列五种: </p>
+<p>1.结构类型:  不同类型元素的有序集合。 </p>
+<p>2.集合类型:  相同类型元素的无序集合，并且所有的元素必须是不同的。 </p>
+<p>3.数组类型:  同类元素的有序集合。 </p>
+<p>4.多集类型:  同类元素的无序集合并且允许有重复的元素。 </p>
+<p>(5.列表类型:  类型相同并且允许有重复的元素的有序集合。)</p>
+</blockquote>
+</li>
+<li><p>数据库管理系统的主要功能是定义数据库。</p>
+</li>
+<li><p>在使用left jion时，on和where条件的区别如下： </p>
+<ul>
+<li>on条件是在生成临时表时使用的条件，它不管on中的条件是否为真，都会返回左边表中的记录。</li>
+<li>where条件是在临时表生成好后，再对临时表进行过滤的条件。这时已经没有left join的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。</li>
+</ul>
+</li>
+</ol>
+<h2 id="四星题"><a href="#四星题" class="headerlink" title="四星题"></a>四星题</h2><ol>
+<li><p>约束主要有一下几种:</p>
+<ul>
+<li>NOT NULL : 用于控制字段的内容一定不能为空（NULL）。</li>
+<li>UNIQUE : 控制字段内容不能重复，一个表允许有多个 Unique 约束。</li>
+<li>PRIMARY KEY: 也是用于控制字段内容不能重复，但它在一个表只允许出现一个。</li>
+<li>FOREIGN KEY: FOREIGN KEY 约束用于预防破坏表之间连接的动作，FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。</li>
+<li>CHECK: 用于控制字段的值范围。</li>
+<li>DEFAULT: 用于设置新记录的默认值。</li>
+</ul>
+</li>
+<li><p>共享锁（S锁）：读锁，可查看但无法修改和删除，已加该锁则其他事务只能加S锁；<br>排他锁（X锁）：写锁、独占锁，可写可读，已加该锁则其他事务不能再加任何类型的锁。</p>
+</li>
+<li><p>RDBMS 是SQL的基础，同样也是所有现代数据库系统的基础，比如MS   SQL Server, IBM DB2, Oracle, MySQL以及Microsoft Access。</p>
+<p>hadoop是分布式数据库。</p>
+</li>
+<li><blockquote>
+<p>Access的数据库对象：<br>1、表，主要用于存储数据。<br>2、查询，主要用于提取数据。<br>3、窗体，用户与程序的交互。<br>4、报表，主要用于展示数据。<br>5、页，主要用于数据共享。<br>6、宏，用于自动化完成。</p>
+</blockquote>
+</li>
+<li><p>候选码中属性称为主属性。</p>
+</li>
+<li><p>数据流程图（DFD）是用于描述结构化方法中（需求分析）阶段的工具。</p>
+</li>
+<li><p>sql注入中使用延时注入时常用的语句：</p>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>延时注入语句</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MySQL</td>
+<td>1. benchmark(100000000,md5(1))   2. sleep(5)</td>
+</tr>
+<tr>
+<td>Postgresql</td>
+<td>1. pg_sleep(5)   2. generate_series(1,10000)</td>
+</tr>
+<tr>
+<td>Microsoft Sql Server</td>
+<td>waitfor delay ‘0:0:5’</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>事务是 DBMS 的基本单位，它是用户定义的一组逻辑一致的程序序列。 </p>
+</li>
+<li><ul>
+<li>左联结，返回左表中所有记录及右表中联结字段相同的记录。</li>
+<li>同理，右联结，返回右表中所有纪录及左表中联结字段相同的记录。</li>
+<li>内部联结，只返回两个表联结字段相同的记录。</li>
+</ul>
+<blockquote>
+<p>A INNER JOIN B：返回A和B中符合on条件式的记录</p>
+<p>A LEFT JOIN B:返回A中的所有记录和B中符合on条件式的记录</p>
+<p>A RIGHT JOIN B：返回B中的所有记录和A中符合on条件式的记录</p>
+</blockquote>
+</li>
+<li><p>关系规范化中的4个问题：</p>
+<ul>
+<li>数据冗余，浪费很大的存储空间。</li>
+<li>更新异常，由于数据冗余，当更新数据库中的数据时，系统要付出很大的代价来维护数据库的完整性，否则会面临数据不一致的危险。</li>
+<li>插入异常，应该插入的数据未被插入</li>
+<li>删除异常，不该删除数据的被删除</li>
+</ul>
+</li>
+<li><p>HAVING子句中应后跟（组条件表达式）。</p>
+</li>
+<li><p>在进行数据库逻辑设计时，可将E-R图中的属性表示为关系模式的属性，实体表示为元组，实体集表示为关系，联系表示为关系。</p>
+<table>
+<thead>
+<tr>
+<th>E-R图</th>
+<th>关系模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>属性</td>
+<td>属性</td>
+</tr>
+<tr>
+<td>实体</td>
+<td>元组</td>
+</tr>
+<tr>
+<td>实体集</td>
+<td>关系</td>
+</tr>
+<tr>
+<td>联系</td>
+<td>关系</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>关系型数据库：<br>Oracle、DB2、Microsoft SQL Server、Microsoft Access、MySQL<br>非关系型数据库：<br>NoSql、Cloudant、MongoDb、redis、HBase</p>
+</li>
+</ol>
+<h1 id="Over"><a href="#Over" class="headerlink" title="Over"></a>Over</h1><h2 id="PS："><a href="#PS：" class="headerlink" title="PS："></a>PS：</h2><pre><code>原文档丢失了，恢复回来的就只有这些了。当文档内容被自己亲手覆盖，真的是心痛到无法呼吸，差点就自闭了。想剁了自己的右手，是他点击了“确定”，蓝瘦、香菇。一周的心血毁于一旦，也让我也体会到了，在工作中，一定要细心，有些操作是无法挽回的，造成的后果是可怕的。在细心工作中逐步提高效率，细心、安全是前提。
+</code></pre>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/born2do" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/born2do" target="_blank"><span class="text-dark">你不懂的阳</span><small class="ml-1x">Web Developer</small></a></h3>
+        <div>技术爱好者。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/05/03/Eclipse%E3%80%81spring%E6%8F%92%E4%BB%B6%E5%8F%8A%E5%8F%8D%E7%BC%96%E8%AF%91%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Eclipse、spring插件及反编译插件安装"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/born2do" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5de5b8641ae3d1c71c60',
+    clientSecret: 'ce8a9386e3a9cdb0f907f59903cfada55bc8e676',
+    repo: 'blogComments',
+    owner: 'born2do',
+    admin: ['born2do'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
