@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-05-02T23:25:19.975Z</updated>
+  <updated>2021-05-04T02:08:03.006Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VS2019安装包及秘钥</title>
+    <link href="https://born2do.github.io/2021/05/04/VS2019%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E7%A7%98%E9%92%A5/"/>
+    <id>https://born2do.github.io/2021/05/04/VS2019%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E7%A7%98%E9%92%A5/</id>
+    <published>2021-05-04T02:07:21.000Z</published>
+    <updated>2021-05-04T02:08:03.006Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="VS2019安装包及秘钥"><a href="#VS2019安装包及秘钥" class="headerlink" title="VS2019安装包及秘钥"></a>VS2019安装包及秘钥</h2><p>链接： <a href="https://pan.baidu.com/s/1ufRrlpgh-8ty6VsjOo7JSw">https://pan.baidu.com/s/1ufRrlpgh-8ty6VsjOo7JSw</a>  提取码：8v8x</p><p>Visual Studio 2019?Enterprise 企业版：  BF8Y8-GN2QH-T84XB-QVY3B-RC4DF</p><p>Visual Studio 2019?Professional 专业版：  NYWVH-HT4XC-R2WYW-9Y3CM-X4V3Y</p><p>VS2019中，菜单栏-&gt;帮助-&gt;注册产品，，然后输入上方对应版本的激活码。</p>]]></content>
+    
+    
+    <summary type="html">VS2019安装包及秘钥</summary>
+    
+    
+    
+    <category term="LICENSE " scheme="https://born2do.github.io/categories/LICENSE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime LICENSE</title>
+    <link href="https://born2do.github.io/2021/05/04/Sublime-LICENSE/"/>
+    <id>https://born2do.github.io/2021/05/04/Sublime-LICENSE/</id>
+    <published>2021-05-04T02:05:11.000Z</published>
+    <updated>2021-05-04T02:06:55.322Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Sublime-LICENSE"><a href="#Sublime-LICENSE" class="headerlink" title="Sublime LICENSE"></a>Sublime LICENSE</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">----- BEGIN LICENSE -----</span><br><span class="line">sgbteam</span><br><span class="line">Single User License</span><br><span class="line">EA7E-1153259</span><br><span class="line">8891CBB9 F1513E4F 1A3405C1 A865D53F</span><br><span class="line">115F202E 7B91AB2D 0D2A40ED 352B269B</span><br><span class="line">76E84F0B CD69BFC7 59F2DFEF E267328F</span><br><span class="line">215652A3 E88F9D8F 4C38E3BA 5B2DAAE4</span><br><span class="line">969624E7 DC9CD4D5 717FB40C 1B9738CF</span><br><span class="line">20B3C4F1 E917B5B3 87C38D9C ACCE7DD8</span><br><span class="line">5F7EF854 86B9743C FADC04AA FB0DA5C0</span><br><span class="line">F913BE58 42FEA319 F954EFDD AE881E0B</span><br><span class="line">------ END LICENSE ------</span><br></pre></td></tr></table></figure><p>声明一下，不确定是否还有用了。</p>]]></content>
+    
+    
+    <summary type="html">Sublime LICENSE</summary>
+    
+    
+    
+    <category term="LICENSE" scheme="https://born2do.github.io/categories/LICENSE/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>牛客网数据库刷题笔记</title>
@@ -385,50 +423,6 @@
     
     
     <category term="软件安装" scheme="https://born2do.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Java】Java中private、default、protected、public的访问权限范围</title>
-    <link href="https://born2do.github.io/2021/04/24/%E3%80%90Java%E3%80%91Java%E4%B8%ADprivate%E3%80%81default%E3%80%81protected%E3%80%81public%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E8%8C%83%E5%9B%B4/"/>
-    <id>https://born2do.github.io/2021/04/24/%E3%80%90Java%E3%80%91Java%E4%B8%ADprivate%E3%80%81default%E3%80%81protected%E3%80%81public%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E8%8C%83%E5%9B%B4/</id>
-    <published>2021-04-24T04:56:35.000Z</published>
-    <updated>2021-04-24T04:57:18.862Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Java中private、default、protected、public的访问权限范围"><a href="#Java中private、default、protected、public的访问权限范围" class="headerlink" title="Java中private、default、protected、public的访问权限范围"></a>Java中private、default、protected、public的访问权限范围</h3><p>访问权限：private&lt;default&lt;protected&lt;public</p><p>四种修饰符的访问权限范围：</p><table><thead><tr><th align="center">权限</th><th align="center">类内</th><th align="center">同包</th><th align="center">不同包子类</th><th align="center">不同包非子类</th></tr></thead><tbody><tr><td align="center">private</td><td align="center">√</td><td align="center">×</td><td align="center">×</td><td align="center">×</td></tr><tr><td align="center">default</td><td align="center">√</td><td align="center">√</td><td align="center">×</td><td align="center">×</td></tr><tr><td align="center">protected</td><td align="center">√</td><td align="center">√</td><td align="center">√</td><td align="center">×</td></tr><tr><td align="center">public</td><td align="center">√</td><td align="center">√</td><td align="center">√</td><td align="center">√</td></tr></tbody></table>]]></content>
-    
-    
-    <summary type="html">【Java】Java中private、default、protected、public的访问权限范围</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="访问修饰符" scheme="https://born2do.github.io/tags/%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Java】HashTable和HashMap的区别</title>
-    <link href="https://born2do.github.io/2021/04/23/%E3%80%90Java%E3%80%91HashTable%E5%92%8CHashMap%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
-    <id>https://born2do.github.io/2021/04/23/%E3%80%90Java%E3%80%91HashTable%E5%92%8CHashMap%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
-    <published>2021-04-23T12:46:34.000Z</published>
-    <updated>2021-04-23T12:47:11.257Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>关于HashMap的一些说法：<br> a)  HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。HashMap的底层结构是一个数组，数组中的每一项是一条链表。<br> b)  HashMap的实例有俩个参数影响其性能： “初始容量” 和 装填因子。<br> c)  HashMap实现不同步，线程不安全。  HashTable线程安全<br> d)  HashMap中的key-value都是存储在Entry中的。<br> e)  HashMap可以存null键和null值，不保证元素的顺序恒久不变，它的底层使用的是数组和链表，通过hashCode()方法和equals方法保证键的唯一性<br> f)  解决冲突主要有三种方法：定址法，拉链法，再散列法。HashMap是采用拉链法解决哈希冲突的。<br> 注： 链表法是将相同hash值的对象组成一个链表放在hash值对应的槽位；<br> 用开放定址法解决冲突的做法是：当冲突发生时，使用某种探查(亦称探测)技术在散列表中形成一个探查(测)序列。 沿此序列逐个单元地查找，直到找到给定 的关键字，或者碰到一个开放的地址(即该地址单元为空)为止（若要插入，在探查到开放的地址，则可将待插入的新结点存人该地址单元）。<br>   拉链法解决冲突的做法是： 将所有关键字为同义词的结点链接在同一个单链表中 。若选定的散列表长度为m，则可将散列表定义为一个由m个头指针组成的指针数 组T[0..m-1]。凡是散列地址为i的结点，均插入到以T[i]为头指针的单链表中。T中各分量的初值均应为空指针。在拉链法中，装填因子α可以大于1，但一般均取α≤1。拉链法适合未规定元素的大小。 </p></li><li><p>Hashtable和HashMap的区别：<br> a)   继承不同。<br>  public class Hashtable extends Dictionary implements Map<br> public class HashMap extends  AbstractMap implements Map<br> b)  Hashtable中的方法是同步的，而HashMap中的方法在缺省情况下是非同步的。在多线程并发的环境下，可以直接使用Hashtable，但是要使用HashMap的话就要自己增加同步处理了。<br> c)  Hashtable 中， key 和 value 都不允许出现 null 值。 在 HashMap 中， null 可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为 null 。当 get() 方法返回 null 值时，即可以表示 HashMap 中没有该键，也可以表示该键所对应的值为 null 。因此，在 HashMap 中不能由 get() 方法来判断 HashMap 中是否存在某个键， 而应该用 containsKey() 方法来判断。<br> d)  两个遍历方式的内部实现上不同。Hashtable、HashMap都使用了Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。<br> e)  哈希值的使用不同，HashTable直接使用对象的hashCode。而HashMap重新计算hash值。<br> f)  Hashtable和HashMap它们两个内部实现方式的数组的初始大小和扩容的方式。HashTable中hash数组默认大小是11，增加的方式是old*2+1。HashMap中hash数组的默认大小是16，而且一定是2的指数。 </p></li></ol><p>注： HashSet子类依靠hashCode()和equal()方法来区分重复元素。<br>     HashSet内部使用Map保存数据，即将HashSet的数据作为Map的key值保存，这也是HashSet中元素不能重复的原因。而Map中保存key值的,会去判断当前Map中是否含有该Key对象，内部是先通过key的hashCode,确定有相同的hashCode之后，再通过equals方法判断是否相同。 </p>]]></content>
-    
-    
-    <summary type="html">【Java】HashTable和HashMap的区别</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="HashTable" scheme="https://born2do.github.io/tags/HashTable/"/>
-    
-    <category term="HashMap" scheme="https://born2do.github.io/tags/HashMap/"/>
     
   </entry>
   
