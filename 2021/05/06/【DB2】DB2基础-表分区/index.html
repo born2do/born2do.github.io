@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>【DB2】DB2基础_表分区 | Hexo</title>
+  <meta name="description" content="【DB2】DB2基础_表分区">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【DB2】DB2基础_表分区">
+<meta property="og:url" content="https://born2do.github.io/2021/05/06/%E3%80%90DB2%E3%80%91DB2%E5%9F%BA%E7%A1%80-%E8%A1%A8%E5%88%86%E5%8C%BA/index.html">
+<meta property="og:site_name" content="ChenHY的个人博客">
+<meta property="og:description" content="【DB2】DB2基础_表分区">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/b6xAGm7Szhlr3n5.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/9AlKZx1HbseqzN4.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/c2wuhXxoFCjAPq5.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/wmBUzikZLpCXgHn.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/3jhaoKMdQb5tUkP.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/SuLlYUCAW6XdHIz.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/fu8WxdRC3OJa6Dv.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/Oo8uCWkp9YvIh3l.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/gshciMUwj7REH9u.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/PBUhwQtWbaNemq9.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/5W4zksUH8JCIvl9.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/UBCWpRxN6S41MYc.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/wT7DyqZAgRsfICF.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/WTGucEVhmjbQxkF.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/Ub4S5AMEY3RoN1s.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/BzP1yRUqGC8csfT.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/VE6gJxyA8u2GKMn.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/NaoryDZum6z1AB9.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/nFSMi1mzRVGO2eE.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/TQL7BdGUhrsN1KC.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/JPhz4aMEcZHkfjx.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/3SWJKPv2RNdgZkX.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/fDjr7ydniOA1Xev.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/Fw6uJP9zGEvlHAy.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/eW7lfdPjq9o5yKa.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/Y5crPMXh7GaTnIL.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/3tyEJNCerzlw8FD.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/uGhk8SYHCZAj2s6.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/p4KoFitX1TbVgCN.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/Qd9WRODcPMIKFlN.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/93AYryCl8EqxtWK.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/06/KHeQXbU34skIENB.jpg">
+<meta property="article:published_time" content="2021-05-06T12:49:05.000Z">
+<meta property="article:modified_time" content="2021-05-06T12:50:02.031Z">
+<meta property="article:author" content="chenhy">
+<meta property="article:tag" content="表分区">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/05/06/b6xAGm7Szhlr3n5.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://born2do.github.io/2021/05/06/%E3%80%90DB2%E3%80%91DB2%E5%9F%BA%E7%A1%80-%E8%A1%A8%E5%88%86%E5%8C%BA/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="ChenHY的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-blue" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/born2do" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">你不懂的阳</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Hefei, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/born2do" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB2/">DB2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Excel/">Excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IP/">IP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JSP/">JSP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LICENSE/">LICENSE</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LICENSE/">LICENSE </a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD/">MD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Navicat/">Navicat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Typora/">Typora</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/VUE/">VUE</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WebStorm/">WebStorm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XML/">XML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/error/">error</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell/">shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%8B%E8%BD%BD/">下载</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%83%E5%AD%97%E7%AC%A6/">元字符</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E5%BA%8A/">图床</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9F%BA%E9%87%91/">基金</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E7%BA%A6/">规约</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">软件安装</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autowired/" rel="tag">@Autowired</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resource/" rel="tag">@Resource</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB2/" rel="tag">DB2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Date/" rel="tag">Date</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Echo/" rel="tag">Echo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitalk/" rel="tag">Gitalk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashTable/" rel="tag">HashTable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html%E8%BD%ACMarkdown/" rel="tag">Html转Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSF/" rel="tag">JSF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinkedList/" rel="tag">LinkedList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MYSQL/" rel="tag">MYSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Navicat/" rel="tag">Navicat</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Page/" rel="tag">Page</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PicGo/" rel="tag">PicGo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerPoint-2013/" rel="tag">PowerPoint 2013</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SLF4J/" rel="tag">SLF4J</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMMS/" rel="tag">SMMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuffer/" rel="tag">StringBuffer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StringBuilder/" rel="tag">StringBuilder</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Typora/" rel="tag">Typora</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VC-6-0/" rel="tag">VC++6.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE/" rel="tag">VUE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebMagic/" rel="tag">WebMagic</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/" rel="tag">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/" rel="tag">XML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c3p0/" rel="tag">c3p0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chmod/" rel="tag">chmod</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab/" rel="tag">crontab</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/decodeURIComponent/" rel="tag">decodeURIComponent()</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encodeURIComponent/" rel="tag">encodeURIComponent()</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/" rel="tag">error</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/find/" rel="tag">find</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/log4j/" rel="tag">log4j</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logback/" rel="tag">logback</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/println/" rel="tag">println</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tar/" rel="tag">tar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webapp%E4%B8%8B%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" rel="tag">webapp下静态资源无法访问</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webmagic-selenium/" rel="tag">webmagic-selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/" rel="tag">专业术语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%83%E5%AD%97%E7%AC%A6/" rel="tag">元字符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" rel="tag">关键字</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" rel="tag">堆内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E6%BA%90/" rel="tag">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%A5%E9%94%99/" rel="tag">报错</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A9%BA%E9%97%B4%E5%92%8C%E7%B4%A2%E5%BC%95%E8%A1%A8%E7%A9%BA%E9%97%B4/" rel="tag">数据表空间和索引表空间</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%93%E6%B7%B7%E8%BF%B0%E8%AF%AD/" rel="tag">易混述语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E5%86%85%E5%AD%98/" rel="tag">栈内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" rel="tag">树形目录结构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E8%A7%A3/" rel="tag">注解</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE/" rel="tag">联合主键</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E5%88%86%E5%8C%BA/" rel="tag">表分区</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6/" rel="tag">访问修饰符</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">运算符优先级</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%8D%E5%86%99/" rel="tag">重写</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%8D%E8%BD%BD/" rel="tag">重载</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/" rel="tag">零碎知识</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Autowired/" style="font-size: 13px;">@Autowired</a> <a href="/tags/Resource/" style="font-size: 13px;">@Resource</a> <a href="/tags/ArrayList/" style="font-size: 13px;">ArrayList</a> <a href="/tags/DB2/" style="font-size: 13.33px;">DB2</a> <a href="/tags/Date/" style="font-size: 13px;">Date</a> <a href="/tags/Echo/" style="font-size: 13px;">Echo</a> <a href="/tags/Excel/" style="font-size: 13px;">Excel</a> <a href="/tags/GitHub/" style="font-size: 13.33px;">GitHub</a> <a href="/tags/Gitalk/" style="font-size: 13px;">Gitalk</a> <a href="/tags/HashMap/" style="font-size: 13px;">HashMap</a> <a href="/tags/HashTable/" style="font-size: 13px;">HashTable</a> <a href="/tags/Hexo/" style="font-size: 14px;">Hexo</a> <a href="/tags/Html%E8%BD%ACMarkdown/" style="font-size: 13px;">Html转Markdown</a> <a href="/tags/IO/" style="font-size: 13px;">IO</a> <a href="/tags/JSF/" style="font-size: 13px;">JSF</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/LinkedList/" style="font-size: 13px;">LinkedList</a> <a href="/tags/Linux/" style="font-size: 13px;">Linux</a> <a href="/tags/MYSQL/" style="font-size: 13px;">MYSQL</a> <a href="/tags/Markdown/" style="font-size: 13px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tags/Navicat/" style="font-size: 13.33px;">Navicat</a> <a href="/tags/Page/" style="font-size: 13px;">Page</a> <a href="/tags/PicGo/" style="font-size: 13px;">PicGo</a> <a href="/tags/PowerPoint-2013/" style="font-size: 13px;">PowerPoint 2013</a> <a href="/tags/SLF4J/" style="font-size: 13px;">SLF4J</a> <a href="/tags/SMMS/" style="font-size: 13px;">SMMS</a> <a href="/tags/String/" style="font-size: 13px;">String</a> <a href="/tags/StringBuffer/" style="font-size: 13px;">StringBuffer</a> <a href="/tags/StringBuilder/" style="font-size: 13px;">StringBuilder</a> <a href="/tags/Typora/" style="font-size: 13px;">Typora</a> <a href="/tags/VC-6-0/" style="font-size: 13px;">VC++6.0</a> <a href="/tags/VUE/" style="font-size: 13.33px;">VUE</a> <a href="/tags/WebMagic/" style="font-size: 13.67px;">WebMagic</a> <a href="/tags/WebStorm/" style="font-size: 13px;">WebStorm</a> <a href="/tags/Windows/" style="font-size: 13.33px;">Windows</a> <a href="/tags/XML/" style="font-size: 13px;">XML</a> <a href="/tags/c3p0/" style="font-size: 13px;">c3p0</a> <a href="/tags/chmod/" style="font-size: 13px;">chmod</a> <a href="/tags/crontab/" style="font-size: 13.33px;">crontab</a> <a href="/tags/decodeURIComponent/" style="font-size: 13.33px;">decodeURIComponent()</a> <a href="/tags/encodeURIComponent/" style="font-size: 13px;">encodeURIComponent()</a> <a href="/tags/error/" style="font-size: 13px;">error</a> <a href="/tags/find/" style="font-size: 13px;">find</a> <a href="/tags/github/" style="font-size: 13px;">github</a> <a href="/tags/linux/" style="font-size: 13px;">linux</a> <a href="/tags/log4j/" style="font-size: 13px;">log4j</a> <a href="/tags/logback/" style="font-size: 13.33px;">logback</a> <a href="/tags/println/" style="font-size: 13px;">println</a> <a href="/tags/shell/" style="font-size: 13px;">shell</a> <a href="/tags/tar/" style="font-size: 13px;">tar</a> <a href="/tags/webapp%E4%B8%8B%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" style="font-size: 13px;">webapp下静态资源无法访问</a> <a href="/tags/webmagic-selenium/" style="font-size: 13px;">webmagic-selenium</a> <a href="/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/" style="font-size: 13px;">专业术语</a> <a href="/tags/%E5%85%83%E5%AD%97%E7%AC%A6/" style="font-size: 13px;">元字符</a> <a href="/tags/%E5%85%B3%E9%94%AE%E5%AD%97/" style="font-size: 13.33px;">关键字</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 13px;">单元测试</a> <a href="/tags/%E5%A0%86%E5%86%85%E5%AD%98/" style="font-size: 13px;">堆内存</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 13px;">开源</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 13px;">快捷键</a> <a href="/tags/%E6%8A%A5%E9%94%99/" style="font-size: 13px;">报错</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A9%BA%E9%97%B4%E5%92%8C%E7%B4%A2%E5%BC%95%E8%A1%A8%E7%A9%BA%E9%97%B4/" style="font-size: 13px;">数据表空间和索引表空间</a> <a href="/tags/%E6%98%93%E6%B7%B7%E8%BF%B0%E8%AF%AD/" style="font-size: 13px;">易混述语</a> <a href="/tags/%E6%A0%88%E5%86%85%E5%AD%98/" style="font-size: 13px;">栈内存</a> <a href="/tags/%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" style="font-size: 13px;">树形目录结构</a> <a href="/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 13.33px;">注解</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" style="font-size: 13px;">环境变量</a> <a href="/tags/%E8%81%94%E5%90%88%E4%B8%BB%E9%94%AE/" style="font-size: 13px;">联合主键</a> <a href="/tags/%E8%A1%A8%E5%88%86%E5%8C%BA/" style="font-size: 13px;">表分区</a> <a href="/tags/%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6/" style="font-size: 13px;">访问修饰符</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 13px;">软件安装</a> <a href="/tags/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/" style="font-size: 13px;">运算符优先级</a> <a href="/tags/%E9%87%8D%E5%86%99/" style="font-size: 13px;">重写</a> <a href="/tags/%E9%87%8D%E8%BD%BD/" style="font-size: 13px;">重载</a> <a href="/tags/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/" style="font-size: 13px;">零碎知识</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">34</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/DB2/">DB2</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/06/%E3%80%90DB2%E3%80%91DB2%E5%9F%BA%E7%A1%80-%E8%A1%A8%E5%88%86%E5%8C%BA/" class="title">【DB2】DB2基础_表分区</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-06T12:49:05.000Z" itemprop="datePublished">2021-05-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/05/DB2%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0-%E8%A1%A8%E7%A9%BA%E9%97%B4%E3%80%81%E8%A1%A8%E5%88%86%E5%8C%BA/" class="title">DB2数据库学习_表空间、表分区</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-05T08:28:24.000Z" itemprop="datePublished">2021-05-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/LICENSE/">LICENSE </a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/04/VS2019%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8A%E7%A7%98%E9%92%A5/" class="title">VS2019安装包及秘钥</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-04T02:07:21.000Z" itemprop="datePublished">2021-05-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/LICENSE/">LICENSE</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/04/Sublime-LICENSE/" class="title">Sublime LICENSE</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-04T02:05:11.000Z" itemprop="datePublished">2021-05-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%88%B7%E9%A2%98/">刷题</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/03/%E7%89%9B%E5%AE%A2%E7%BD%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="title">牛客网数据库刷题笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-02T23:24:42.000Z" itemprop="datePublished">2021-05-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">开始之前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E6%95%99%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">关于本教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">先决条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">系统需求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">2.</span> <span class="toc-text">创建分区表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">登录和基本指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9F%BA%E6%9C%AC%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">2.2.</span> <span class="toc-text">创建基本分区表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E6%9C%89%E5%85%A8%E9%83%A8%E8%8C%83%E5%9B%B4%E7%9A%84%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">2.3.</span> <span class="toc-text">具有全部范围的分区表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E6%9C%89%E7%94%9F%E6%88%90%E8%8C%83%E5%9B%B4%E7%9A%84%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">2.4.</span> <span class="toc-text">具有生成范围的分区表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">放置分区表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text">基本环境设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8C%BA%E7%9A%84%E6%98%BE%E5%BC%8F%E6%94%BE%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">分区的显式放置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%88%86%E5%8C%BA%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">管理分区表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%8E%B0%E6%9C%89%E7%9A%84%E8%A1%A8%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%88%86%E5%8C%BA"><span class="toc-number">4.1.</span> <span class="toc-text">使用现有的表添加一个新的分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E5%88%86%E5%8C%BA%E8%A1%A8%E4%B8%AD%E5%88%86%E7%A6%BB%E4%B8%80%E4%B8%AA%E5%88%86%E5%8C%BA"><span class="toc-number">4.2.</span> <span class="toc-text">从分区表中分离一个分区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%8C%BA%E8%A1%A8%E7%9A%84%E8%AE%BF%E9%97%AE%E8%AE%A1%E5%88%92"><span class="toc-number">5.</span> <span class="toc-text">分区表的访问计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="toc-number">6.</span> <span class="toc-text">结束语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="toc-number">6.1.</span> <span class="toc-text">下载资源</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-【DB2】DB2基础-表分区" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【DB2】DB2基础_表分区
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/05/06/%E3%80%90DB2%E3%80%91DB2%E5%9F%BA%E7%A1%80-%E8%A1%A8%E5%88%86%E5%8C%BA/" class="article-date">
+	  <time datetime="2021-05-06T12:49:05.000Z" itemprop="datePublished">2021-05-06</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/DB2/">DB2</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E8%A1%A8%E5%88%86%E5%8C%BA/" rel="tag">表分区</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/06/%E3%80%90DB2%E3%80%91DB2%E5%9F%BA%E7%A1%80-%E8%A1%A8%E5%88%86%E5%8C%BA/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 6.4k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 26(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><p><code>CREATE TABLE</code> 语句的 PARTITION BY 子句指定了表数据的分区。该定义中使用的列被称为表分区键列。</p>
+<p>关于该特性的详细说明可参见 “<a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/db2/library/techarticle/dm-0605ahuja2/">Table partitioning in DB2 9</a>”（developerWorks，2006 年 5 月）。</p>
+<p>表分区特性提供以下收益：</p>
+<ul>
+<li>表数据可轻易实现转入和转出</li>
+<li>对大型表的管理更加轻松</li>
+<li>灵活的索引放置</li>
+<li>更高的业务智能样式查询的性能</li>
+</ul>
+<h3 id="关于本教程"><a href="#关于本教程" class="headerlink" title="关于本教程"></a>关于本教程</h3><p>本教程中的练习将引领您使用表分区特性，并演示了表数据的转入转出、更轻松的大型表管理、灵活的索引放置和对业务智能样式查询的性能改善。</p>
+<p>这些练习旨在演示上述各领域内的一个或多个任务。</p>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>本教程的目标是在以下方面探究 DB2 9 范围分区的特性和优点：</p>
+<ul>
+<li>创建范围分区表</li>
+<li>分区的转入和转出</li>
+<li>分区表的管理</li>
+<li>索引管理和放置</li>
+</ul>
+<h3 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h3><p>本教程的目标读者是那些技能和经验刚刚迈入中级水平的 DB2 专业人员。要学习本教程，您应该熟悉 DB2 命令行、DB2 管理工具的使用，还应具备 SQL 实践经验。</p>
+<h3 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h3><p>要运行本教程的示例，需要具备以下条件：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www-306.ibm.com/software/data/db2/express/download.html">DB2 9 Data Server</a></li>
+<li>Microsoft® Windows® 2000 或更高版本，以及一个具有管理员权限的帐户，或具有根访问权限的 Linux®（<a target="_blank" rel="noopener" href="http://www-306.ibm.com/software/data/db2/linux/validate/">验证版</a>）。</li>
+<li>确保系统中的 Java Runtime Environment 是 1.4.2 或更高版本。</li>
+<li>参考 DB2 9 <a target="_blank" rel="noopener" href="http://www-306.ibm.com/software/data/db2/9/sysreqs.html">系统需求页面</a> 确保您的硬件符合要求。</li>
+</ul>
+<p>可通过上面的链接获取 DB2 9 Express C。关于安装 DB2 的步骤请参考 “<a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/views/db2/tutorials.jsp?cv_doc_id=110099">DB2 XML 评估指南</a>”（developerWorks，2006 年 6 月）。若未改动 DB2 的配置，安装后 DB2 将自动启动。</p>
+<p>使用 partition.zip 文件提供的示例脚本和数据演示本教程的概念。将其内容解压缩到 scripts 子目录（C:\scripts 或 home/userid/scripts）。本教程中将该目录简称为 stmm_scripts。教程假设您使用的是 DB2 默认安装目录，并且所有的 DB2 练习都通过一个数据库管理员 ID 执行。</p>
+<h2 id="创建分区表"><a href="#创建分区表" class="headerlink" title="创建分区表"></a>创建分区表</h2><p>这个实验将探讨创建分区表、将数据载入分区表以及使用 <code>describe</code> 命令来说明表范围的方法：</p>
+<ol>
+<li>您将登录并为所有的练习设置基本环境。</li>
+<li>您将创建不同格式的分区表并加载数据。</li>
+<li>您将使用 DB2 命令和 SQL 查看结果。</li>
+<li>将对 DB2 9 表范围分区进行概述。</li>
+</ol>
+<h3 id="登录和基本指令"><a href="#登录和基本指令" class="headerlink" title="登录和基本指令"></a>登录和基本指令</h3><ol>
+<li><p>登录到您的机器，如图 1 所示，使用 db2inst1。</p>
+<p>图 1. 基本设置</p>
+<p><img src="https://i.loli.net/2021/05/06/b6xAGm7Szhlr3n5.jpg" alt="s5.jpg"></p>
+</li>
+<li><p>打开终端窗口（Linux）或 DB2 命令窗口（windows）。</p>
+</li>
+<li><p>切换到 scripts 子目录。</p>
+<p>清单 1. 切换目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /scripts or </span><br><span class="line">cd c:\scripts</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>db2start</code>命令启动 DB2，并连接到 SAMPLE 数据库。</p>
+<p>清单 2. StartDB2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db2start</span><br><span class="line">db2 connect to SAMPLE</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="创建基本分区表"><a href="#创建基本分区表" class="headerlink" title="创建基本分区表"></a>创建基本分区表</h3><p>这一节将介绍分区表的基本创建和加载。您将创建不同格式的表、验证创建结果、加载数据并对表进行查询。</p>
+<ol>
+<li><p>使用如下的数据定义语言（DDL）创建具有四个范围的 LINEITEM 表：</p>
+<p>清单 3. 创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> LINEITEM </span><br><span class="line">( l_orderkey         <span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  l_partkey          <span class="type">INTEGER</span>,</span><br><span class="line">  l_suppkey          <span class="type">INTEGER</span>,</span><br><span class="line">  l_linenumber       <span class="type">INTEGER</span>,</span><br><span class="line">  l_quantity         <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_extendedprice    <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_discount         <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_tax              <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_returnflag       <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_linestatus       <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_shipdate         <span class="type">DATE</span>,</span><br><span class="line">  l_commitdate       <span class="type">DATE</span>,</span><br><span class="line">  l_receiptdate      <span class="type">DATE</span>,</span><br><span class="line">  l_shipinstruct     <span class="type">CHAR</span>(<span class="number">25</span>),</span><br><span class="line">  l_shipmode         <span class="type">CHAR</span>(<span class="number">10</span>),</span><br><span class="line">  l_comment          <span class="type">VARCHAR</span>(<span class="number">44</span>))</span><br><span class="line">  <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(l_shipdate)</span><br><span class="line">( STARTING <span class="string">&#x27;1/1/1992&#x27;</span> ENDING <span class="string">&#x27;30/06/1992&#x27;</span>,</span><br><span class="line">  STARTING <span class="string">&#x27;1/7/1992&#x27;</span> ENDING <span class="string">&#x27;31/12/1992&#x27;</span>,</span><br><span class="line">  STARTING <span class="string">&#x27;1/1/1993&#x27;</span> ENDING <span class="string">&#x27;30/6/1993&#x27;</span>,</span><br><span class="line">  STARTING <span class="string">&#x27;1/7/1993&#x27;</span> ENDING <span class="string">&#x27;31/12/1993&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>创建该表的 SQL 语句位于 EX1-6.sql 文件中，可使用如下命令运行该文件：</p>
+<p>清单 4. 运行 EX1-6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX1-6.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用下面的命令说明为 LINEITEM 表创建的分区的范围：</p>
+<p>清单 5. 说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 <span class="keyword">describe</span> data partitions <span class="keyword">for</span> <span class="keyword">table</span> LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>图 2. 说明为 LINEITEM 表创建的分区范围</p>
+<p><img src="https://i.loli.net/2021/05/06/9AlKZx1HbseqzN4.jpg" alt="s6.jpg"></p>
+<p>注意：创建了四个数据分区。其中的范围包括边界值。</p>
+</li>
+<li><p>将数据导入到 LINEITEM 表。该操作的导入命令位于 EX1-8.sql 文件中，可使用如下命令运行：</p>
+<p>清单 6. 带有拒绝的加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX1-8.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 3. 将数据导入到 LINEITEM 表</p>
+<p><img src="https://i.loli.net/2021/05/06/c2wuhXxoFCjAPq5.jpg" alt="s7.jpg"></p>
+<p>注意：导入时拒绝了 729 行数据，这是因为它们不具有位于当前 LINEITEM 表的数据分区定义范围内的 l_shipdate。</p>
+</li>
+<li><p>标量函数可用于显示行所属的数据分区号（datapartitionnum）。执行以下示例 SQL 查看标量函数的输出：</p>
+<p>清单 7. 查询 - 匹配日期的分区</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select datapartitionnum(l_shipdate) as PartitionId, l_shipdate from lineitem </span><br><span class="line">        where l_shipdate between &#x27;01/06/1992&#x27; and &#x27;31/07/1992&#x27;</span><br><span class="line">        order by l_shipdate&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 4. 标量函数的输出</p>
+<p><img src="https://i.loli.net/2021/05/06/wmBUzikZLpCXgHn.jpg" alt="s8.jpg"></p>
+<p>注意：标量函数（datapartitionnum）返回的值和<code>describe</code> 命令返回的是同一个 PartitionId。该语句的子句间使用的谓词范围超出了 PartitionId 0 和 PartitionId 1 的边界</p>
+</li>
+</ol>
+<h3 id="具有全部范围的分区表"><a href="#具有全部范围的分区表" class="headerlink" title="具有全部范围的分区表"></a>具有全部范围的分区表</h3><ol>
+<li><p>创建具有两个额外数据分区的新 LINEITEM 表，其中一个分区用来捕获低于当前范围的值，另一个分区用来捕获高于当前范围的值。首先使用下面的命令删除现有的 LINEITEM 分区表：</p>
+<p>清单 8. 删除表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 drop TABLE LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>然后使用如下 DDL 创建 LINEITEM 表的新版本：</p>
+<p>清单 9. 创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> LINEITEM </span><br><span class="line">( l_orderkey         <span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  l_partkey          <span class="type">INTEGER</span>,</span><br><span class="line">  l_suppkey          <span class="type">INTEGER</span>,</span><br><span class="line">  l_linenumber       <span class="type">INTEGER</span>,</span><br><span class="line">  l_quantity         <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_extendedprice    <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_discount         <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_tax              <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_returnflag       <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_linestatus       <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_shipdate         <span class="type">DATE</span>,</span><br><span class="line">  l_commitdate       <span class="type">DATE</span>,</span><br><span class="line">  l_receiptdate      <span class="type">DATE</span>,</span><br><span class="line">  l_shipinstruct     <span class="type">CHAR</span>(<span class="number">25</span>),</span><br><span class="line">  l_shipmode         <span class="type">CHAR</span>(<span class="number">10</span>),</span><br><span class="line">  l_comment          <span class="type">VARCHAR</span>(<span class="number">44</span>))</span><br><span class="line">  <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(l_shipdate)</span><br><span class="line">( STARTING MINVALUE,</span><br><span class="line">  STARTING <span class="string">&#x27;1/1/1992&#x27;</span> ENDING <span class="string">&#x27;30/06/1992&#x27;</span>,</span><br><span class="line">  STARTING <span class="string">&#x27;1/7/1992&#x27;</span> ENDING <span class="string">&#x27;31/12/1992&#x27;</span>,</span><br><span class="line">  STARTING <span class="string">&#x27;1/1/1993&#x27;</span> ENDING <span class="string">&#x27;30/6/1993&#x27;</span>,</span><br><span class="line">  STARTING <span class="string">&#x27;1/7/1993&#x27;</span> ENDING <span class="string">&#x27;31/12/1993&#x27;</span>,</span><br><span class="line">  ENDING MAXVALUE)</span><br></pre></td></tr></table></figure>
+
+<p>创建该表的 SQL 位于 EX1-10.sql 文件中，可使用下列命令运行：</p>
+<p>清单 10. 运行 EX1-10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX1-10.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用下面的命令说明为 LINEITEM 表创建的分区范围。</p>
+<p>清单 11. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>图 5. 说明为 LINEITEM 表创建的分区范围</p>
+<p><img src="https://i.loli.net/2021/05/06/3jhaoKMdQb5tUkP.jpg" alt="s10a.jpg"></p>
+<p>注意：新的 MINVALUE 范围具有一个最高值，该值和下一个数据分区开始部分的值相等，但它并不包含该值。MAXVALUE 范围具有一个最低值，该值和前一个范围结束部分的值相等，但它不包含该值。这将创建一个无间隙的连续范围。</p>
+</li>
+<li><p>将数据导入到 LINEITEM 表中。该操作的导入命令位于 EX1-8.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 12. 全面加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX1-8.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 6. 将数据导入到 LINEITEM 表中</p>
+<p><img src="https://i.loli.net/2021/05/06/SuLlYUCAW6XdHIz.jpg" alt="s10b.jpg"></p>
+</li>
+</ol>
+<h3 id="具有生成范围的分区表"><a href="#具有生成范围的分区表" class="headerlink" title="具有生成范围的分区表"></a>具有生成范围的分区表</h3><ol>
+<li><p>创建一个新 LINEITEM 表，它具有从 1992 年 1 月 1 日到 1998 年 12 月 31 日按月划分的数据分区生成范围。同样，添加 minvalue 和 maxvalue 范围来存放具有超过此范围的 l_shipdate 的值的行。首先使用以下命令删除现有的 LINEITEM 分区表：</p>
+<p>清单 13. 删除表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 drop TABLE LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>然后使用如下 DDL 创建 LINEITEM 表的新版本：</p>
+<p>清单 14. 创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> lineitem</span><br><span class="line">(l_orderkey            <span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  l_cpartkey      <span class="type">INTEGER</span>,</span><br><span class="line">  l_suppkey       <span class="type">INTEGER</span>,</span><br><span class="line">  l_linenumber    <span class="type">INTEGER</span>,</span><br><span class="line">  l_quantity      <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_extendedprice <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_discount      <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_tax           <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_returnflag    <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_linestatus    <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_shipdate      <span class="type">DATE</span>,</span><br><span class="line">  l_commitdate    <span class="type">DATE</span>,</span><br><span class="line">  l_receiptdate   <span class="type">DATE</span>,</span><br><span class="line">  l_shipinstruct  <span class="type">CHAR</span>(<span class="number">25</span>),</span><br><span class="line">  l_shipmode      <span class="type">CHAR</span>(<span class="number">10</span>),</span><br><span class="line">  l_comment       <span class="type">VARCHAR</span>(<span class="number">44</span>))</span><br><span class="line">  <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(l_shipdate)</span><br><span class="line"> (STARTING MINVALUE,</span><br><span class="line"> STARTING <span class="string">&#x27;1/1/1992&#x27;</span> ENDING <span class="string">&#x27;31/12/1998&#x27;</span> </span><br><span class="line">                <span class="keyword">EVERY</span> <span class="number">1</span> <span class="keyword">MONTH</span>,</span><br><span class="line"> ENDING MAXVALUE);</span><br></pre></td></tr></table></figure>
+
+<p>创建该表的 SQL 位于 EX1-13.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 15. 运行 EX1-13</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX1-13.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用如下命令来说明为 LINEITEM 表创建的分区范围：</p>
+<p>清单 16. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>图 7. 说明为 LINEITEM 表创建的分区范围</p>
+<p><img src="https://i.loli.net/2021/05/06/fu8WxdRC3OJa6Dv.jpg" alt="s12a.jpg"></p>
+<p>注意：创建了 86 个数据分区，但是没有包括这些范围的最高值，因为这些最高值将和之后的数据分区的最低值重叠。</p>
+</li>
+<li><p>将数据导入到 LINEITEM 表。此操作的导入命令位于 EX1-8.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 17. 加载并生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX1-8.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 8. 将数据导入到 LINEITEM 表</p>
+<p><img src="https://i.loli.net/2021/05/06/Oo8uCWkp9YvIh3l.jpg" alt="s12b.jpg"></p>
+</li>
+<li><p>使用下面的 SQL 来验证 LINEITEM 表每一个数据分区的行数：</p>
+<p>清单 18. 查询数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select year(l_shipdate) as year, month(l_shipdate) as month, </span><br><span class="line">count(*) as count from lineitem</span><br><span class="line">  group by year(l_shipdate), month(l_shipdate)</span><br><span class="line">  order by 1, 2&quot;</span><br></pre></td></tr></table></figure>
+
+<p>使用以下的 SQL 语句验证 LINEITEM 表的每一个数据分区的行数：</p>
+<p>清单 19. 查询数据脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX1-16.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 9. 检验行数</p>
+<p><img src="https://i.loli.net/2021/05/06/gshciMUwj7REH9u.jpg" alt="s13.jpg"></p>
+<p>注意：执行加载操作后，86 个范围中有 82 个范围包含一个或多个行。</p>
+</li>
+</ol>
+<h2 id="放置分区表"><a href="#放置分区表" class="headerlink" title="放置分区表"></a>放置分区表</h2><p>该实验探讨放置分区表以及使用 <code>describe</code> 命令说明表内的范围和放置情况的方法：</p>
+<ol>
+<li>您将为数据放置练习创建新的表空间。</li>
+<li>你将创建不同格式的分区表。</li>
+<li>您将使用 db2 命令和 SQL 查看结果。</li>
+</ol>
+<h3 id="基本环境设置"><a href="#基本环境设置" class="headerlink" title="基本环境设置"></a>基本环境设置</h3><ol>
+<li><p>使用<code>describe data partitions</code>命令以及<code>show detail</code>方法来显示表空间的分区放置。</p>
+<p>清单 20. 创建表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM show detail</span><br></pre></td></tr></table></figure>
+
+<p>图 10. 表空间的分区放置</p>
+<p><img src="https://i.loli.net/2021/05/06/PBUhwQtWbaNemq9.jpg" alt="s14.jpg"></p>
+<p>注意：TableSpID 列给出了包含分区的表空间的 ID 号。在本例中，TableSpID 是 ‘3’。</p>
+</li>
+<li><p>使用<code>list tablespaces</code>命令标识与 TableSpId 相关联的表空间。</p>
+<p>清单 21. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 list tablespaces</span><br></pre></td></tr></table></figure>
+
+<p>图 11. 标识表空间</p>
+<p><img src="https://i.loli.net/2021/05/06/5W4zksUH8JCIvl9.jpg" alt="s15.jpg"></p>
+<p>注意：相应值为 ‘2’ 的 TableSpID 是 USERSPACE1 或默认的表空间。</p>
+</li>
+<li><p>现在将创建五个表空间来说明不同的放置选项。使用如下命令：</p>
+<p>清单 22. 说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db2 <span class="keyword">create</span> <span class="keyword">table</span>space dms_d1 managed <span class="keyword">by</span> database <span class="keyword">using</span> (file <span class="string">&#x27;c:\ts1&#x27;</span> <span class="number">10000</span>);</span><br><span class="line">db2 <span class="keyword">create</span> <span class="keyword">table</span>space dms_d2 managed <span class="keyword">by</span> database <span class="keyword">using</span> (file <span class="string">&#x27;c:\ts2&#x27;</span> <span class="number">10000</span>);</span><br><span class="line">db2 <span class="keyword">create</span> <span class="keyword">table</span>space dms_d3 managed <span class="keyword">by</span> database <span class="keyword">using</span> (file <span class="string">&#x27;c:\ts3&#x27;</span> <span class="number">10000</span>);</span><br><span class="line">db2 <span class="keyword">create</span> <span class="keyword">table</span>space dms_d4 managed <span class="keyword">by</span> database <span class="keyword">using</span> (file <span class="string">&#x27;c:\ts4&#x27;</span> <span class="number">10000</span>);</span><br><span class="line">db2 <span class="keyword">create</span> <span class="keyword">table</span>space dms_i1 managed <span class="keyword">by</span> database <span class="keyword">using</span> (file <span class="string">&#x27;c:\ts5&#x27;</span> <span class="number">10000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>创建该表空间的 SQL 位于 EX2-3.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 23. 查询数据脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX2-3.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个新的 LINEITEM 表，具有位于 dms_d1 和 dms_d2 表空间的生成分区集。首先，使用如下命令删除现有的 LINEITEM 分区表：</p>
+<p>清单 24. 删除表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 drop TABLE LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>然后，使用下面的 DDL 创建 LINEITEM 表的新版本：</p>
+<p>清单 25. 创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> LINEITEM</span><br><span class="line">(l_orderkey      <span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"> l_partkey       <span class="type">INTEGER</span>,</span><br><span class="line"> l_suppkey       <span class="type">INTEGER</span>,</span><br><span class="line"> l_linenumber    <span class="type">INTEGER</span>,</span><br><span class="line"> l_quantity      <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_extendedprice <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_discount      <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_tax           <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_returnflag    <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line"> l_linestatus    <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line"> l_shipdate      <span class="type">DATE</span>,</span><br><span class="line"> l_commitdate    <span class="type">DATE</span>,</span><br><span class="line"> l_receiptdate   <span class="type">DATE</span>,</span><br><span class="line"> l_shipinstruct  <span class="type">CHAR</span>(<span class="number">25</span>),</span><br><span class="line"> l_shipmode      <span class="type">CHAR</span>(<span class="number">10</span>),</span><br><span class="line"> l_comment       <span class="type">VARCHAR</span>(<span class="number">44</span>))</span><br><span class="line"> <span class="keyword">IN</span> DMS_D1, DMS_D2</span><br><span class="line"> <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(l_shipdate)</span><br><span class="line">(STARTING MINVALUE,</span><br><span class="line"> STARTING <span class="string">&#x27;1/1/1992&#x27;</span> </span><br><span class="line">      ENDING <span class="string">&#x27;31/12/1998&#x27;</span> <span class="keyword">EVERY</span> <span class="number">1</span> <span class="keyword">MONTH</span>,</span><br><span class="line"> ENDING MAXVALUE);</span><br></pre></td></tr></table></figure>
+
+<p>创建该表的 SQL 位于 EX2-4.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 26. 运行 EX2-4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX2-4.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用下面的命令说明为 LINEITEM 表创建的分区范围：</p>
+<p>清单 27. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM show detail</span><br></pre></td></tr></table></figure>
+
+<p>图 12. 说明为 LINEITEM 表创建的分区范围</p>
+<p><img src="https://i.loli.net/2021/05/06/UBCWpRxN6S41MYc.jpg" alt="s17a.jpg"></p>
+<p>图 13. 分区</p>
+<p><img src="https://i.loli.net/2021/05/06/wT7DyqZAgRsfICF.jpg" alt="s17b.jpg"></p>
+<p>注意：TableSpID 列给出了包含分区的表空间的 ID 号。在本例中，TableSpID 为 4（对应于 DMS_D1）或 5（对应于 DMS_D2）。本例中将生成的分区依次分配给指定的表空间。</p>
+</li>
+</ol>
+<h3 id="分区的显式放置"><a href="#分区的显式放置" class="headerlink" title="分区的显式放置"></a>分区的显式放置</h3><ol>
+<li><p>创建一个具有四个数据分区的新 LINEITEM 表，每一个数据分区被显式地放在表空间中。首先使用如下命令删除现有的 LINEITEM 表：</p>
+<p>清单 28. 删除表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 drop TABLE LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>然后使用下面的 DDL 创建 LINEITEM 表的新版本：</p>
+<p>清单 29. 创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> LINEITEM</span><br><span class="line"> (l_orderkey          <span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  l_partkey           <span class="type">INTEGER</span>,</span><br><span class="line">  l_suppkey           <span class="type">INTEGER</span>,</span><br><span class="line">  l_linenumber        <span class="type">INTEGER</span>,</span><br><span class="line">  l_quantity          <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_extendedprice     <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_discount          <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_tax               <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line">  l_returnflag        <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_linestatus        <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">  l_shipdate          <span class="type">DATE</span>,</span><br><span class="line">  l_commitdate        <span class="type">DATE</span>,</span><br><span class="line">  l_receiptdate       <span class="type">DATE</span>,</span><br><span class="line">  l_shipinstruct      <span class="type">CHAR</span>(<span class="number">25</span>),</span><br><span class="line">  l_shipmode          <span class="type">CHAR</span>(<span class="number">10</span>),</span><br><span class="line">  l_comment           <span class="type">VARCHAR</span>(<span class="number">44</span>))</span><br><span class="line"> <span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(l_shipdate)</span><br><span class="line"> ( STARTING MINVALUE <span class="keyword">IN</span> DMS_D1,</span><br><span class="line">   STARTING <span class="string">&#x27;1/1/1992&#x27;</span> ENDING <span class="string">&#x27;31/12/1992&#x27;</span> <span class="keyword">IN</span> DMS_D2,</span><br><span class="line">   STARTING <span class="string">&#x27;1/1/1993&#x27;</span> ENDING <span class="string">&#x27;31/12/1993&#x27;</span> <span class="keyword">IN</span> DMS_D3,</span><br><span class="line">   ENDING MAXVALUE <span class="keyword">IN</span> DMS_D4 );</span><br></pre></td></tr></table></figure>
+
+<p>创建表的 SQL 位于 EX2-6.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 30. 运行 EX2-6</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX2-6.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用下面的命令说明为 LINEITEM 表创建的分区范围：</p>
+<p>清单 31. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM show detail</span><br></pre></td></tr></table></figure>
+
+<p>图 14. 说明为 LINEITEM 表创建的分区范围</p>
+<p><img src="https://i.loli.net/2021/05/06/WTGucEVhmjbQxkF.jpg" alt="s19.jpg"></p>
+<p>注意：在本例中，每一个分区被放置在一个不同的 TableSpID 中，这个 TableSpID 和创建表的 DDL 中指定的表空间是相对应的。</p>
+</li>
+<li><p>创建一个具有四个数据分区的 LINEITEM 表，每一个数据分区被显式地放在表空间并且索引被放在表空间 DMS_I1 中。 在这一步中，将引入命名分区的概念，而不是使用默认的生成名称。 首先，使用下面的命令删除现有的 LINEITEM 分区表：</p>
+<p>清单 32. 删除表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 drop TABLE LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>然后，使用以下的 DDL 创建 LINEITEM 表的新版本：</p>
+<p>清单 33. 创建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> LINEITEM</span><br><span class="line">(l_orderkey           <span class="type">DECIMAL</span>(<span class="number">10</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"> l_partkey            <span class="type">INTEGER</span>,</span><br><span class="line"> l_suppkey            <span class="type">INTEGER</span>,</span><br><span class="line"> l_linenumber         <span class="type">INTEGER</span>,</span><br><span class="line"> l_quantity           <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_extendedprice      <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_discount           <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_tax                <span class="type">DECIMAL</span>(<span class="number">12</span>,<span class="number">2</span>),</span><br><span class="line"> l_returnflag         <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line"> l_linestatus         <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line"> l_shipdate           <span class="type">DATE</span>,</span><br><span class="line"> l_commitdate         <span class="type">DATE</span>,</span><br><span class="line"> l_receiptdate        <span class="type">DATE</span>,</span><br><span class="line"> l_shipinstruct       <span class="type">CHAR</span>(<span class="number">25</span>),</span><br><span class="line"> l_shipmode           <span class="type">CHAR</span>(<span class="number">10</span>),</span><br><span class="line"> l_comment            <span class="type">VARCHAR</span>(<span class="number">44</span>))</span><br><span class="line">INDEX <span class="keyword">IN</span> DMS_I1</span><br><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="keyword">RANGE</span>(l_shipdate)</span><br><span class="line">( PART JAN1992 STARTING <span class="string">&#x27;1/1/1992&#x27;</span>  ENDING <span class="string">&#x27;30/6/1992&#x27;</span> <span class="keyword">IN</span> DMS_D1,</span><br><span class="line">  PART JULY1992 STARTING <span class="string">&#x27;1/7/1992&#x27;</span> ENDING <span class="string">&#x27;31/12/1992&#x27;</span> <span class="keyword">IN</span> DMS_D2,</span><br><span class="line">  PART JAN <span class="number">1993</span> STARTING <span class="string">&#x27;1/1/1993&#x27;</span> ENDING <span class="string">&#x27;30/6/1993&#x27;</span> <span class="keyword">IN</span> DMS_D3,</span><br><span class="line">  PART JULY1993 STARTING <span class="string">&#x27;1/7/1993&#x27;</span> ENDING <span class="string">&#x27;31/12/1993&#x27;</span> <span class="keyword">IN</span> DMS_D4);</span><br></pre></td></tr></table></figure>
+
+<p>创建表的 SQL 位于 EX2-8.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 34. 运行 EX2-8</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX2-8.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 LINEITEM 表中创建一个索引，并将它放置在表空间 DMS_I1 中。使用如下 SQL：</p>
+<p>清单 35. 索引</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;create index I_LINEITEM on LINEITEM(L_SHIPDATE) in DMS_I1&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用下面的 SQL 检验和该表相关联的索引的位置：</p>
+<p>清单 36. 说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select tabname, index_tbspace from syscat.tables where tabname = &#x27;LINEITEM&#x27;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 15. 检验索引的位置</p>
+<p><img src="https://i.loli.net/2021/05/06/Ub4S5AMEY3RoN1s.jpg" alt="s21.jpg"></p>
+<p>注意：索引空间是 DMS_I1。如果没有为分区表指定表空间，那么默认情况下索引位于连接着的第一个表空间。 在 CREATE TABLE 中定义表空间是很好的实践。然而，无论您是否在创建表语句 ID 中指定索引表空间，这并不限制您将来放置索引的位置。您可以在 CREATE INDEX 语句本身显式地指定索引表空间。 同一分区表的不同索引可以放置在不同的表空间。</p>
+</li>
+</ol>
+<h2 id="管理分区表"><a href="#管理分区表" class="headerlink" title="管理分区表"></a>管理分区表</h2><p>这个实验将查看如何管理和操作分区表：</p>
+<ol>
+<li>您将添加和删除分区。</li>
+<li>您将执行对分区的转入转出操作。</li>
+<li>在执行查看操作时将使用 DB2 命令和 SQL。</li>
+</ol>
+<h3 id="使用现有的表添加一个新的分区"><a href="#使用现有的表添加一个新的分区" class="headerlink" title="使用现有的表添加一个新的分区"></a>使用现有的表添加一个新的分区</h3><ol>
+<li><p>将数据导入 LINEITEM 表。创建表空间的 SQL 位于 EX3-1.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 37. 导入数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX3-1.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 16. 将数据导入到 LINEITEM 表</p>
+<p><img src="https://i.loli.net/2021/05/06/BzP1yRUqGC8csfT.jpg" alt="s22a.jpg"></p>
+<p>注意：分区表中的记录数，以及将进行连接和分离的记录数对于说明数据库中的数据何时可用非常重要。</p>
+</li>
+<li><p>创建一个名为 NP_LINEITEM 的新表。脚本 EX3-2.sql 创建一个具有 87 行的新表 NP_LINEITEM:</p>
+<p>清单 38. 新分区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX3-2.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 17. 将数据导入到 NP_LINEITEM 表</p>
+<p><img src="https://i.loli.net/2021/05/06/VE6gJxyA8u2GKMn.jpg" alt="s22b.jpg"></p>
+</li>
+<li><p>使用下面的命令说明为 LINEITEM 表创建的分区范围：</p>
+<p>清单 39. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM show detail</span><br></pre></td></tr></table></figure>
+
+<p>图 18. LINEITEM 表的分区</p>
+<p><img src="https://i.loli.net/2021/05/06/NaoryDZum6z1AB9.jpg" alt="s23a.jpg"></p>
+<p>注意：LINEITEM 表目前包含 4 个数据分区。</p>
+</li>
+<li><p>使用<code>Alter</code>语句将一个新的分区连接（转入）到现有的 LINEITEM 表。</p>
+<p>清单 40. 新分区</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> LINEITEM ATTACH <span class="keyword">PARTITION</span> JAN1994</span><br><span class="line">STARTING <span class="string">&#x27;1/1/1994&#x27;</span> ENDING <span class="string">&#x27;30/6/1994&#x27;</span></span><br><span class="line"><span class="keyword">FROM</span> NP_LINEITEM</span><br></pre></td></tr></table></figure>
+
+<p>可以使用以下命令运行脚本 EX3-4：</p>
+<p>清单 41. 新分区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX3-4.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 19. 脚本 EX3-4</p>
+<p><img src="https://i.loli.net/2021/05/06/nFSMi1mzRVGO2eE.jpg" alt="s23b.jpg"></p>
+<p>注意：LINEITEM 表被置于 SET INTEGRITY PENDING 状态。</p>
+</li>
+<li><p>连接后，使用<code>describe data partitions</code>命令来说明为 LINEITEM 表创建的分区范围：</p>
+<p>清单 42. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM show detail</span><br></pre></td></tr></table></figure>
+
+<p>图 20. LINEITEM 表的分区</p>
+<p><img src="https://i.loli.net/2021/05/06/TQL7BdGUhrsN1KC.jpg" alt="s24.jpg"></p>
+<p>注意：新数据分区（JAN1994）PartitionId 4 现在连接到了 LINEITEM 表。然而连接的分区的 AccessMode 值为 ‘N’ 并且 Status 的值为 ‘A’。 AccessMode 可能的值有：</p>
+<ul>
+<li>D = 没有数据移动</li>
+<li>F = 完全访问</li>
+<li>N = 不访问</li>
+<li>R = 只读访问</li>
+</ul>
+<p>Status 可能的值有：</p>
+<ul>
+<li>A = 数据分区是新连接的</li>
+<li>D = 数据分区是分离的</li>
+<li>I = 只有在执行异步索引清除时才对条目位于目录的分离的数据分区进行维护；当所有引用分离数据分区的索引记录删除后，将删除 STATUS 值为 ‘I’ 的行。</li>
+<li>Empty string = 数据分区是可见的（普通状态）</li>
+</ul>
+</li>
+<li><p>运行两个<code>select count</code>语句来检查连接语句涉及的两个表中数据的可用性。</p>
+<p>清单 43. Count Lineitem</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select count(*) from lineitem&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 21. select count 语句的结果</p>
+<p><img src="https://i.loli.net/2021/05/06/JPhz4aMEcZHkfjx.jpg" alt="s25a.jpg"></p>
+<p>注意：LINEITEM 表最初的分区是可用的，但是 PartitionId 4 中的新数据仍不可见。</p>
+<p>清单 44. Count np-lineitem</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select count(*) from np_lineitem&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 22. select count 语句的结果</p>
+<p><img src="https://i.loli.net/2021/05/06/3SWJKPv2RNdgZkX.jpg" alt="s25b.jpg"></p>
+<p>注意：NP_LINEITEM 表现在是一个未定义的对象，在 LINEITEM 表内只能将其作为一个分区使用。</p>
+</li>
+<li><p>创建一个异常表并与 SET INTEGRITY 语句结合使用。执行该操作的 DDL 位于 EX3-7.sql 文件，可使用下面的命令运行该文件：</p>
+<p>清单 45. 异常表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX3-7.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对 LINEITEM 分区表运行<code>set integrity</code>语句 。</p>
+<p>清单 46. 设置完整性</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> INTEGRITY <span class="keyword">FOR</span> LINEITEM</span><br><span class="line">ALLOW WRITE ACCESS</span><br><span class="line">IMMEDIATE CHECKED</span><br><span class="line"><span class="keyword">FOR</span> EXCEPTION <span class="keyword">IN</span> LINEITEM USE LINEITEM_EX</span><br></pre></td></tr></table></figure>
+
+<p>执行该操作的 SQL 位于 EX3-8.sql 文件中，可以使用下面的命令运行该文件：</p>
+<p>清单 47. 设置完整性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX3-8.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 23. EX3-8.sql 文件</p>
+<p><img src="https://i.loli.net/2021/05/06/fDjr7ydniOA1Xev.jpg" alt="s26a.jpg"></p>
+<p>注意：<code>SET INTEGRITY</code>对于检查新连接的数据是否在范围内是必需的，它还执行对索引和其他独立对象（例如物化查询表）所有必需的维护工作。只有得到<code>SET INTEGRITY</code>语句的允许，新的数据才能变为可见。然而，当运行<code>SET INTEGRITY</code>时，可以对 LINEITEM 表中的现有数据进行完全访问，包括读和写操作。 用户应该执行<code>SET INTEGRITY</code>事务从而能够使用整个表。当运行<code>SET INTEGRITY</code>时，不能够对表执行 DDL 或其他实用类型的操作。 在这个练习中，在 NP_LINEITEM 表中创建并被连接到 LINEITEM 表的所有的行，都在连接语句指定的范围内。如果这些行中存在超出此范围的行，则需要在<code>SET INTEGRITY</code>语句中创建一个异常表来防止语句发生错误。所以推荐您始终在<code>SET INTEGRITY</code>语句中包含一个异常表。如果没有提供异常表的话，<code>SET INTEGRITY</code>语句发现的错误将导致语句失败并且所有的工作都必须从头做起。如果使用大量数据时，这可能是一个长期操作。有一点值得注意，如果<code>SET INTEGRITY</code>操作失败，所有工作都需要重做，与之相比较，<code>LOAD</code>仅仅抛弃存在问题的行。</p>
+</li>
+<li><p>对 LINEITEM 表运行<code>select count</code>  SQL 以检查连接的分区中数据的可用性：</p>
+<p>清单 48. Count Lineitem</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select count(*) from lineitem&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 24. select count 语句的结果</p>
+<p><img src="https://i.loli.net/2021/05/06/Fw6uJP9zGEvlHAy.jpg" alt="s26b.jpg"></p>
+<p>注意：成功执行<code>SET INTEGRITY</code>操作后，LINEITEM 表应包含 PartitionId 4 的数据。</p>
+</li>
+</ol>
+<h3 id="从分区表中分离一个分区"><a href="#从分区表中分离一个分区" class="headerlink" title="从分区表中分离一个分区"></a>从分区表中分离一个分区</h3><ol>
+<li><p>使用<code>describe data partitions show detail</code>命令来标识一个分区的 PartitionName，您将把这个分区从 LINEITEM 分区表中分离（转出）出来。</p>
+<p>清单 49. 说明表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM show detail</span><br></pre></td></tr></table></figure>
+
+<p>图 25. LINEITEM 表的分区</p>
+<p><img src="https://i.loli.net/2021/05/06/eW7lfdPjq9o5yKa.jpg" alt="s27a.jpg"></p>
+<p>注意：将分离最早的分区范围 PartitionId 0。该分区的 PartitionName 是 JAN1992。将在<code>DETACH</code>操作中使用它来标识被转出的分区。同样还需注意成功执行了<code>SET INTEGRITY</code>操作后，分区 JAN1994 的 AccessMode 的值为 ‘F’，Status 值为空。TableSpId、PartObjId 和 LongTblSpId 的结果可能和这里显示的不一样。</p>
+</li>
+<li><p>使用<code>Alter</code>语句将 JAN1992 从 LINEITEM 表中分离（转出）。</p>
+<p>清单 50. Alter 表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE LINEITEM DETACH PARTITION JAN1992 INTO LINEITEM_JAN1992</span><br></pre></td></tr></table></figure>
+
+<p>创建文件的 SQL 位于 EX3-11.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 51. Alter 表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 –vtf EX3-11.sql</span><br></pre></td></tr></table></figure>
+
+<p>注意：将 JAN1992 成功分离后，将创建一个新的表 LINEITEM_JAN1992。在<code>DETACH</code>操作中没有涉及数据移动，并且位于相同表空间的新表的行为和它作为 LINEITEM 分区表的一部分时是一样的。此时不需要对 LINEITEM 表运行<code>SET INTEGRITY</code>语句，因为没有对 LINEITEM 表定义的 MQTs。 还有一点值得注意，如果从 Multi-Dimensional Clustering（MDC）分离一个分区从而创建了一个新表时，这个表也将是一个 MDC。这个规则同样适用于下面这个情况：从一个分布式表中分离分区从而在相同的分区组创建分布式表。执行<code>DETACH</code>操作后产生的表使用 MDC 索引定义而不是其他的索引。对于 MDC，在首次访问连接的表时将重新构建索引。在这种情况下，将自动对分离的分区进行索引清除操作。将从执行<code>DETACH</code>操作的用户 ID 继承索引的模式、权限和表空间。</p>
+</li>
+<li><p>运行两个<code>select count</code>语句检查<code>DETACH</code>语句涉及的两个表中的数据的可用性。</p>
+<p>清单 52. Count Lineitem_jan1992</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select count(*) from lineitem_jan1992&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 26. select count 语句的结果</p>
+<p><img src="https://i.loli.net/2021/05/06/Y5crPMXh7GaTnIL.jpg" alt="s28a.jpg"></p>
+<p>注意：创建的 LINEITEM_JAN1992 表包含 38 行，它被包含在 LINEITEM 分区表的 JAN1992 分区中。</p>
+<p>清单 53. Count lineitem</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select count(*) from lineitem&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 27. select count 语句的结果</p>
+<p><img src="https://i.loli.net/2021/05/06/3tyEJNCerzlw8FD.jpg" alt="s28b.jpg"></p>
+<p>注意：此时 LINEITEM 表完全可用，并且不包括 PART0 中的数据。</p>
+</li>
+<li><p>当数据被移动到分区表中，或当希望将数据加载到或直接插入分区表中时，一个更合适的方法是向现有的分区表添加一个空的分区。使用下面的命令向现有的 LINEITEM 表添加一个空的分区：</p>
+<p>清单 54. 说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;ALTER TABLE LINEITEM ADD PARTITION JULY1994 </span><br><span class="line">STARTING &#x27;1/7/1994&#x27; ENDING &#x27;31/12/1994&#x27;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 28. 向现有的 LINEITEM 表添加一个空的分区</p>
+<p><img src="https://i.loli.net/2021/05/06/uGhk8SYHCZAj2s6.jpg" alt="s28c.jpg"></p>
+</li>
+<li><p>使用<code>describe data partitions show detail</code>命令来检验 PartitionName 为 JULY1994 的分区是否被添加到 LINEITEM 中：</p>
+<p>清单 55. 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 describe data partitions for table LINEITEM show detail</span><br></pre></td></tr></table></figure>
+
+<p>图 29. LINEITEM 表的分区</p>
+<p><img src="https://i.loli.net/2021/05/06/p4KoFitX1TbVgCN.jpg" alt="s29.jpg"></p>
+</li>
+</ol>
+<h2 id="分区表的访问计划"><a href="#分区表的访问计划" class="headerlink" title="分区表的访问计划"></a>分区表的访问计划</h2><p>本实验将研究如何在访问计划中描述分区表：</p>
+<ol>
+<li><p>您将更新分区表中的统计信息。</p>
+</li>
+<li><p>您将使用 <code>db2expln</code> 命令并分析结果。</p>
+</li>
+<li><p>您将在执行查看的操作中使用 DB2 命令和 SQL 。</p>
+</li>
+<li><p>对 LINEITEM 表执行<code>RUNSTATS</code>操作：</p>
+<p>清单 56. Runstats</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 runstats on table db2inst1.lineitem</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明以下 SQL 语句并检查说明输出：</p>
+<p>清单 57. 说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select l_shipdate,sum(l_quantity) from LINEITEM group by l_shipdate&quot;</span><br></pre></td></tr></table></figure>
+
+<p>要进行说明的 SQL 位于 EX4-2.sql 文件，可以使用下面的命令运行该文件：</p>
+<p>清单 58. 说明输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2expln –d SAMPLE –t –f EX4-2.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 30. 说明输出</p>
+<p><img src="https://i.loli.net/2021/05/06/Qd9WRODcPMIKFlN.jpg" alt="s30.jpg"></p>
+<p>注意：该 SQL 执行了 LINEITEM 表的索引扫描。说明输出中有一个关于表分区的要点需要注意，所访问的表是被分区的，并且在扫描过程中所有数据分区都将被访问。</p>
+</li>
+<li><p>说明下面的 SQL 语句并检查说明输出：</p>
+<p>清单 59. 说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select l_shipdate, l_partkey, l_returnflag</span><br><span class="line">from LINEITEM</span><br><span class="line">where l_shipdate between &#x27;01/01/1993&#x27; and &#x27;31/08/1993&#x27;</span><br><span class="line">and l_partkey = 49981&quot;</span><br></pre></td></tr></table></figure>
+
+<p>要进行说明的 SQL 语句位于 EX4-3.sql 文件中，可使用下面的命令运行该文件：</p>
+<p>清单 60. 说明输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db2expln –d SAMPLE –t –f EX4-3.sql</span><br></pre></td></tr></table></figure>
+
+<p>图 31. 说明输出</p>
+<p><img src="https://i.loli.net/2021/05/06/93AYryCl8EqxtWK.jpg" alt="s31.jpg"></p>
+<p>注意：这个 SQL 语句执行了 LINEITEM 表的索引扫描。在本例中，可以看到优化器能够执行数据分区排除操作。在说明输出中要注意的是关于表分区，访问的表是被分区的，将执行分区排除功能以及删除活动数据分区的值。 在本例中，活动的数据分区为 1-2。这里引用的是 syscat.datapartitions 中的序列号（seqno）而不是<code>describe data partitions</code>命令中的 PartitionId。</p>
+</li>
+<li><p>使用下面的 SQL 确定在前面说明示例中活动的分区的名称：</p>
+<p>清单 61. 说明</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db2 &quot;select seqno,datapartitionname</span><br><span class="line">from syscat.datapartitions</span><br><span class="line">where tabname = ‘LINEITEM’ order by seqno&quot;</span><br></pre></td></tr></table></figure>
+
+<p>图 32. 分区名称</p>
+<p><img src="https://i.loli.net/2021/05/06/KHeQXbU34skIENB.jpg" alt="s32.jpg"></p>
+<p>注意：序列号 1 和 2 分别映射的是 JAN1993 和 JULY1993 分区名称。</p>
+</li>
+</ol>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>本教程基于 IBM DB2 9 Data Partitioning 特性。您已在以下几个方面获得了第一手的经验：</p>
+<ul>
+<li>如何定义分区表</li>
+<li>如何将分区表放置在底层磁盘子系统</li>
+<li>如何维护分区表</li>
+<li>如何使用 DB2 Explain 说明分区表</li>
+</ul>
+<p>范围分区将数据映射到基于关键值范围的分区，用户为每一个分区建立关键值范围。例如，企业通常希望以月份为单位，将销售数据划分到各月的分区中。与 MDC 功能集合使用时，范围分区将更加方便地定位数据，从而加快通过复杂查询检索信息的速度。</p>
+<h3 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/apps/download/index.jsp?contentid=265244&filename=exfiles.zip&method=http&locale=zh_CN">本文的示例脚本和数据</a> (exfiles.zip | 60KB)</li>
+</ul>
+<p>本文转载自IBM官方网站，原文地址：<a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/education/data/dm0612read/dm0612read.html">https://www.ibm.com/developerworks/cn/education/data/dm0612read/dm0612read.html</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/born2do" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/born2do" target="_blank"><span class="text-dark">你不懂的阳</span><small class="ml-1x">Web Developer</small></a></h3>
+        <div>技术爱好者。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/05/05/DB2%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A0-%E8%A1%A8%E7%A9%BA%E9%97%B4%E3%80%81%E8%A1%A8%E5%88%86%E5%8C%BA/" title="DB2数据库学习_表空间、表分区"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/born2do" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5de5b8641ae3d1c71c60',
+    clientSecret: 'ce8a9386e3a9cdb0f907f59903cfada55bc8e676',
+    repo: 'blogComments',
+    owner: 'born2do',
+    admin: ['born2do'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>
