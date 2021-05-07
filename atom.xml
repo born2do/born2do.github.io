@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-05-06T12:50:02.031Z</updated>
+  <updated>2021-05-07T16:05:06.270Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【vue】在lang=less的style中编写样式报错</title>
+    <link href="https://born2do.github.io/2021/05/08/%E3%80%90vue%E3%80%91%E5%9C%A8lang-less%E7%9A%84style%E4%B8%AD%E7%BC%96%E5%86%99%E6%A0%B7%E5%BC%8F%E6%8A%A5%E9%94%99/"/>
+    <id>https://born2do.github.io/2021/05/08/%E3%80%90vue%E3%80%91%E5%9C%A8lang-less%E7%9A%84style%E4%B8%AD%E7%BC%96%E5%86%99%E6%A0%B7%E5%BC%8F%E6%8A%A5%E9%94%99/</id>
+    <published>2021-05-07T16:04:40.000Z</published>
+    <updated>2021-05-07T16:05:06.270Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在学习vue，照着B站上的一个项目直接进行实战学习。<br>链接：<a href="https://www.bilibili.com/video/BV1q5411s7wH?t=93">https://www.bilibili.com/video/BV1q5411s7wH?t=93</a><br>前端项目建好，创建登录页面，更改样式的时候报错了。<br>报错截图：<br><img src="https://i.loli.net/2021/05/07/qjxiFgsPBSUI9rH.png" alt="20210310224437734.png"><br>源码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;login_container&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;login_box&quot;&gt;</span><br><span class="line">            &lt;!-- 头像 --&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;avatar_box&quot;&gt;</span><br><span class="line">                &lt;img src&#x3D;&quot;..&#x2F;assets&#x2F;logo.png&quot; &#x2F;&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;!-- 登陆表单 --&gt;</span><br><span class="line">            &lt;el-form ref&#x3D;&quot;loginFormRef&quot; :model&#x3D;&quot;loginForm&quot; class&#x3D;&quot;login_form&quot; label-width&#x3D;&quot;0&quot;&gt;</span><br><span class="line">                &lt;el-form-item&gt;</span><br><span class="line">                    &lt;el-input  v-model&#x3D;&quot;loginForm.username&quot; prefix-icon&#x3D;&quot;iconfont icon-usercenter&quot;&gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">                &lt;&#x2F;el-form-item&gt;</span><br><span class="line">                &lt;el-form-item&gt;</span><br><span class="line">                    &lt;el-input v-model&#x3D;&quot;loginForm.password&quot; prefix-icon&#x3D;&quot;iconfont icon-unlock&quot;&gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">                &lt;&#x2F;el-form-item&gt;</span><br><span class="line">                &lt;el-form-item class&#x3D;&quot;btns&quot;&gt;</span><br><span class="line">                    &lt;el-button type&#x3D;&quot;primary&quot;&gt;提交&lt;&#x2F;el-button&gt;</span><br><span class="line">                    &lt;el-button type&#x3D;&quot;info&quot;&gt;重置&lt;&#x2F;el-button&gt;</span><br><span class="line">                &lt;&#x2F;el-form-item&gt;</span><br><span class="line">            &lt;&#x2F;el-form&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            loginForm: &#123;</span><br><span class="line">                username: &quot;username&quot;,</span><br><span class="line">                password: &quot;password&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style lang&#x3D;&quot;less&quot; scoped&gt;</span><br><span class="line">.login_container &#123;</span><br><span class="line">    background-color: #2b4b6b;</span><br><span class="line">    height: 100%;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">.login_box &#123;</span><br><span class="line">    width: 450px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border-radius: 3px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>根据报错信息，很快便定位到是版本问题。<br>在网上查找了相关的博客，大多表示是由于less-loader版本过高。<br>我尝试着将less-loader的版本降低，但是仍然报错。<br>然后，我按照视频中up主使用的版本，将less以及less-loader卸载后重新安装低版本，项目正常编译。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall less-loader</span><br><span class="line">npm uninstall less</span><br><span class="line"></span><br><span class="line">npm install less@3.11.1  --save  </span><br><span class="line">npm install less-loader@6.1.0 --save</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">【vue】在lang=less的style中编写样式报错</summary>
+    
+    
+    
+    <category term="vue" scheme="https://born2do.github.io/categories/vue/"/>
+    
+    
+    <category term="error" scheme="https://born2do.github.io/tags/error/"/>
+    
+  </entry>
   
   <entry>
     <title>【DB2】DB2基础_表分区</title>
@@ -402,27 +423,6 @@
     
     
     <category term="println" scheme="https://born2do.github.io/tags/println/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue无法加载文件vue.ps1，因为在此系统上禁止运行脚本</title>
-    <link href="https://born2do.github.io/2021/04/25/vue%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6vue-ps1%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/"/>
-    <id>https://born2do.github.io/2021/04/25/vue%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E6%96%87%E4%BB%B6vue-ps1%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%9C%A8%E6%AD%A4%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%A6%81%E6%AD%A2%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/</id>
-    <published>2021-04-25T00:43:45.000Z</published>
-    <updated>2021-04-25T00:44:18.104Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vue : 无法加载文件 C:\Users\born2do\AppData\Roaming\npm\vue.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?Link </span><br><span class="line">ID&#x3D;135170 中的 about_Execution_Policies。</span><br><span class="line">所在位置 行:1 字符: 1</span><br><span class="line">+ vue create hotel-manager</span><br><span class="line">    + CategoryInfo          : SecurityError: (:) []，PSSecurityException</span><br><span class="line">    + FullyQualifiedErrorId : UnauthorizedAccess</span><br></pre></td></tr></table></figure><p>使用VS Code命令终端新建VUE项目，报错如题。</p><ul><li>出错原因<br>被系统禁止运行脚本。</li><li>解决</li></ul><ol><li>右键桌面左下角的小窗口，点击“Windows PowerShell(管理员)(A)”。</li><li>执行：set-ExecutionPolicy RemoteSigned （签名或运行这些脚本），在对话框中输入“y”，确认更改策略。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS C:\WINDOWS\system32&gt; set-ExecutionPolicy RemoteSigned</span><br><span class="line"></span><br><span class="line">执行策略更改</span><br><span class="line">执行策略可帮助你防止执行不信任的脚本。更改执行策略可能会产生安全风险，如 https:&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;135170</span><br><span class="line">中的 about_Execution_Policies 帮助主题所述。是否要更改执行策略?</span><br><span class="line">[Y] 是(Y)  [A] 全是(A)  [N] 否(N)  [L] 全否(L)  [S] 暂停(S)  [?] 帮助 (默认值为“N”): y</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    
-    <summary type="html">vue无法加载文件vue.ps1，因为在此系统上禁止运行脚本</summary>
-    
-    
-    
-    <category term="VUE" scheme="https://born2do.github.io/categories/VUE/"/>
-    
-    
-    <category term="VUE" scheme="https://born2do.github.io/tags/VUE/"/>
     
   </entry>
   
