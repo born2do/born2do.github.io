@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-05-08T13:08:28.415Z</updated>
+  <updated>2021-05-09T15:22:10.628Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【SpringBoot】Project &#39;org.springframework.boot:spring-boot-starter-parent:2.4.5&#39; not found</title>
+    <link href="https://born2do.github.io/2021/05/09/%E3%80%90SpringBoot%E3%80%91Project-org-springframework-boot-spring-boot-starter-parent-2-4-5-not-found/"/>
+    <id>https://born2do.github.io/2021/05/09/%E3%80%90SpringBoot%E3%80%91Project-org-springframework-boot-spring-boot-starter-parent-2-4-5-not-found/</id>
+    <published>2021-05-09T15:21:43.000Z</published>
+    <updated>2021-05-09T15:22:10.628Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>新建SpringBoot项目后，项目正常运行，但是pom.xml文件提示“Project ‘org.springframework.boot:spring-boot-starter-parent:2.4.5’ not found” 。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>出现这种问题，是由于在当前的仓库中找不到指定的版本Jar包。<br>通常我们在本地会将远程仓库配置成阿里云镜像，如果pom.xml文件中指定的版本过高，可能阿里云镜像仓库中会没有，也就导致了该错误。降低版本即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-parent&lt;&#x2F;artifactId&gt;</span><br><span class="line">&lt;version&gt;2.2.2.RELEASE&lt;&#x2F;version&gt;</span><br><span class="line">&lt;relativePath&#x2F;&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">&lt;&#x2F;parent&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">【SpringBoot】Project &#39;org.springframework.boot:spring-boot-starter-parent:2.4.5&#39; not found</summary>
+    
+    
+    
+    <category term="SpringBoot" scheme="https://born2do.github.io/categories/SpringBoot/"/>
+    
+    
+    <category term="error" scheme="https://born2do.github.io/tags/error/"/>
+    
+  </entry>
   
   <entry>
     <title>【前后端分离】跨域问题</title>
@@ -404,27 +425,6 @@
     
     
     <category term="crontab" scheme="https://born2do.github.io/tags/crontab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Page指令</title>
-    <link href="https://born2do.github.io/2021/04/26/Page%E6%8C%87%E4%BB%A4/"/>
-    <id>https://born2do.github.io/2021/04/26/Page%E6%8C%87%E4%BB%A4/</id>
-    <published>2021-04-25T16:11:09.000Z</published>
-    <updated>2021-04-25T16:11:32.292Z</updated>
-    
-    <content type="html"><![CDATA[<p>page指令称为页面指令，用来定义JSP页面的全局属性，该配置会作用于整个页面。</p><p>page指令的属性可以定义MIME类型、定义需要导入的包、错误页的指定等。</p><p>page指令的语法格式如下：</p><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> 属性<span class="number">1</span>=<span class="string">&quot;属性值1&quot;</span> 属性<span class="number">2</span>=<span class="string">&quot;属性值2&quot;</span> ...... %&gt;</span><br></pre></td></tr></table></figure><h2 id="page指令"><a href="#page指令" class="headerlink" title="page指令"></a>page指令</h2><p>page指令是针对当前页面的指令，常用的page指令如下：</p><blockquote><p>1.&lt;%@page language=”java”%&gt; 设置jsp中用到的语言，用到的是java，也是目前唯一有效的设定。</p><p>2.&lt;%@page extends=”mypackage.myclass”%&gt; 设置目前jsp要继承的父类，一般不需要设置，在默认情况下，jsp页面默认的父类是HttpJspBase。</p><p>3.&lt;%@page import=”java.sql.*”% &gt; jsp页面所用到的类。</p><p>4.&lt;%@page errorPage=”error.jsp”%&gt; 设置该jsp页面出现异常时所要转到的页面，如果没设定，容器将使用当前的页面显示错误信息。</p><p>5.&lt;%@page isErrorPage=”true”%&gt; 设置该jsp页面是否作为错误显示页面，默认是false，如果设置为true，容器则会在当前页面生成一个exception对象，和4搭配使用。</p><p>6.&lt;%@page contentType=”text/html;charset=gb2312”%&gt; 设置页面文件格式和编码方式。</p><p>7.&lt;%@page isThreadSafe=”true”% &gt; 设置容器以多线程还是单线程运行该jsp页面，默认是true，是多线程。设置为false，则以单线程的方式运行该jsp页面。</p><p>8.&lt;%@page session=”true”% &gt; 设置该jsp页面是否可以用到session对象(jsp内置对象，为web容器创建)，默认是true，能用到session；设置为false，则用不到。</p></blockquote><h2 id="page指令属性"><a href="#page指令属性" class="headerlink" title="page指令属性"></a>page指令属性</h2><p>page指令属性说明：</p><table><thead><tr><th>属性</th><th>定义</th></tr></thead><tbody><tr><td>language=”ScriptLanguage”</td><td>指定JSP Container用什么语言来编译，目前只支持JAVA语言。默认为JAVA</td></tr><tr><td>extends=”className”</td><td>定义此JSP网页产生的Servlet是继承哪个</td></tr><tr><td>import=”importList”</td><td>定义此JSP网页要使用哪些Java API</td></tr><tr><td>session=”true|false”</td><td>决定此页面是否使用session对象。默认为true</td></tr><tr><td>buffer=”none|size in kb”</td><td>决定输出流(Input stream)是否又缓冲区。默认为8kb</td></tr><tr><td>autoFlush=”true|false”</td><td>决定输出流的缓冲区慢了后是否需要自动清除，缓冲区慢了后会产生异常错误(Exception).默认为true</td></tr><tr><td>isThreadSafe=”true|false”</td><td>是否支持线程。默认为true</td></tr><tr><td>errorPage=”url”</td><td>如果此页发生异常，网页会重新指向一个url</td></tr><tr><td>isErrorPage=”true|false”</td><td>表示此页面是否为错误处理页面。默认为false</td></tr><tr><td>contentType=”text/html;charset=gb2312”</td><td>表示MIME类型和JSP的编码方式。笔者使用例左</td></tr><tr><td>pageEncoding=”ISO-8859-1”</td><td>编码方式。（笔者已经加入使用的编码）</td></tr><tr><td>isELLgnored=”true|false”</td><td>表示是否在此JSP页面中EL表达式。true则忽略，反之false则支持。默认为false</td></tr></tbody></table><p>language：定义要使用的脚本语言，目前只能是“java”，即language=”java”。</p><p>import：和一般的Java import意义一样，用于引入要使用的类，只是用逗号“,”隔开包或者类列表。默认省略，即不引入其他类或者包。例如，import=”java.io.*,java.util.Hashtable”。</p><p>session：指定所在页面是否参与HTTP会话。默认值为true，session=”true”。</p><p>buffer：指定到客户输出流的缓冲模式。如果为none，则不缓冲；如果指定数值，那么输出就用不小于这个值的缓冲区进行缓冲。与autoFlash一起使用。默认不小于8KB，根据不同的服务器可设置。例如，buffer=”64kb”。</p><p>autoFlash：如果为true缓冲区满时，到客户端输出被刷新；如果为false缓冲区满时，出现运行异常，表示缓冲区溢出。默认为true，例如autoFlash=”true”。</p><p>info：关于JSP页面的信息，定义一个字符串，可以使用servlet.getServletInfo()获得。 默认省略。例如，info=”测试页面”。</p><p>isErrorPage：表明当前页是否为其他页的errorPage目标。如果被设置为true，则可以使用exception对象。相反，如果被设置为false，则不可以使用exception对象。默认为false，例如，isErrorPage=”true”。</p><p>errorPage：定义此页面出现异常时调用的页面。默认忽略，例如errorPage=”error.jsp”。</p><p>isThreadSafe：用来设置JSP文件是否能多线程使用。如果设置为true，那么一个JSP能够同时处理多个用户的请求；相反，如果设置为false，一个JSP只能一次处理一个请求。例如，isThreadSafe=”true”。</p><p>contentType：定义JSP字符编码和页面响应的MIME类型。TYPE=MIME TYPE;charset=CHARSET。默认为TYPE=text/html,CHARSET=iso8859-1。例如contentType=”text/html;charset=gb2312”</p><p>pageEncoding：JSP页面的字符编码 ，默认值为pageEncoding=”iso-8859-1”，例如pageEncoding=”gb2312”。</p><p>isELIgnored：指定EL（表达式语言）是否被忽略。如果为true，则容器忽略”${}”表达式的计算。默认值由web.xml描述文件的版本确定，servlet2.3以前的版本将忽略。例如isELIgnored=”true”。</p>]]></content>
-    
-    
-    <summary type="html">Page指令</summary>
-    
-    
-    
-    <category term="JSP" scheme="https://born2do.github.io/categories/JSP/"/>
-    
-    
-    <category term="Page" scheme="https://born2do.github.io/tags/Page/"/>
     
   </entry>
   
