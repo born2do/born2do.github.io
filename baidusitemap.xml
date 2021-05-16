@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://born2do.github.io/2021/05/16/%E3%80%90DB2%E3%80%91%E5%B8%B8%E7%94%A8SQL%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2021-05-16</lastmod>
+  </url>
+  <url>
     <loc>https://born2do.github.io/2021/05/15/%E3%80%90eclipse%E3%80%91%E6%96%B0%E5%BB%BA%E7%9A%84maven%E5%B7%A5%E7%A8%8B%E6%B2%A1%E6%9C%89%E6%98%BE%E7%A4%BA-calsspath%E3%80%81-project%E7%AD%89%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2021-05-15</lastmod>
   </url>
