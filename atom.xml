@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-05-16T09:32:48.085Z</updated>
+  <updated>2021-05-22T08:59:30.628Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Java】IO流未正确关闭导致的读写问题</title>
+    <link href="https://born2do.github.io/2021/05/22/%E3%80%90Java%E3%80%91IO%E6%B5%81%E6%9C%AA%E6%AD%A3%E7%A1%AE%E5%85%B3%E9%97%AD%E5%AF%BC%E8%87%B4%E7%9A%84%E8%AF%BB%E5%86%99%E9%97%AE%E9%A2%98/"/>
+    <id>https://born2do.github.io/2021/05/22/%E3%80%90Java%E3%80%91IO%E6%B5%81%E6%9C%AA%E6%AD%A3%E7%A1%AE%E5%85%B3%E9%97%AD%E5%AF%BC%E8%87%B4%E7%9A%84%E8%AF%BB%E5%86%99%E9%97%AE%E9%A2%98/</id>
+    <published>2021-05-22T08:58:55.000Z</published>
+    <updated>2021-05-22T08:59:30.628Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="情景再现"><a href="#情景再现" class="headerlink" title="情景再现"></a>情景再现</h1><p>同事写的一段代码，主要功能是生成本地文件并调用脚本将其连同上级文件夹进行打包，应用环境为Linux。但是，在服务器上运行后，发现打包的文件为空文件。</p><h1 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h1><p>因为本地开发环境为Windows，并不能执行shell脚本，所以同事在本地开发测试时认为文件正常生成就基本没问题了，也就没顾及太多将代码提交了。<br>因为本地正常生成文件，而服务器的压缩包没有文件内容，所以我首先对本地与SVN上的代码进行了比对，排查是否是由于代码问题导致源文件根本就没有生成内容继而导致目标压缩包中的文件也没有内容。</p><ul><li>比对本地代码与SVN上的代码后，并无发现异常，排除代码提交问题。</li><li>修改了应用服务器上的shell脚本，使其在正常打包后不删除源文件。再次执行相关作业，源文件内容正常，目标压缩包中的文件为空白。排除了代码导致的源文件内容未正常生成。</li><li>代码和文件都没有发现问题，源文件也正常生成，那就可能是打包的问题了。在源文件正常存在的情形下，使用相关用户执行该脚本，发现正常打包，文件一切正常。</li><li>手工执行脚本，文件正常打包，而应用执行脚本却发生了，打包后文件内容为空白的情况。我又怀疑是权限问题，因为如果没有读写权限的话，cp或是tar也会发生目标文件为空的情况。我在脚本中给源文件夹添加了777的权限，这下总不能再失败了吧。</li><li>执行结果与前几次相同，目标压缩包中的文件仍为空白。排除权限问题。</li><li>排除到这时候，已经没有了方向。我尝试着对其他文件夹进行打包操作，发现全部都正常打包了，并未发生内容丢失的情况。说明脚本中打包命令的使用是没有问题的。</li><li>在目标文件夹放入了其他文件，和之前生成的源文件（名字改掉），再次执行作业，打包的结果显示，只有程序生成的那个文件打包后发生内容丢失的情况。排查方向又再次回来了，打包时文件的状态不对劲。</li><li>文件状态不对，又涉及到文件读写，我的第一反应是IO流的处理。但是我们是有代码扫描的，之前她就提过一版专门修复流的问题，是通过的呀？流肯定是关闭了的。</li><li>我在本地更新代码后，一眼就看到了问题。IO流的确是被关闭了，但是调用脚本进行打包的时机不对，那个时候流还未关闭。这就导致了，调用脚本在进行打包操作时，源文件的状态是正在被写入当中，服务器在执行tar命令时，读取到的文件是空白的，这也很好地解释了为什么源文件正常，而目标压缩包中文件为空白。也能解释为什么手工执行脚本，一切正常，因为那时候源文件的状态已经是写完成的状态了，不再被其他线程占用。</li><li>下面是问题代码的demo<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">OutputStreamWriter osw = <span class="keyword">null</span>;</span><br><span class="line">BufferedWriter bw = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;d:\\a.txt&quot;</span>);</span><br><span class="line">osw = <span class="keyword">new</span> OutputStreamWriter(fos, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">bw = <span class="keyword">new</span> BufferedWriter(osw);</span><br><span class="line">bw.write(<span class="string">&quot;java IO close test&quot;</span>);</span><br><span class="line"><span class="comment">// 调用shell脚本进行打包操作</span></span><br><span class="line">doTarFile();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"><span class="keyword">if</span> (bw != <span class="keyword">null</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;bw未关闭&quot;</span>);</span><br><span class="line">bw.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (osw != <span class="keyword">null</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;osw未关闭&quot;</span>);</span><br><span class="line">osw.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (fos != <span class="keyword">null</span>) &#123;</span><br><span class="line">System.out.println(<span class="string">&quot;fos未关闭&quot;</span>);</span><br><span class="line">fos.close();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>脚本不做改动，代码中调用脚本的那段代码提出来，放到外层方法的写文件方法之后。</p>]]></content>
+    
+    
+    <summary type="html">【Java】IO流未正确关闭导致的读写问题</summary>
+    
+    
+    
+    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
+    
+    
+    <category term="IO流" scheme="https://born2do.github.io/tags/IO%E6%B5%81/"/>
+    
+  </entry>
   
   <entry>
     <title>【DB2】常用SQL函数</title>
@@ -404,31 +425,6 @@
     
     
     <category term="Java" scheme="https://born2do.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【Java】String、StringBuffer、StringBuilder有什么区别</title>
-    <link href="https://born2do.github.io/2021/05/01/%E3%80%90Java%E3%80%91String%E3%80%81StringBuffer%E3%80%81StringBuilder%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/"/>
-    <id>https://born2do.github.io/2021/05/01/%E3%80%90Java%E3%80%91String%E3%80%81StringBuffer%E3%80%81StringBuilder%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/</id>
-    <published>2021-04-30T23:09:06.000Z</published>
-    <updated>2021-04-30T23:10:26.429Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><p>在Java中，String类用于用于创建和操作字符串。String 类有 11 种构造方法，这些方法提供不同的参数来初始化字符串，在这里不作赘述。但值得注意的是，<strong>String 类是不可改变的</strong>，所以你一旦创建了 String 对象，那它的值就无法改变了。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;Google&quot;</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;s = &quot;</span> + s);</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;Baidu&quot;</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;s = &quot;</span> + s);</span><br></pre></td></tr></table></figure><p>上段代码的运行结果如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = Google</span><br><span class="line">s = Baidu</span><br></pre></td></tr></table></figure><p>看似String类是可以改变的，那为什么又说String类是不可改变的呢？</p><p>答：在这里的变量s，并非String对象，而是指向对象地址的引用。变量s存储在栈空间，而真正的对象存储在堆空间。</p><p><img src="https://i.loli.net/2021/05/01/GWVxvjSqowcfyMg.png" alt="String、StringBuffer、StringBuilder有什么区别.png"></p><p>在执行上图中的两句代码时，堆空间实际上创建了两个对象，变量s改变的是内存中对象的地址，第一个对象的内容并未发生改变，最后也会被垃圾回收机制回收内存。所以说，String 类是不可改变的，你一旦创建了 String 对象，那它的值就无法改变了。对了，String 是被 final 修饰的，他的长度是不可变的。</p><h4 id="StringBuffer、StringBuilder"><a href="#StringBuffer、StringBuilder" class="headerlink" title="StringBuffer、StringBuilder"></a>StringBuffer、StringBuilder</h4><p>当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder 类。</p><p>和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。</p><p>StringBuilder 类在 Java 5 中被提出，它和 StringBuffer 之间的最大不同在于 StringBuilder 的方法不是线程安全的（不能同步访问）。</p><p>由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。</p><h4 id="三者在执行速度方面的比较："><a href="#三者在执行速度方面的比较：" class="headerlink" title="三者在执行速度方面的比较："></a>三者在执行速度方面的比较：</h4><p>StringBuilder &gt; StringBuffer &gt; String</p><h4 id="如何正确地、适当地使用这三个类："><a href="#如何正确地、适当地使用这三个类：" class="headerlink" title="如何正确地、适当地使用这三个类："></a>如何正确地、适当地使用这三个类：</h4><ul><li><p>  如果要求字符串<strong>不可变</strong>，操作少量数据，那么应该选择String类</p></li><li><p>  如果需要字符串<strong>可变</strong>并且是<strong>线程安全</strong>的，操作大量数据，那么应选择StringBuffer类</p></li><li><p>  如果要求字符串<strong>可变</strong>并且<strong>不存在线程安全问题</strong>，操作大量数据，那么应选择StringBuilder类</p></li></ul>]]></content>
-    
-    
-    <summary type="html">【Java】String、StringBuffer、StringBuilder有什么区别</summary>
-    
-    
-    
-    <category term="Java" scheme="https://born2do.github.io/categories/Java/"/>
-    
-    
-    <category term="String" scheme="https://born2do.github.io/tags/String/"/>
-    
-    <category term="StringBuffer" scheme="https://born2do.github.io/tags/StringBuffer/"/>
-    
-    <category term="StringBuilder" scheme="https://born2do.github.io/tags/StringBuilder/"/>
     
   </entry>
   
