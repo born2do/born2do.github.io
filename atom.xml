@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-05-24T13:59:21.728Z</updated>
+  <updated>2021-05-26T13:25:09.383Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【FTP】Windows访问vsftp服务器报错</title>
+    <link href="https://born2do.github.io/2021/05/26/%E3%80%90FTP%E3%80%91Windows%E8%AE%BF%E9%97%AEvsftp%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8A%A5%E9%94%99/"/>
+    <id>https://born2do.github.io/2021/05/26/%E3%80%90FTP%E3%80%91Windows%E8%AE%BF%E9%97%AEvsftp%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8A%A5%E9%94%99/</id>
+    <published>2021-05-26T13:24:24.000Z</published>
+    <updated>2021-05-26T13:25:09.383Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="情景再现"><a href="#情景再现" class="headerlink" title="情景再现"></a>情景再现</h1><p>Windows连接vsftp服务器放置文件，报错如下：</p><blockquote><p>打开FTP服务器上的文件夹时发生错误。请检查是否有权限访问该文件夹。<br>详细信息：<br>200 Switching to ASCII model.<br>277 Entering Passive Model(192,184,90).</p></blockquote><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>IE浏览器-&gt;Internet选项-&gt;高级-&gt;将“使用被动FTP（用于防火墙和DSL调制解调器的兼容）”选项去掉勾选-&gt;确定。</p><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="FTP主动模式-active-mode-与被动模式-passive-mode-的工作原理"><a href="#FTP主动模式-active-mode-与被动模式-passive-mode-的工作原理" class="headerlink" title="FTP主动模式(active mode)与被动模式(passive mode)的工作原理"></a>FTP主动模式(active mode)与被动模式(passive mode)的工作原理</h2><p>主动模式（服务器向客户端敲门，然后客户端开门）FTP：<br>客户机与服务器之间建立连接时，客户机是大于1024的端口上，服务器是20端口。<br>客户机的端口是大于1024的，而服务器的端口是21端口接收请求，而是20端口给客户机回应。<br>允许FTP客户机从大于1024的端口连接服务器的21端口。<br>允许FTP服务器从21端口回应FTP客户机中大于1024端口的网络连接。<br>允许FTP服务器从20端口主动连接FTP客户机中大于1024的端口。<br>允许FTP客户机从大于1024的端口回应来自FTP服务器的20端口的网络连接。<br>命令连接：客户端大于1024的端口 -&gt; 服务器 21端口<br>数据连接：服务器 20端口 -&gt; 客户端大于1024的端口<br><img src="https://i.loli.net/2021/05/26/Zq3Ph4E6fV5CUST.jpg" alt="20171226094239038.jpg"></p><p>被动模式（客户端向服务器敲门，然后服务器开门）FTP：<br>客户机与服务器之间建立连接都是在大于1024的端口上的。<br>客户机的端口是大于1024的，而服务器的端口是21端口接收请求，而是从大于1024端口给客户机回应。<br>允许FTP客户机从大于1024的端口连接服务器的21端口。<br>允许FTP服务器从21端口回应FTP客户机中大于1024端口的网络连接。<br>允计FTP客户机从大于1024的端口连接FTP服务器的大于1024端口。<br>允许FTP服务器从大于1024的端口回应来自FTP客户机大于1024端口的网络连接。<br>命令连接：客户端大于1024的端口 -&gt; 服务器 21端口<br>数据连接：客户端大于1024的端口 -&gt; 服务器大于1024的端口<br><img src="https://i.loli.net/2021/05/26/6JYPSu9rCQBgkvn.jpg" alt="20171226094256663.jpg"></p>]]></content>
+    
+    
+    <summary type="html">【FTP】Windows访问vsftp服务器报错</summary>
+    
+    
+    
+    <category term="FTP" scheme="https://born2do.github.io/categories/FTP/"/>
+    
+    
+    <category term="error" scheme="https://born2do.github.io/tags/error/"/>
+    
+  </entry>
   
   <entry>
     <title>【Linux】给其他用户开启crontab</title>
@@ -404,27 +425,6 @@
     
     <category term="软件安装" scheme="https://born2do.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>【MySQL】The MySQL server is running with the --skip-grant-tables option so it cannot execute this ...</title>
-    <link href="https://born2do.github.io/2021/05/02/%E3%80%90MySQL%E3%80%91The-MySQL-server-is-running-with-the-skip-grant-tables-option-so-it-cannot-execute-this/"/>
-    <id>https://born2do.github.io/2021/05/02/%E3%80%90MySQL%E3%80%91The-MySQL-server-is-running-with-the-skip-grant-tables-option-so-it-cannot-execute-this/</id>
-    <published>2021-05-02T00:04:45.000Z</published>
-    <updated>2021-05-02T00:05:20.689Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>新建数据库用户：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user test identified by &#39;password&#39;;</span><br></pre></td></tr></table></figure><p>然后便报错：</p><p>“ERROR 1290 (HY000): The MySQL server is running with the –skip-grant-tables option so it cannot execute this statement”</p><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>刷新权限表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure><p>再重新新建用户即可。</p>]]></content>
-    
-    
-    <summary type="html">【MySQL】The MySQL server is running with the --skip-grant-tables option so it cannot execute this ...</summary>
-    
-    
-    
-    <category term="MySQL" scheme="https://born2do.github.io/categories/MySQL/"/>
-    
-    
-    <category term="error" scheme="https://born2do.github.io/tags/error/"/>
     
   </entry>
   
