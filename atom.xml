@@ -6,7 +6,7 @@
   <link href="https://born2do.github.io/atom.xml" rel="self"/>
   
   <link href="https://born2do.github.io/"/>
-  <updated>2021-05-26T13:30:50.747Z</updated>
+  <updated>2021-06-02T14:38:59.106Z</updated>
   <id>https://born2do.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【MySQL】MySQL自带数据库解析</title>
+    <link href="https://born2do.github.io/2021/06/02/%E3%80%90MySQL%E3%80%91MySQL%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%A3%E6%9E%90/"/>
+    <id>https://born2do.github.io/2021/06/02/%E3%80%90MySQL%E3%80%91MySQL%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%A3%E6%9E%90/</id>
+    <published>2021-06-02T14:36:12.000Z</published>
+    <updated>2021-06-02T14:38:59.106Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>MySQL数据库版本<br>Welcome to the MySQL monitor.  Commands end with ; or \g.<br>Your MySQL connection id is 265<br>Server version: 5.7.25 MySQL Community Server (GPL)<br>Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.<br>Oracle is a registered trademark of Oracle Corporation and/or its<br>affiliates. Other names may be trademarks of their respective<br>owners.<br>Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the current input statement.</p></blockquote><h2 id="information-schema"><a href="#information-schema" class="headerlink" title="information_schema"></a>information_schema</h2><p>information_schema保存着关于MySQL服务器所维护的所有其他数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等。在information_schema中，有数个只读表。它们实际上是视图，而不是基本表，因此，你将无法看到与之相关的任何文件。<br>information_schema数据库表说明:<br>SCHEMATA：提供了当前mysql实例中所有数据库的信息。<code>show databases;</code><br>TABLES：提供了关于数据库中的表的信息（包括视图）。详细表述了某个表属于哪个schema，表类型，表引擎，创建时间等信息。<code>show tables from schemaname;</code><br>COLUMNS：提供了表中的列信息。详细表述了某张表的所有列以及每个列的信息。<code>show columns from schemaname.tablename;</code><br>STATISTICS：提供了关于表索引的信息。<code>show index from schemaname.tablename;</code><br>USER_PRIVILEGES（用户权限）：给出了关于全程权限的信息。该信息源自mysql.user授权表。是非标准表。<br>SCHEMA_PRIVILEGES（方案权限）：给出了关于方案（数据库）权限的信息。该信息来自mysql.db授权表。是非标准表。<br>TABLE_PRIVILEGES（表权限）：给出了关于表权限的信息。该信息源自mysql.tables_priv授权表。是非标准表。<br>COLUMN_PRIVILEGES（列权限）：给出了关于列权限的信息。该信息源自mysql.columns_priv授权表。是非标准表。<br>CHARACTER_SETS（字符集）：提供了mysql实例可用字符集的信息。<code>show character set;</code><br>COLLATIONS：提供了关于各字符集的对照信息。<br>COLLATION_CHARACTER_SET_APPLICABILITY：指明了可用于校对的字符集。这些列等效于<code>show collation;</code>的前两个显示字段。<br>TABLE_CONSTRAINTS：描述了存在约束的表。以及表的约束类型。<br>KEY_COLUMN_USAGE：描述了具有约束的键列。<br>ROUTINES：提供了关于存储子程序（存储程序和函数）的信息。此时，ROUTINES表不包含自定义函数（UDF）。名为“mysql.proc name”的列指明了对应于INFORMATION_SCHEMA.ROUTINES表的mysql.proc表列。<br>VIEWS：给出了关于数据库中的视图的信息。需要有show views权限，否则无法查看视图信息。<br>TRIGGERS：提供了关于触发程序的信息。必须有super权限才能查看该表。</p><h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><p>mysql是mysql的核心数据库，主要负责存储数据库的用户、权限设置、关键字等mysql自己需要使用的控制和管理信息。</p><h2 id="performance-schema"><a href="#performance-schema" class="headerlink" title="performance_schema"></a>performance_schema</h2><p>performance_schema主要用于收集数据库服务器性能参数，如提供进程等待的详细信息，包括锁、互斥变量、文件信息；保存历史的事件汇总信息，为提供MySQL服务器性能做出详细的判断；对于新增和删除监控事件点都非常容易，并可以改变MySQL服务器的监控周期等。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use performance_schema;</span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">+----------------------------------------------+</span><br><span class="line">| Tables_in_performance_schema                 |</span><br><span class="line">+----------------------------------------------+</span><br><span class="line">| cond_instances                               |</span><br><span class="line">| events_waits_current                         |</span><br><span class="line">| events_waits_history                         |</span><br><span class="line">| events_waits_history_long                    |</span><br><span class="line">| events_waits_summary_by_instance             |</span><br><span class="line">| events_waits_summary_by_thread_by_event_name |</span><br><span class="line">| events_waits_summary_global_by_event_name    |</span><br><span class="line">| file_instances                               |</span><br><span class="line">| file_summary_by_event_name                   |</span><br><span class="line">| file_summary_by_instance                     |</span><br><span class="line">| mutex_instances                              |</span><br><span class="line">| performance_timers                           |</span><br><span class="line">| rwlock_instances                             |</span><br><span class="line">| setup_consumers                              |</span><br><span class="line">| setup_instruments                            |</span><br><span class="line">| setup_timers                                 |</span><br><span class="line">| threads                                      |</span><br><span class="line">+----------------------------------------------+</span><br><span class="line">17 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure><p>这里的数据表分为几类：<br>1）setup table ：  设置表，配置监控选项。<br>2）current events table : 记录当前那些thread 正在发生什么事情。<br>3）history table  发生的各种事件的历史记录表<br>4）summary table  对各种事件的统计表<br>5）其他。<br>setup 表：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES</span><br><span class="line">    -&gt; WHERE TABLE_SCHEMA &#x3D; &#39;performance_schema&#39;</span><br><span class="line">    -&gt; AND TABLE_NAME LIKE &#39;setup%&#39;;</span><br><span class="line">+-------------------+</span><br><span class="line">| TABLE_NAME        |</span><br><span class="line">+-------------------+</span><br><span class="line">| setup_consumers   |</span><br><span class="line">| setup_instruments |</span><br><span class="line">| setup_timers      |</span><br><span class="line">+-------------------+</span><br></pre></td></tr></table></figure><p>setup_consumers 描述各种事件<br>setup_instruments 描述这个数据库下的表名以及是否开启监控。<br>setup_timers   描述监控选项已经采样频率的时间间隔</p><h2 id="sys"><a href="#sys" class="headerlink" title="sys"></a>sys</h2><p>sys是MySQL5.7新增的系统数据库，其在MySQL5.7中是默认存在的，在MySQL5.6及以上版本可以手动导入。这个库通过视图的形式把information_schema和performance_schema结合起来，查询出更加令人容易理解的数据。</p>]]></content>
+    
+    
+    <summary type="html">【MySQL】MySQL自带数据库解析</summary>
+    
+    
+    
+    <category term="MySQL" scheme="https://born2do.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://born2do.github.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>【FTP】Windows访问vsftp服务器报错</title>
@@ -401,25 +422,6 @@
     
     
     <summary type="html">Eclipse、spring插件及反编译插件安装</summary>
-    
-    
-    
-    <category term="软件安装" scheme="https://born2do.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Intellij配置</title>
-    <link href="https://born2do.github.io/2021/05/03/Intellij%E9%85%8D%E7%BD%AE/"/>
-    <id>https://born2do.github.io/2021/05/03/Intellij%E9%85%8D%E7%BD%AE/</id>
-    <published>2021-05-02T23:17:46.000Z</published>
-    <updated>2021-05-02T23:18:08.427Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Intellij配置"><a href="#Intellij配置" class="headerlink" title="Intellij配置"></a>Intellij配置</h2><h3 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h3><p>File | Settings | Appearance &amp; Behavior | Appearance</p><p><img src="https://i.loli.net/2021/05/03/LD7BZTWelOYjAhv.png" alt="Intellij配置-主题设置.png"></p><h3 id="字体设置"><a href="#字体设置" class="headerlink" title="字体设置"></a>字体设置</h3><p>File | Settings | Editor | Font</p><p><img src="https://i.loli.net/2021/05/03/9ECUankNJyuLxq4.png" alt="Intellij配置-字体设置.png"></p><h3 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h3><p>File | Settings | Keymap</p><h3 id="大小写敏感设置"><a href="#大小写敏感设置" class="headerlink" title="大小写敏感设置"></a>大小写敏感设置</h3><p>File | Settings | Editor | General | Code Completion</p><p>关闭大小写敏感。</p><h3 id="MAVEN设置"><a href="#MAVEN设置" class="headerlink" title="MAVEN设置"></a>MAVEN设置</h3><h3 id="文件编码格式设置"><a href="#文件编码格式设置" class="headerlink" title="文件编码格式设置"></a>文件编码格式设置</h3><p>File | Settings | Editor | File Encodings</p>]]></content>
-    
-    
-    <summary type="html">Intellij配置</summary>
     
     
     
